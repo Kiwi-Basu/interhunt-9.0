@@ -8,6 +8,7 @@ import Glimpses from './components/home/Glimpses'
 import Company from './components/home/Company'
 import PreviousHunt from './components/home/PreviousHunt'
 import Faq from './components/home/Faq'
+import Footer from './components/footer/Footer'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true)
@@ -35,10 +36,10 @@ const App = () => {
   return (
     <>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <Sidebar darkMode={darkMode} activeSection={activeSection} />
+      <Sidebar darkMode={darkMode} />
 
       <main
-        className={`ml-16 mt-12 transition-colors duration-300 ${
+        className={`ml-[68px] mt-12 transition-colors duration-200 ${
           darkMode ? 'bg-teams-bg-dark' : 'bg-teams-bg-light'
         }`}
       >
@@ -79,6 +80,8 @@ const App = () => {
             <Faq darkMode={darkMode} />
           </div>
         </section>
+
+        <Footer darkMode={darkMode} />
       </main>
     </>
   )

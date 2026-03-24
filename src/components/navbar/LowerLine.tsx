@@ -5,6 +5,7 @@ interface LowerLineProps {
 
 const tabs = [
   { id: 'hero', label: 'Overview' },
+  { id: 'about', label: 'About' },
   { id: 'glimpses', label: 'Glimpses' },
   { id: 'companies', label: 'Companies' },
   { id: 'previoushunt', label: 'Past Events' },
@@ -19,10 +20,10 @@ const LowerLine = ({ darkMode, activeSection }: LowerLineProps) => {
 
   return (
     <div
-      className={`sticky top-12 z-30 h-10 flex items-end px-6 gap-1 border-b transition-colors duration-300 ${
+      className={`sticky top-12 z-30 h-11 flex items-end px-5 border-b transition-colors duration-200 ${
         darkMode
           ? 'bg-teams-bg-dark border-teams-border-dark'
-          : 'bg-teams-bg-light-2 border-teams-border-light'
+          : 'bg-white border-teams-border-light'
       }`}
     >
       {tabs.map((tab) => {
@@ -31,20 +32,23 @@ const LowerLine = ({ darkMode, activeSection }: LowerLineProps) => {
           <button
             key={tab.id}
             onClick={() => scrollTo(tab.id)}
-            className={`relative px-4 pb-2.5 pt-1 text-sm font-medium transition-all duration-200 rounded-t-md ${
+            className={`relative px-3 pb-2.5 text-[13px] font-medium transition-colors duration-150 ${
               isActive
                 ? darkMode
-                  ? 'text-teams-purple-light'
+                  ? 'text-white'
                   : 'text-teams-purple'
                 : darkMode
-                  ? 'text-teams-text-dark-secondary hover:text-teams-text-dark hover:bg-teams-bg-dark-2'
-                  : 'text-teams-text-light-secondary hover:text-teams-text-light hover:bg-teams-bg-light'
+                  ? 'text-teams-text-dark-secondary hover:text-teams-text-dark'
+                  : 'text-teams-text-light-secondary hover:text-teams-text-light'
             }`}
           >
             {tab.label}
-            {/* Active underline */}
             {isActive && (
-              <span className="absolute bottom-0 left-2 right-2 h-[2.5px] bg-teams-purple-light rounded-t-full transition-all"></span>
+              <span
+                className={`absolute bottom-0 left-1.5 right-1.5 h-[2px] rounded-t-full ${
+                  darkMode ? 'bg-teams-purple-light' : 'bg-teams-purple'
+                }`}
+              ></span>
             )}
           </button>
         );
