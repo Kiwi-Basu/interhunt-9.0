@@ -1,0 +1,18 @@
+import TierCompanies1 from "../components/company/TierCompanies1"
+import TierCompanies2 from "../components/company/TierCompanies2"
+import TierCompanies3 from "../components/company/TierCompanies3"
+
+const Companies = () => {
+  return (
+    <>
+      <section id="Companies">
+        <TierCompanies1 />
+        <TierCompanies2 />
+        <TierCompanies3 />
+
+      </section>
+    </>
+  )
+}
+
+export default Companies
