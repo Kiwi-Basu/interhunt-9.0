@@ -39,7 +39,7 @@ const TierCompanies2 = () => {
   ];
   return (
     <>
-      <section id="Tier-1-company">
+      <section id="Tier-2-company">
         <div className="min-h-screen bg-linear-to-br from-[#f6f0f0] via-[#e8dede] to-[#d6cfcf] flex flex-col items-center p-20">
           
           <p className="text-6xl mb-5 font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">

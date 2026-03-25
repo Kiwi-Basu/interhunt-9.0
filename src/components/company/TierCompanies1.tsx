@@ -48,7 +48,7 @@ const TierCompanies1 = () => {
           <div className="flex flex-wrap justify-evenly">
             {company1.map((company,idx)=> {
               return (
-                <div key={idx} className="relative  border-2 border-[#fcf007]/60 bg-black/10 backdrop-blur-xl shadow-2xl rounded-3xl flex flex-col w-75 p-6 gap-4 mt-10 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                <div key={idx} className="relative  border-2 border-[#FFD700]/40 bg-black/10 backdrop-blur-xl shadow-2xl rounded-3xl flex flex-col w-75 p-6 gap-4 mt-10 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
                   
                   <img 
                     src={company.img} 

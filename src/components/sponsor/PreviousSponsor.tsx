@@ -1,4 +1,4 @@
-const CurrentSponsor = () => {
+const PreviousSponsor = () => {
 const sponsors = [
   {
     img: "img",
@@ -47,9 +47,9 @@ const sponsors = [
 ];
   return (
     <>
-      <section id="Current-Sponsor">
+      <section id="Previous-Sponsor">
         <div className="min-h-screen p-20 flex flex-col items-center bg-[#f9f0f0]">
-          <p className="text-6xl mb-10 font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">Current Sponsor</p>
+          <p className="text-6xl mb-10 font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">Previous Sponsor</p>
           <div className="flex w-6xl flex-wrap gap-5">
             {sponsors.map((sponsor,idx) => {
               return (
@@ -67,4 +67,4 @@ const sponsors = [
   )
 }
 
-export default CurrentSponsor
+export default PreviousSponsor
