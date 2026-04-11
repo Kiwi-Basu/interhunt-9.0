@@ -4,7 +4,7 @@ import About from "./pages/About"
 import Companies from "./pages/Companies"
 import Contact from "./pages/Contact"
 import Sponsor from "./pages/Sponsor"
-import  Profile  from "./pages/Profile"
+import Profile from "./pages/Profile"
 
   const App = () => {
     return (
