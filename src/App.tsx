@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router"
 import Navbar from "./components/layout/Navbar"
+import Home from "./pages/Home"
 import About from "./pages/About"
 import Companies from "./pages/Companies"
 import Contact from "./pages/Contact"
@@ -16,6 +17,7 @@ const App = () => {
 
         <Navbar />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/company" element={<Companies />} />
           <Route path="/sponsor" element={<Sponsor />} />
