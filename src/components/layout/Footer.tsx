@@ -1,0 +1,125 @@
+import { Link } from "react-router";
+
+const Footer = () => {
+  const quickLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Companies", href: "/company" },
+    { name: "Sponsor", href: "/sponsor" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  return (
+    <>
+      <section id="footer" className="bg-[#f5f6f7] text-[#1e293b]">
+        <div>
+
+          {/* Top */}
+          <div className="max-w-7xl mx-auto px-6 py-14">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+              {/* Brand */}
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-11 h-11 bg-[#1e3a5f] rounded-lg flex items-center justify-center shadow-md">
+                    <span className="text-white font-extrabold text-sm">IH</span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-lg">InternHunt 9.0</p>
+                    <p className="text-xs text-gray-500">by Internware · IITM</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                  Where the hunt ends and the career begins. India's premier campus internship drive.
+                </p>
+
+                {/* Social */}
+                <div className="flex gap-3">
+                  <a href="#" className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#1e3a5f] hover:text-white transition">
+                    <span>in</span>
+                  </a>
+                  <a href="#" className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#c9a87c] hover:text-white transition">
+                    <span>ig</span>
+                  </a>
+                  <a href="#" className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#1e3a5f] hover:text-white transition">
+                    <span>x</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Links */}
+              <div>
+                <h3 className="font-semibold text-sm mb-5 uppercase tracking-wider text-[#1e3a5f]">
+                  Quick Links
+                </h3>
+
+                <ul className="space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        className="text-gray-500 text-sm hover:text-[#1e3a5f] transition-all duration-200"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div>
+                <h3 className="font-semibold text-sm mb-5 uppercase tracking-wider text-[#1e3a5f]">
+                  Contact
+                </h3>
+
+                <div className="space-y-4">
+
+                  <a href="mailto:internware@iitm.ac.in"
+                    className="flex items-center gap-3 text-gray-500 text-sm hover:text-[#1e3a5f] transition">
+                    📧 internware@iitm.ac.in
+                  </a>
+
+                  <div className="flex items-start gap-3 text-gray-500 text-sm">
+                    📍
+                    <p>
+                      Internship Cell, IITM <br />
+                      Janakpuri, New Delhi
+                    </p>
+                  </div>
+
+                  {/* Event Card */}
+                  <div className="mt-4 p-4 bg-white border border-gray-200 rounded-xl shadow-sm">
+                    <p className="text-[#c9a87c] text-xs font-semibold">Event Date</p>
+                    <p className="text-[#1e3a5f] font-bold mt-1">May 09, 2026</p>
+                    <p className="text-gray-500 text-xs mt-1">On-campus · IITM Campus</p>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Bottom */}
+          <div className="border-t border-gray-200">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+              <p className="text-gray-400 text-xs">
+                © 2026 InternHunt 9.0 · Internware · Internship Cell, IITM
+              </p>
+              <div className="flex gap-5">
+                <a href="https://iitminternware.com/termAndconditions" target="_blank" className="text-gray-500 text-sm hover:text-[#1e3a5f] transition-all duration-200">Terms & Conditions</a>
+                <a href="https://iitminternware.com/policy.html" target="_blank" className="text-gray-500 text-sm hover:text-[#1e3a5f] transition-all duration-200">Privacy Policy</a>
+                <a href="https://iitminternware.com/cancellationPolicy" target="_blank" className="text-gray-500 text-sm hover:text-[#1e3a5f] transition-all duration-200">Cancellation Policy</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Footer;

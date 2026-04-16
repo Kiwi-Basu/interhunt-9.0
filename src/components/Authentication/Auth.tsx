@@ -4,7 +4,7 @@ const Auth = () => {
   return (
     <>
       <section id="Auth">
-        <div className="min-h-screen p-20 flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 relative overflow-hidden">
+        <div className="min-h-screen p-20 flex flex-col items-center justify-center bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 relative overflow-hidden">
           
           <div className="bg-white/70 backdrop-blur-lg rounded-3xl p-8 w-[450px] shadow-2xl border border-gray-200 flex flex-col gap-6">
             

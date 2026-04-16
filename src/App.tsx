@@ -7,25 +7,27 @@ import Sponsor from "./pages/Sponsor"
 import Profile from "./pages/Profile"
 import Auth from "./components/Authentication/Auth"
 import Onboarding from "./components/Authentication/Onboarding"
+import Footer from "./components/layout/Footer"
 
-  const App = () => {
-    return (
-        <>
-          <section id = "App" >
-            
-            <Navbar />
-            <Routes>
-              <Route path="/contact" element={<Contact/>}/>
-              <Route path="/company" element={<Companies/>}/>
-              <Route path="/sponsor" element={<Sponsor/>}/>
-              <Route path="/about" element={<About/>}/>
-              <Route path="/profile" element={<Profile/>}/>
-              <Route path="/auth" element={<Auth/>}/>
-              <Route path="/onboarding" element={<Onboarding/>}/>
-            </Routes>
-          </section>
-        </>
-    )
-  }
+const App = () => {
+  return (
+    <>
+      <section id="App" >
 
-  export default App
+        <Navbar />
+        <Routes>
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/company" element={<Companies />} />
+          <Route path="/sponsor" element={<Sponsor />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/onboarding" element={<Onboarding />} />
+        </Routes>
+        <Footer />
+      </section>
+    </>
+  )
+}
+
+export default App

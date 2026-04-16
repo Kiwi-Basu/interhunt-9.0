@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const CurrentSponsor = () => {
   const sponsors = [
     { img: "img", sponsorName: "name" },
@@ -52,6 +54,12 @@ const CurrentSponsor = () => {
               </div>
             ))}
           </div>
+
+          <Link to="/contact">
+            <div className="mt-10 text-2xl font-bold border px-10 py-2 rounded-full shadow-lg border-black/10 cursor-pointer hover:scale-105 transition-all duration-300">
+              Get In Touch 
+            </div>
+          </Link>
 
         </div>
       </section>
