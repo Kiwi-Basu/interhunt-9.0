@@ -35,4 +35,5 @@ const AboutEventSection = () => {
   );
 };
 
+
 export default AboutEventSection;
