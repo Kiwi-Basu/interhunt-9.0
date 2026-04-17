@@ -11,7 +11,7 @@ const TierCompanies1 = () => {
   return (
     <>
       <section id="Tier-1-company">
-        <div className="min-h-screen bg-white flex flex-col items-center p-20 relative overflow-hidden">
+        <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           {/* Soft gold background tint */}
           <div className="absolute inset-0 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F3E6D4]/40 pointer-events-none"></div>
@@ -31,7 +31,7 @@ const TierCompanies1 = () => {
               </span>
               <div className="h-px w-16 bg-linear-to-l from-transparent to-yellow-400"></div>
             </div>
-            <p className="text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
+            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
               Tier 1
             </p>
           </div>
@@ -41,7 +41,7 @@ const TierCompanies1 = () => {
             {company1.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-yellow-50 bg-white shadow-lg shadow-yellow-50 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-50 hover:border-yellow-50 group cursor-pointer"
+                className="relative border border-yellow-50 bg-white shadow-lg shadow-yellow-50 rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-50 hover:border-yellow-50 group cursor-pointer mx-4 sm:mx-0"
               >
                 
                 {/* Logo placeholder */}

@@ -34,17 +34,17 @@ const CompanyHero = () => {
 
           {/* heading */}
           <div className="z-10 text-center">
-            <p className="text-9xl font-extrabold text-[#1F3A5F]">
+            <p className="text-6xl md:text-9xl font-extrabold text-[#1F3A5F]">
               Companies
             </p>
           </div>
 
-          <p className="text-2xl font-medium text-gray-600">
+          <p className="text-lg md:text-2xl font-medium text-gray-600 px-4 text-center">
             Connect with top companies across various industries
           </p>
 
           {/* cards */}
-          <div className="flex flex-wrap gap-5 z-10">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-5 z-10 px-4">
 
             <div className="h-35 w-35 border object-contain overflow-hidden rounded-2xl shadow-md border-[#CEAC81]/30 bg-white flex flex-col items-center justify-center gap-2 hover:-translate-y-3 transition-all duration-300">
               <img src={comp1} alt="" className="h-50 "/>

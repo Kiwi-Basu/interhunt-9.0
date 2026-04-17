@@ -39,30 +39,30 @@ const PreviousEdition = () => {
   return (
     <>
       <section id="previous-editions">
-        <div className="min-h-screen flex flex-col items-center justify-center gap-14 p-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
+        <div className="min-h-screen flex flex-col items-center justify-center gap-8 md:gap-14 p-4 py-16 md:p-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] overflow-hidden">
 
           {/* Title */}
-          <div className="text-5xl font-extrabold text-[#1F3A5F] tracking-tight">
+          <div className="text-4xl md:text-5xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
             Previous <span className="text-[#CEAC81]">Editions</span>
           </div>
 
           {/* Carousel */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center w-full max-w-6xl">
 
-            {/* Left Arrow */}
+            {/* Left Arrow (Desktop) */}
             <button
               onClick={prev}
-              className="absolute -left-20 text-2xl w-12 h-12 rounded-full bg-white border border-[#CEAC81]/30 shadow-md cursor-pointer hover:scale-110 transition-all duration-300 flex justify-center items-center text-[#1F3A5F] hover:bg-[#1F3A5F] hover:text-white"
+              className="hidden md:flex absolute -left-20 z-10 text-2xl w-12 h-12 rounded-full bg-white border border-[#CEAC81]/30 shadow-md cursor-pointer hover:scale-110 transition-all duration-300 justify-center items-center text-[#1F3A5F] hover:bg-[#1F3A5F] hover:text-white"
             >
               ←
             </button>
 
             {/* Cards */}
-            <div className="flex gap-12">
+            <div className="flex gap-4 md:gap-12 w-full overflow-x-auto snap-x snap-mandatory hide-scrollbar justify-start md:justify-center px-4 md:px-0 pb-4">
               {visibleCards.map((card, i) => (
                 <div
                   key={i}
-                  className="w-72 bg-white rounded-3xl shadow-md border border-[#CEAC81]/20 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                  className="min-w-[280px] md:min-w-0 md:w-72 snap-center bg-white rounded-3xl shadow-md border border-[#CEAC81]/20 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 shrink-0"
                 >
                   {/* Header */}
                   <div className="p-6 flex justify-center items-center">
@@ -109,13 +109,19 @@ const PreviousEdition = () => {
               ))}
             </div>
 
-            {/* Right Arrow */}
+            {/* Right Arrow (Desktop) */}
             <button
               onClick={next}
-              className="absolute -right-20 text-2xl w-12 h-12 rounded-full bg-white border border-[#CEAC81]/30 shadow-md cursor-pointer hover:scale-110 transition-all duration-300 flex justify-center items-center text-[#1F3A5F] hover:bg-[#1F3A5F] hover:text-white"
+              className="hidden md:flex absolute -right-20 z-10 text-2xl w-12 h-12 rounded-full bg-white border border-[#CEAC81]/30 shadow-md cursor-pointer hover:scale-110 transition-all duration-300 justify-center items-center text-[#1F3A5F] hover:bg-[#1F3A5F] hover:text-white"
             >
               →
             </button>
+          </div>
+
+          {/* Mobile Arrows */}
+          <div className="flex md:hidden justify-center gap-6 w-full -mt-4 mb-2">
+            <button onClick={prev} className="text-2xl w-10 h-10 rounded-full bg-white border border-[#CEAC81]/30 shadow-md flex justify-center items-center text-[#1F3A5F] cursor-pointer">←</button>
+            <button onClick={next} className="text-2xl w-10 h-10 rounded-full bg-white border border-[#CEAC81]/30 shadow-md flex justify-center items-center text-[#1F3A5F] cursor-pointer">→</button>
           </div>
 
           {/* Dots */}

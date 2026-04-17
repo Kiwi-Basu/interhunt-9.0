@@ -107,15 +107,15 @@ const Auth = () => {
   return (
     <>
       <section id="Auth">
-        <div className="min-h-screen p-20 flex flex-col items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7] relative overflow-hidden">
+        <div className="min-h-screen p-6 md:p-20 flex flex-col items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7] relative overflow-hidden">
           
           {/* subtle theme glow */}
-          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-[300px] md:w-[400px] h-[300px] md:h-[400px] bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
 
-          <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-8 w-[450px] shadow-xl border border-[#CEAC81]/20 flex flex-col gap-6 relative z-10">
+          <div className="bg-white/80 backdrop-blur-lg rounded-3xl p-6 md:p-8 w-full max-w-[450px] shadow-xl border border-[#CEAC81]/20 flex flex-col gap-5 md:gap-6 relative z-10 m-4 md:m-0">
             
-            <h1 className="text-3xl font-extrabold text-center tracking-wide text-[#1F3A5F]">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-center tracking-wide text-[#1F3A5F]">
               Welcome Back
             </h1>
 
@@ -132,13 +132,13 @@ const Auth = () => {
               //     googleLogin()
               //   }
               // }} //button unfreeze krdena
-              className="flex items-center justify-center gap-4 bg-white px-6 py-3 rounded-xl shadow-md border border-[#CEAC81]/30 cursor-pointer hover:border-[#1F3A5F] hover:shadow-lg transition-all duration-300 group">
+              className="flex items-center justify-center gap-3 md:gap-4 bg-white px-4 md:px-6 py-3 rounded-xl shadow-md border border-[#CEAC81]/30 cursor-pointer hover:border-[#1F3A5F] hover:shadow-lg transition-all duration-300 group">
               
-              <div className="w-10 h-10 flex items-center justify-center bg-[#1F3A5F]/5 rounded-full group-hover:scale-110 transition-transform">
-                <img src={GoogleIcon} alt="Google Icon" className="w-6 h-6"/>
+              <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#1F3A5F]/5 rounded-full group-hover:scale-110 transition-transform">
+                <img src={GoogleIcon} alt="Google Icon" className="w-5 h-5 md:w-6 md:h-6"/>
               </div>
 
-              <span className="text-lg font-semibold text-[#1F3A5F] group-hover:text-[#CEAC81]">
+              <span className="text-base md:text-lg font-semibold text-[#1F3A5F] group-hover:text-[#CEAC81]">
                 {/* {isLoading ? "Signing in..." : "Continue with Google"}   changes accordingly */}
               </span>
             </button>

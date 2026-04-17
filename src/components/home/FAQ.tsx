@@ -34,10 +34,10 @@ const FAQSection = () => {
   return (
     <>
       <section id="faq">
-        <div className="min-h-screen flex flex-col items-center gap-14 p-20 bg-[#F5F6F7]">
+        <div className="min-h-screen flex flex-col items-center gap-8 md:gap-14 p-6 py-16 md:p-20 bg-[#F5F6F7]">
 
           {/* Title */}
-          <h2 className="text-5xl md:text-6xl font-extrabold text-[#1F3A5F] tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
             Frequently Asked <span className="text-[#CEAC81]">Questions</span>
           </h2>
 
@@ -59,7 +59,7 @@ const FAQSection = () => {
                 {/* Question */}
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full flex justify-between items-center p-5 text-left font-semibold text-[#0F172A]"
+                  className="w-full flex justify-between items-center p-4 md:p-5 text-left font-semibold text-[#0F172A] text-sm md:text-base gap-2"
                 >
                   <span>{faq.question}</span>
 

@@ -33,53 +33,50 @@ const ContactHero = () => {
           </div>
 
           {/* Title */}
-          <h1 className="text-6xl font-extrabold">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-center">
             CONTACT <span className="text-[#CEAC81]">US</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="max-w-3xl text-lg text-gray-600">
+          <p className="max-w-3xl text-base md:text-lg text-gray-600 text-center">
             Have questions about InternHunt? We’re here to help. Reach out to us
             for sponsorship opportunities, registrations, or any other details.
           </p>
 
           {/* Cards */}
-          <div className="flex gap-6 mt-6">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-6 w-full sm:w-auto px-4 sm:px-0">
 
             {/* Email */}
-            <div className="w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
+            <div className="w-full sm:w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
               <p className="text-3xl">📧</p>
-              <p className="font-semibold mt-3">24/7</p>
-              <p className="text-sm text-gray-500">Email Support</p>
+              <p className="font-semibold mt-3 text-sm md:text-base">24/7</p>
+              <p className="text-xs md:text-sm text-gray-500">Email Support</p>
             </div>
 
             {/* Phone */}
-            <div className="w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
+            <div className="w-full sm:w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
               <p className="text-3xl">📞</p>
-              <p className="font-semibold mt-3">Available</p>
-              <p className="text-sm text-gray-500">Phone Support</p>
+              <p className="font-semibold mt-3 text-sm md:text-base">Available</p>
+              <p className="text-xs md:text-sm text-gray-500">Phone Support</p>
             </div>
 
             {/* Location */}
-            <div className="w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
+            <div className="w-full sm:w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
               <p className="text-3xl">📍</p>
-              <p className="font-semibold mt-3">IITM</p>
-              <p className="text-sm text-gray-500">Campus Location</p>
+              <p className="font-semibold mt-3 text-sm md:text-base">IITM</p>
+              <p className="text-xs md:text-sm text-gray-500">Campus Location</p>
             </div>
 
           </div>
 
           {/* Buttons */}
-          <div className="flex gap-6 mt-6">
-
-            <button className="px-8 py-3 rounded-full bg-[#CEAC81] text-white font-semibold shadow hover:scale-105 transition">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-6 w-full sm:w-auto px-4 sm:px-0">
+            <button className="w-full px-8 py-3 rounded-full bg-[#CEAC81] text-white font-semibold shadow hover:scale-105 transition">
               Send a Message
             </button>
-
-            <button className="px-8 py-3 rounded-full border border-[#CEAC81] text-[#CEAC81] font-semibold hover:bg-[#CEAC81] hover:text-white transition">
+            <button className="w-full px-8 py-3 rounded-full border border-[#CEAC81] text-[#CEAC81] font-semibold hover:bg-[#CEAC81] hover:text-white transition">
               Download Brochure
             </button>
-
           </div>
 
         </div>

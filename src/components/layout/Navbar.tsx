@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Link, useNavigate } from "react-router";
 import { useState, useEffect, useRef } from "react";
 import logo from "../../assets/Asset 1@4x.png";
-import { IoPersonCircleOutline } from "react-icons/io5";
+import { IoPersonCircleOutline, IoMenu, IoClose } from "react-icons/io5";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const Navbar = () => {
 
   // 🔥 dropdown state
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   // 🔥 scroll animation
@@ -71,20 +72,27 @@ const Navbar = () => {
           backgroundColor: bg,
           color: color,
         }}
-        className="fixed p-3.75 top-4 left-1/2 -translate-x-1/2 z-50 rounded-full flex justify-between items-center px-6"
+        className="fixed p-2 lg:p-3.75 top-2 lg:top-4 left-1/2 -translate-x-1/2 z-50 rounded-full flex justify-between items-center px-4 lg:px-6 w-[95%] lg:w-auto min-w-[300px]"
       >
+        {/* HAMBURGER (MOBILE ONLY) */}
+        <div className="lg:hidden flex items-center pr-3">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-2xl cursor-pointer">
+            {isMobileMenuOpen ? <IoClose /> : <IoMenu />}
+          </button>
+        </div>
+
         {/* LOGO */}
-        <Link to="/">
+        <Link to="/" className="mr-auto lg:mr-0 flex items-center">
           <img src={logo} alt="InternHunt 9.0" className="h-5" />
         </Link>
 
-        {/* NAV LINKS */}
-        <div className="flex gap-5 text-sm">
+        {/* NAV LINKS (DESKTOP) */}
+        <div className="hidden lg:flex gap-5 text-sm">
           {navItems.map((nav, idx) => (
             <Link
               to={nav.link}
               key={idx}
-              className="relative text-xl cursor-pointer group"
+              className="relative text-lg cursor-pointer group hover:text-[#CEAC81] transition-colors"
             >
               {nav.name}
               <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-[#CEAC81] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
@@ -133,13 +141,29 @@ const Navbar = () => {
           ) : (
             <Link
               to="/auth"
-              className="relative text-xl cursor-pointer hover:text-[#CEAC81] transition"
+              className="relative text-base lg:text-xl cursor-pointer hover:text-[#CEAC81] transition"
             >
               Login
             </Link>
           )}
         </div>
       </motion.div>
+
+      {/* MOBILE MENU DROPDOWN */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[95%] bg-[#1F3A5F] text-white rounded-2xl shadow-xl flex flex-col items-center py-6 gap-4 z-40 border border-[#CEAC81]/20 backdrop-blur-md">
+          {navItems.map((nav, idx) => (
+            <Link
+              to={nav.link}
+              key={idx}
+              className="text-lg font-medium hover:text-[#CEAC81] transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {nav.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

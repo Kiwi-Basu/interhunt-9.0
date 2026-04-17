@@ -11,7 +11,7 @@ const TierCompanies2 = () => {
   return (
     <>
       <section id="Tier-2-company">
-        <div className="min-h-screen bg-gray-50 flex flex-col items-center p-20 relative overflow-hidden">
+        <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           {/* Soft silver tint */}
           <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-gray-50 to-slate-100 pointer-events-none"></div>
@@ -26,7 +26,7 @@ const TierCompanies2 = () => {
               </span>
               <div className="h-px w-16 bg-linear-to-l from-transparent to-slate-400"></div>
             </div>
-            <p className="text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
+            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
               Tier 2
             </p>
           </div>
@@ -36,7 +36,7 @@ const TierCompanies2 = () => {
             {company2.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-slate-100 bg-white shadow-lg shadow-slate-100 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-slate-200 hover:border-slate-200 group cursor-pointer"
+                className="relative border border-slate-200 bg-white shadow-lg shadow-slate-100 rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-slate-200 hover:border-slate-300 group cursor-pointer mx-4 sm:mx-0"
               >
                 {/* Logo placeholder */}
                 <div className="h-20 w-20 self-center rounded-2xl bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-100 transition-all duration-300">

@@ -18,14 +18,14 @@ const CurrentSponsor = () => {
   return (
     <>
       <section id="Current-Sponsor">
-        <div className="min-h-screen p-20 flex flex-col items-center bg-white relative overflow-hidden">
+        <div className="min-h-screen p-6 md:p-20 py-16 md:py-20 flex flex-col items-center bg-white relative overflow-hidden">
 
           {/* theme blobs */}
-          <div className="absolute top-10 left-1/3 w-[500px] h-[300px] bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
-          <div className="absolute bottom-10 right-1/4 w-72 h-72 bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="absolute top-10 left-1/3 w-[300px] md:w-[500px] h-[200px] md:h-[300px] bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
+          <div className="absolute bottom-10 right-1/4 w-48 md:w-72 h-48 md:h-72 bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
 
           {/* Heading */}
-          <p className="text-6xl mb-10 font-extrabold tracking-tight text-[#1F3A5F]">
+          <p className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center">
             Current <span className="text-[#CEAC81]">Sponsors</span>
           </p>
           
@@ -39,11 +39,11 @@ const CurrentSponsor = () => {
           </div>
 
           {/* Cards */}
-          <div className="flex w-6xl flex-wrap gap-5 justify-center relative z-10">
+          <div className="flex w-full md:max-w-6xl flex-wrap gap-4 md:gap-5 justify-center relative z-10 px-4 md:px-0">
             {sponsors.map((sponsor, idx) => (
               <div
                 key={idx}
-                className="h-52 w-44 border border-gray-100 bg-white flex flex-col gap-3 p-4 rounded-3xl shadow-lg shadow-gray-100 hover:-translate-y-3 hover:border-[#CEAC81]/30 hover:shadow-lg duration-300 transition-all group cursor-pointer"
+                className="h-40 md:h-52 w-[45%] sm:w-44 border border-gray-100 bg-white flex flex-col gap-2 md:gap-3 p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-lg shadow-gray-100 hover:-translate-y-2 md:hover:-translate-y-3 hover:border-[#CEAC81]/30 hover:shadow-lg duration-300 transition-all group cursor-pointer"
               >
                 <div className="flex-1 flex items-center justify-center border border-gray-100 rounded-2xl bg-gray-50 p-3 group-hover:bg-[#1F3A5F]/5 group-hover:border-[#CEAC81]/30 transition-all duration-300">
                   <img

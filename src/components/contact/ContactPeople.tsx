@@ -2,18 +2,18 @@ const ContactPeople = () => {
   return (
     <>
       <section id="Contact-People">
-        <div className="min-h-screen flex flex-col items-center p-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] relative overflow-hidden">
+        <div className="min-h-screen flex flex-col items-center p-6 md:p-20 py-16 md:py-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] relative overflow-hidden">
 
           {/* subtle theme glow */}
-          <div className="absolute top-10 left-1/4 w-96 h-96 bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="absolute top-10 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+          <div className="absolute bottom-10 right-1/4 w-60 md:w-80 h-60 md:h-80 bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
 
           {/* Heading */}
-          <p className="text-6xl mb-10 font-extrabold tracking-tight text-[#1F3A5F]">
+          <p className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center">
             Contact <span className="text-[#CEAC81]">Us</span>
           </p>
 
-          <div className="flex justify-between items-end gap-8 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end gap-6 md:gap-8 relative z-10">
 
             {/* Card 1 */}
             <div className="border border-[#CEAC81]/20 bg-white shadow-md rounded-3xl flex flex-col gap-5 items-center p-8 h-90 w-56 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-default">

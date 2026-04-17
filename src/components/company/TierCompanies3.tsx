@@ -11,7 +11,7 @@ const TierCompanies3 = () => {
   return (
     <>
       <section id="Tier-3-company">
-        <div className="min-h-screen bg-white flex flex-col items-center p-20 relative overflow-hidden">
+        <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           <div className="absolute inset-0 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#EDE3D6]/40 pointer-events-none"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#CEAC81]/10 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
@@ -25,7 +25,7 @@ const TierCompanies3 = () => {
               </span>
               <div className="h-px w-16 bg-linear-to-l from-transparent to-amber-500"></div>
             </div>
-            <p className="text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
+            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
               Tier 3
             </p>
           </div>
@@ -35,7 +35,7 @@ const TierCompanies3 = () => {
             {company3.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-amber-100 bg-white shadow-lg shadow-amber-50 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-amber-150 hover:border-amber-150 group cursor-pointer"
+                className="relative border border-orange-100 bg-white shadow-lg shadow-orange-50 rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-orange-100 hover:border-orange-200 group cursor-pointer mx-4 sm:mx-0"
               >
 
                 {/* Logo placeholder */}

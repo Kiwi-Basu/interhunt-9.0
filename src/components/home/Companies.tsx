@@ -18,19 +18,19 @@ const Companies = () => {
   return (
     <>
       <section id="Home-Company">
-        <div className="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-20 gap-14 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9]">
+        <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-20 py-16 md:py-20 gap-8 md:gap-14 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9]">
 
           {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
+          <h1 className="text-4xl md:text-7xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
             Our <span className="text-[#CEAC81]">Companies</span>
           </h1>
 
           {/* Grid FIXED */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 w-full max-w-6xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 w-full max-w-6xl">
             {companies.map((company, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white border border-[#CEAC81]/20 shadow-sm rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-300"
+                className="bg-white border border-[#CEAC81]/20 shadow-sm rounded-2xl p-4 md:p-6 flex flex-col items-center justify-center gap-3 md:gap-4 transition-all duration-300"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}

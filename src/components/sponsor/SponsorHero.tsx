@@ -2,7 +2,7 @@ const SponsorHero = () => {
   return (
     <>
       <section id="hero">
-        <div className="min-h-screen relative flex items-center justify-center flex-col gap-10">
+        <div className="min-h-screen relative flex items-center justify-center flex-col gap-10 px-4 md:px-0 overflow-hidden text-center">
           {/* top right*/}
           <div className="absolute top-12 left-0 h-25 w-50 rounded-r-4xl bg-[#CEAC81]"></div>
           <div className="absolute top-0 left-0 h-20 w-80 rounded-br-4xl bg-[#0F1E3D]"></div>
@@ -29,14 +29,14 @@ const SponsorHero = () => {
             </div>
           </div>
 
-          <div>
-            <p className="text-6xl font-extrabold">Sponsor Us</p>
+          <div className="z-10">
+            <p className="text-5xl md:text-6xl font-extrabold text-[#1F3A5F]">Sponsor Us</p>
           </div>
 
-          <p className="text-2xl font-medium">Partner with us to connect with top talent and showcase your brand</p>
+          <p className="text-lg md:text-2xl font-medium text-gray-600 px-4 z-10">Partner with us to connect with top talent and showcase your brand</p>
 
-          <div>
-            <button className="px-5 py-2 rounded-full bg-[#CEAC81] text-2xl text-white font-medium cursor-pointer shadow-lg border border-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300">Download Sponsor Proposal</button>
+          <div className="z-10 w-full px-4 sm:w-auto sm:px-0">
+            <button className="w-full px-5 py-3 md:py-2 rounded-full bg-[#CEAC81] text-lg md:text-2xl text-white font-medium cursor-pointer shadow-lg border border-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300">Download Sponsor Proposal</button>
           </div>
 
           

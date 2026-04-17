@@ -17,20 +17,20 @@ const Dashboard = () => {
   return (
     <>
       <section id="dashboard">
-        <div className="min-h-screen flex flex-col items-center justify-center px-6 md:px-20 py-20 gap-14 bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7]">
+        <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-20 py-10 md:py-20 gap-8 md:gap-14 bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7]">
 
           {/* HEADER */}
-          <div className="w-full max-w-5xl bg-white border border-[#CEAC81]/20 p-6 rounded-2xl shadow-sm">
-            <h1 className="text-3xl font-bold text-[#1F3A5F]">
+          <div className="w-full max-w-5xl bg-white border border-[#CEAC81]/20 p-5 md:p-6 rounded-2xl shadow-sm text-center md:text-left">
+            <h1 className="text-2xl md:text-3xl font-bold text-[#1F3A5F]">
               Welcome back, <span className="text-[#CEAC81]">User</span>!
             </h1>
-            <p className="text-gray-500 mt-1">
+            <p className="text-gray-500 mt-2 md:mt-1 text-sm md:text-base">
               Follow the steps below to start your internship application process.
             </p>
           </div>
 
           {/* STEPS */}
-          <div className="w-full max-w-5xl space-y-5">
+          <div className="w-full max-w-5xl space-y-4 md:space-y-5">
 
             {/* STEP 1 */}
             <div className={`p-6 rounded-2xl border shadow-sm transition ${
@@ -109,7 +109,7 @@ const Dashboard = () => {
           </div>
 
           {/* STATS */}
-          <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
 
             <div className="bg-white border border-[#CEAC81]/20 p-5 rounded-2xl shadow-sm">
               <p className="text-gray-500 text-sm">Selected Companies</p>

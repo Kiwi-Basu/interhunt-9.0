@@ -15,8 +15,8 @@ const Footer = () => {
         <div className="bg-[#f5f6f743] text-[#0F172A]">
 
           {/* Top */}
-          <div className="max-w-7xl mx-auto px-6 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="max-w-7xl mx-auto px-6 py-10 md:py-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
 
               {/* Brand */}
               <div>
@@ -50,7 +50,7 @@ const Footer = () => {
 
               {/* Links */}
               <div>
-                <h3 className="font-semibold text-sm mb-5 uppercase tracking-wider text-[#1F3A5F]">
+                <h3 className="font-semibold text-sm mb-4 md:mb-5 uppercase tracking-wider text-[#1F3A5F]">
                   Quick Links
                 </h3>
 
@@ -70,7 +70,7 @@ const Footer = () => {
 
               {/* Contact */}
               <div>
-                <h3 className="font-semibold text-sm mb-5 uppercase tracking-wider text-[#1F3A5F]">
+                <h3 className="font-semibold text-sm mb-4 md:mb-5 uppercase tracking-wider text-[#1F3A5F]">
                   Contact
                 </h3>
 

@@ -123,13 +123,13 @@ const Onboarding = () => {
   return (
     <>
       <section id="Onboarding">
-        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7]">
+        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-[#1F3A5F]/5 via-[#F8FAFC] to-[#CEAC81]/10">
 
-          <div className="w-full max-w-2xl bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-200 p-10 flex flex-col gap-8">
+          <div className="w-full max-w-2xl bg-white/90 backdrop-blur-md rounded-3xl shadow-xl border border-[#CEAC81]/20 p-10 flex flex-col gap-8">
 
             {/* Header */}
             <div className="flex flex-col items-center gap-2 text-center">
-              <p className="text-3xl font-extrabold text-gray-800 tracking-wide">
+              <p className="text-3xl font-extrabold text-[#1F3A5F] tracking-wide">
                 Create your account
               </p>
               <p className="text-gray-600 text-sm">
@@ -156,7 +156,7 @@ const Onboarding = () => {
                     onChange={handleInputChange}
                     required
                     type="text"
-                    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
                 </div>
 
@@ -168,7 +168,7 @@ const Onboarding = () => {
                     onChange={handleInputChange}
                     required
                     type="tel"
-                    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ const Onboarding = () => {
                   value={formData.collageName}
                   onChange={handleInputChange}
                   required
-                  className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                 >
                   <option value="" disabled>
                     Select
@@ -203,7 +203,7 @@ const Onboarding = () => {
                     onChange={handleInputChange}
                     required
                     type="text"
-                    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
                 </div>
               )}
@@ -216,7 +216,7 @@ const Onboarding = () => {
                     name = "course"
                     value={formData.course}
                     onChange={handleInputChange}
-                    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   >
                     <option value="" disabled>
                       Select...
@@ -238,7 +238,7 @@ const Onboarding = () => {
                     name = "year"
                     value={formData.year}
                     onChange={handleInputChange}
-                    className="border  border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   >
                     <option value="" disabled>
                       Select...
@@ -260,7 +260,7 @@ const Onboarding = () => {
                     value={formData.otherCourse}
                     onChange={handleInputChange}
                     type="text"
-                    className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
                 </div>
               )}
@@ -268,7 +268,7 @@ const Onboarding = () => {
               <button 
                 type="submit"
                 disabled = {!isFormValid()}
-                className="mt-4 bg-black text-white py-3 rounded-xl font-semibold hover:bg-gray-900 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer">
+                className="mt-4 bg-[#1F3A5F] text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
                 Register
               </button>
 

@@ -4,16 +4,16 @@ const About = () => {
   return (
     <>
       <section id="about">
-        <div className="min-h-screen flex flex-col items-center justify-center gap-12 p-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
+        <div className="min-h-screen flex flex-col items-center justify-center gap-8 md:gap-12 p-6 md:p-20 py-16 md:py-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
           
           {/* Heading */}
-          <h1 className="text-6xl md:text-7xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
+          <h1 className="text-4xl md:text-7xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
             About <span className="text-[#CEAC81]">InternHunt</span>
           </h1>
 
           {/* Content Box */}
-          <div className="max-w-4xl bg-white border border-[#CEAC81]/30 rounded-3xl shadow-lg p-8 md:p-10 text-center leading-relaxed">
-            <p className="text-lg md:text-xl text-[#0F172A]">
+          <div className="w-full max-w-4xl bg-white border border-[#CEAC81]/30 rounded-3xl shadow-lg p-6 md:p-10 text-center leading-relaxed">
+            <p className="text-base md:text-xl text-[#0F172A]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facere, quas ratione,
               veritatis sint perferendis quaerat explicabo accusantium sit doloribus nisi fuga aut nihil voluptatem.
               <br /><br />
