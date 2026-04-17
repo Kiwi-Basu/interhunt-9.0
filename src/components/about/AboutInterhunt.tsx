@@ -2,20 +2,21 @@ const AboutInterhunt = () => {
   return (
     <>
       <section id="About-InterHunt">
-        <div className="min-h-screen bg-white flex flex-col items-center p-20 relative overflow-hidden">
+        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9] flex flex-col items-center p-20 relative overflow-hidden">
 
-          {/* Subtle background tint blobs */}
-          <div className="absolute top-10 left-1/4 w-96 h-96 bg-violet-100 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+          {/* Subtle background accents (theme aligned) */}
+          <div className="absolute top-10 left-1/4 w-96 h-96 bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#CEAC81]/20 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
 
           {/* Heading */}
-          <p className="text-6xl mb-10 font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
-            About InternHunt
+          <p className="text-6xl mb-12 font-extrabold tracking-tight text-[#1F3A5F] text-center">
+            About <span className="text-[#CEAC81]">InternHunt</span>
           </p>
 
           {/* Main content card */}
-          <div className="border border-gray-100 w-5xl p-10 flex gap-10 bg-white shadow-2xl shadow-gray-200 rounded-3xl relative z-10">
+          <div className="border border-[#CEAC81]/20 w-5xl p-10 flex gap-10 bg-white shadow-lg rounded-3xl relative z-10">
 
+            {/* Text */}
             <div className="flex flex-col gap-6 flex-1">
               <p className="text-gray-600 leading-relaxed text-base">
                 InternHunt is the flagship event of InternWare — Internship Cell, IITM, Janakpuri, held annually to connect students with industry opportunities. It helps students gain hands-on experience by linking them with diverse companies offering valuable internships.
@@ -30,18 +31,31 @@ const AboutInterhunt = () => {
 
             {/* Info cards */}
             <div className="flex flex-col gap-5 shrink-0">
-              <div className="w-72 h-28 border border-violet-100 bg-violet-50 rounded-2xl shadow-md flex flex-col items-center justify-center gap-1 hover:border-violet-200 hover:bg-violet-100 hover:shadow-lg transition-all duration-300 cursor-default">
-                <span className="text-2xl select-none">✨</span>
-                <p className="text-violet-600 font-semibold text-base tracking-wide">Event Highlights</p>
+
+              <div className="w-72 h-28 border border-[#CEAC81]/30 bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center gap-2 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
+                <span className="text-2xl">🚀</span>
+                <p className="text-[#1F3A5F] font-semibold text-base tracking-wide">
+                  Why InternHunt?
+                </p>
+                <div className="w-6 h-[2px] bg-[#CEAC81]/60"></div>
               </div>
-              <div className="w-72 h-28 border border-pink-100 bg-pink-50 rounded-2xl shadow-md flex flex-col items-center justify-center gap-1 hover:border-pink-200 hover:bg-pink-100 hover:shadow-lg transition-all duration-300 cursor-default">
-                <span className="text-2xl select-none">🎯</span>
-                <p className="text-pink-600 font-semibold text-base tracking-wide">Our Mission</p>
+
+              <div className="w-72 h-28 border border-[#CEAC81]/30 bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center gap-2 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
+                <span className="text-2xl">🎯</span>
+                <p className="text-[#1F3A5F] font-semibold text-base tracking-wide">
+                  Our Mission
+                </p>
+                <div className="w-6 h-[2px] bg-[#CEAC81]/60"></div>
               </div>
-              <div className="w-72 h-28 border border-indigo-100 bg-indigo-50 rounded-2xl shadow-md flex flex-col items-center justify-center gap-1 hover:border-indigo-200 hover:bg-indigo-100 hover:shadow-lg transition-all duration-300 cursor-default">
-                <span className="text-2xl select-none">🚀</span>
-                <p className="text-indigo-600 font-semibold text-base tracking-wide">Why InternHunt?</p>
+              
+              <div className="w-72 h-28 border border-[#CEAC81]/30 bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center gap-2 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
+                <span className="text-2xl">✨</span>
+                <p className="text-[#1F3A5F] font-semibold text-base tracking-wide">
+                  Skill Develop
+                </p>
+                <div className="w-6 h-[2px] bg-[#CEAC81]/60"></div>
               </div>
+
             </div>
 
           </div>

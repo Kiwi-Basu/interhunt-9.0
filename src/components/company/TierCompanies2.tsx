@@ -38,9 +38,6 @@ const TierCompanies2 = () => {
                 key={idx}
                 className="relative border border-slate-100 bg-white shadow-lg shadow-slate-100 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-slate-200 hover:border-slate-200 group cursor-pointer"
               >
-                {/* Top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl bg-linear-to-r from-slate-400 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                 {/* Logo placeholder */}
                 <div className="h-20 w-20 self-center rounded-2xl bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-100 transition-all duration-300">
                   <span className="text-slate-400 text-xs font-bold tracking-widest uppercase">Logo</span>

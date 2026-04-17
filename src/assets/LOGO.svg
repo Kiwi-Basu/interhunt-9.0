@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 803.76 136.64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+      }
+
+      .cls-2 {
+        fill: #213a56;
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        font-family: Rayakan-regular, Rayakan;
+        font-size: 116.69px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer_1">
+    <text class="cls-3" transform="translate(0 107.47)"><tspan class="cls-1" x="0" y="0">InternHunt </tspan><tspan class="cls-2" x="629.54" y="0">9.0</tspan></text>
+  </g>
+</svg>

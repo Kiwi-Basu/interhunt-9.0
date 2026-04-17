@@ -14,8 +14,13 @@ const TierCompanies1 = () => {
         <div className="min-h-screen bg-white flex flex-col items-center p-20 relative overflow-hidden">
 
           {/* Soft gold background tint */}
-          <div className="absolute inset-0 bg-linear-to-br from-yellow-50 via-white to-amber-50 pointer-events-none"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-100 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F3E6D4]/40 pointer-events-none"></div>
+
+          {/* soft gold glow (less intense, more premium) */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#CEAC81]/15 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+          {/* second faint glow for depth */}
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#CEAC81]/10 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
 
           {/* Tier badge + heading */}
           <div className="relative z-10 flex flex-col items-center mb-12">
@@ -36,13 +41,11 @@ const TierCompanies1 = () => {
             {company1.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-yellow-100 bg-white shadow-lg shadow-yellow-100 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-200 hover:border-yellow-200 group cursor-pointer"
+                className="relative border border-yellow-50 bg-white shadow-lg shadow-yellow-50 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-50 hover:border-yellow-50 group cursor-pointer"
               >
-                {/* Top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl bg-linear-to-r from-yellow-400 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
+                
                 {/* Logo placeholder */}
-                <div className="h-20 w-20 self-center rounded-2xl bg-yellow-50 border border-yellow-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-yellow-100 transition-all duration-300">
+                <div className="h-20 w-20 self-center rounded-2xl bg-yellow-50 border border-yellow-50 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
                   <span className="text-yellow-500 text-xs font-bold tracking-widest uppercase">Logo</span>
                 </div>
 

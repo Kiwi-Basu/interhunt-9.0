@@ -1,3 +1,4 @@
+import ContactHero from "../components/contact/Contacthero"
 import ContactLocation from "../components/contact/ContactLocation"
 import ContactPeople from "../components/contact/ContactPeople"
 
@@ -6,6 +7,7 @@ const Contact = () => {
     <>
       <section id="Contact">
 
+        <ContactHero />
         <ContactPeople />
         <ContactLocation />
 

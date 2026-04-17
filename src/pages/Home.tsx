@@ -1,14 +1,14 @@
-import HeroSection from "../components/home/HeroSection";
-import AboutEventSection from "../components/home/AboutEventSection";
-import RecruitersSection from "../components/home/RecruitersSection";
-import PreviousEditionsSection from "../components/home/PreviousEditionsSection";
-import FAQSection from "../components/home/FAQSection";
+import Hero from "../components/home/Hero";
+import AboutEventSection from "../components/home/About";
+import RecruitersSection from "../components/home/Companies";
+import PreviousEditionsSection from "../components/home/PreviousEdition";
+import FAQSection from "../components/home/FAQ";
 
 const Home = () => {
   return (
     <>
       <section id="Home">
-        <HeroSection />
+        <Hero />
         <AboutEventSection />
         <RecruitersSection />
         <PreviousEditionsSection />

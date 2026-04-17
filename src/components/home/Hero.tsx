@@ -1,4 +1,4 @@
-const SponsorHero = () => {
+const Hero = () => {
   return (
     <>
       <section id="hero">
@@ -29,21 +29,24 @@ const SponsorHero = () => {
             </div>
           </div>
 
-          <div>
-            <p className="text-6xl font-extrabold">Sponsor Us</p>
+          <div className="text-6xl font-extrabold "><span className="font-rayakan tracking-wider">InternHunt</span> <span className="text-[#1E3B56] font-rayakan tracking-wider">9.0</span>
+            <p className="text-xl mt-2 font-medium">Where the hunt ends and the career begins</p>
           </div>
 
-          <p className="text-2xl font-medium">Partner with us to connect with top talent and showcase your brand</p>
-
-          <div>
-            <button className="px-5 py-2 rounded-full bg-[#CEAC81] text-2xl text-white font-medium cursor-pointer shadow-lg border border-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300">Download Sponsor Proposal</button>
+          <div className="text-9xl font-bold border px-10 py-5 rounded-2xl shadow-xl border-black/20 bg-[#e6e4e4d2] z-1 ">
+            <p>MAY 09,</p>
+            <p className="text-center text-[#0F1E3D]">2026</p>
           </div>
 
-          
+          <div className="flex gap-5">
+            <button className="border w-30 px-4 py-2 rounded-full shadow-2xl border-black/20 hover:shadow-black/20 cursor-pointer hover:scale-105">Login</button>
+            <button className="border w-30 px-4 py-2 rounded-full shadow-2xl border-black/20 hover:shadow-black/20 cursor-pointer hover:scale-105">Sign Up</button>
+          </div>
+
         </div>    
       </section>
     </>
   )
 }
 
-export default SponsorHero
+export default Hero

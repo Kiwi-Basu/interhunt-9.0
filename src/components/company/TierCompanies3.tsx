@@ -13,9 +13,8 @@ const TierCompanies3 = () => {
       <section id="Tier-3-company">
         <div className="min-h-screen bg-white flex flex-col items-center p-20 relative overflow-hidden">
 
-          {/* Soft bronze tint */}
-          <div className="absolute inset-0 bg-linear-to-br from-orange-50 via-white to-amber-50 pointer-events-none"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-100 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#EDE3D6]/40 pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#CEAC81]/10 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
 
           {/* Tier badge + heading */}
           <div className="relative z-10 flex flex-col items-center mb-12">
@@ -36,10 +35,8 @@ const TierCompanies3 = () => {
             {company3.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-amber-100 bg-white shadow-lg shadow-amber-100 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-amber-200 hover:border-amber-200 group cursor-pointer"
+                className="relative border border-amber-100 bg-white shadow-lg shadow-amber-50 rounded-3xl flex flex-col w-72 p-7 gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-amber-150 hover:border-amber-150 group cursor-pointer"
               >
-                {/* Top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 rounded-t-3xl bg-linear-to-r from-amber-500 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 {/* Logo placeholder */}
                 <div className="h-20 w-20 self-center rounded-2xl bg-amber-50 border border-amber-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
