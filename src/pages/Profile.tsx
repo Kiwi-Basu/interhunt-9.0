@@ -1,4 +1,4 @@
-import ProfileDetail from "../components/profile/ProfileDetail"
+import ProfileDetail from "../components/dashboard/ProfileDetail"
 
 ProfileDetail
 

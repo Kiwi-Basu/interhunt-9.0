@@ -1,10 +1,12 @@
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../context/AuthContext";
 
 interface FormData {
     name: string;
     phoneNumber: string;
-    college: string;
+    collageName: string;
     course: string;
     year: string;
     otherCollageName: string;
@@ -14,11 +16,14 @@ interface FormData {
 const Onboarding = () => {
 
   const navigate = useNavigate()
+  // const [isLoading, setIsLoading] = useState(false)
+  // const backendURL = import.meta.env.VITE_BACKEND_URL
+  // const { user , setUser ,setIsAuthenticated } = useAuth()
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phoneNumber: "",
-    college: "",
+    collageName: "",
     otherCollageName: "",
     course: "",
     otherCourse: "",
@@ -33,39 +38,92 @@ const Onboarding = () => {
         if (phoneNumber.length <= 10) {
           setFormData(prev => ({ ...prev, [name]: phoneNumber }));
         }
-        } else {
-            setFormData(prev => ({ ...prev, [name]: value }));
-        }
+      } 
+      else {
+        setFormData(prev => ({ ...prev, [name]: value }));
+      }
     };
 
     const isFormValid = () => {
-      const {name , phoneNumber , college , course , year , otherCollageName , otherCourse } = formData
+      const {name , phoneNumber , collageName , course , year , otherCollageName , otherCourse } = formData
 
       return !!name.trim() && 
-      phoneNumber.length == 10 &&
-      !!college &&
+      phoneNumber.length === 10 &&
+      !!collageName &&
       !!course &&     
       !!year &&
-      (college !== "OTHER" || !!otherCollageName.trim()) &&
+      (collageName !== "OTHER" || !!otherCollageName.trim()) &&
       (course !== "OTHER" || !!otherCourse.trim());
     }
 
     const handleSubmit = async () => {
+
+      // test
       const finalData = {
         ...formData,
-        college : formData.college === "OTHER" ? formData.otherCollageName : formData.college,
+        collageName : formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
         course : formData.course === "OTHER" ? formData.otherCourse : formData.course,
       }
       console.log("submitted" , finalData)
       alert("registered")
+      localStorage.setItem("user", JSON.stringify(finalData))
       navigate("/")
 
+      
+      // api wala
+      // setIsLoading(true)
+      
+      // replace with apiiiiiiiiii
+      // try {
+        
+      //   const response = await axios.post(`${backendURL}/api/students/`, {
+      //     name : formData.name,
+      //     email : user?.email,
+      //     phoneNumber : formData.phoneNumber,
+      //     collageName : formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
+      //     course : formData.course === "OTHER" ? formData.otherCourse : formData.course,
+      //     year : formData.year
+      //   }, {
+      //     withCredentials : true,
+      //     headers : {
+      //       "Content-Type" : "application/json"
+      //     }
+      //   })
+
+      //   if (response.status === 201) {
+      //     if(setIsAuthenticated) {
+      //       setIsAuthenticated(true)
+      //     }
+      //     if (setUser) {
+      //       setUser( {
+      //         email : response.data.email,
+      //         id : response.data.id,
+      //         name : formData.name,
+      //         phoneNumber : formData.phoneNumber,
+      //         college : formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
+      //         course : formData.course === "OTHER" ? formData.otherCourse : formData.course,
+      //         year : formData.year
+      //       })
+      //     }
+
+      //     console.log("Account created successfully")
+      //     navigate("/")
+      //   }
+
+      // } catch (error) {
+      //     console.log("Error creating account" , error)
+      // } finally {
+      //   setIsLoading(false)
+      // }
+
     }
+
+
 
   return (
     <>
       <section id="Onboarding">
-        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-gray-100 via-gray-200 to-gray-300">
+        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7]">
 
           <div className="w-full max-w-2xl bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl border border-gray-200 p-10 flex flex-col gap-8">
 
@@ -119,8 +177,8 @@ const Onboarding = () => {
               <div className="flex flex-col gap-1">
                 <label className="text-sm font-medium text-gray-700">College / Institution</label>
                 <select
-                  name = "college"
-                  value={formData.college}
+                  name = "collageName"
+                  value={formData.collageName}
                   onChange={handleInputChange}
                   required
                   className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
@@ -136,7 +194,7 @@ const Onboarding = () => {
               </div>
 
               {/* College Name */}
-              {formData.college === "OTHER" && (
+              {formData.collageName === "OTHER" && (
                 <div className="flex flex-col gap-1 animate-fadeIn">
                   <label className="text-sm font-medium text-gray-700">College Name</label>
                   <input

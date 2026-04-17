@@ -7,7 +7,7 @@ import GoogleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
 
 const Auth = () => {
 
-  // const {user , setUser, setIsAuthenticated} = useAuth()
+  // const {setUser, setIsAuthenticated} = useAuth()
   // const navigate = useNavigate()
   // const [isLoading, setIsLoading] = useState(false);
   // const backendURL = import.meta.env.VITE_BACKEND_URL
@@ -107,7 +107,7 @@ const Auth = () => {
   return (
     <>
       <section id="Auth">
-        <div className="min-h-screen p-20 flex flex-col items-center justify-center bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] relative overflow-hidden">
+        <div className="min-h-screen p-20 flex flex-col items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7] relative overflow-hidden">
           
           {/* subtle theme glow */}
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#1F3A5F]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
