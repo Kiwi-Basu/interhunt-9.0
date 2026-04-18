@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-
   const user = JSON.parse(localStorage.getItem("user") || "null");
 
   return (
@@ -13,47 +12,44 @@ const Hero = () => {
         <div className="absolute top-6 sm:top-10 md:top-12 left-0 
           h-12 sm:h-16 md:h-25 
           w-28 sm:w-40 md:w-50 
-          rounded-r-3xl md:rounded-r-4xl bg-[#CEAC81]">
-        </div>
+          rounded-r-3xl md:rounded-r-4xl bg-[#CEAC81]" />
 
         <div className="absolute top-0 left-0 
           h-12 sm:h-16 md:h-20 
           w-40 sm:w-60 md:w-80 
-          rounded-br-3xl md:rounded-br-4xl bg-[#0F1E3D]">
-        </div>
+          rounded-br-3xl md:rounded-br-4xl bg-[#0F1E3D]" />
 
         {/* top right */}
         <div className="absolute right-0 top-0 
           h-14 sm:h-20 md:h-30 
           w-28 sm:w-40 md:w-50 
-          rounded-bl-3xl md:rounded-bl-4xl bg-[#CEAC81]">
-        </div>
+          rounded-bl-3xl md:rounded-bl-4xl bg-[#CEAC81]" />
 
         {/* bottom right */}
         <div className="absolute bottom-0 right-0 
           h-12 sm:h-16 md:h-20 
           w-40 sm:w-60 md:w-80 
-          rounded-tl-3xl md:rounded-tl-4xl bg-[#0F1E3D]">
-        </div>
+          rounded-tl-3xl md:rounded-tl-4xl bg-[#0F1E3D]" />
 
         <div className="absolute bottom-0 right-0 
           h-14 sm:h-20 md:h-30 
           w-28 sm:w-40 md:w-50 
-          rounded-tl-3xl md:rounded-tl-4xl bg-[#CEAC81]">
-        </div>
+          rounded-tl-3xl md:rounded-tl-4xl bg-[#CEAC81]" />
 
-        {/* animated square */}
+        {/* animated square (top-left area) */}
         <motion.div
-          initial={{ opacity: 0.15, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{
             opacity: 0.15,
-            scale: 1,
-            x: [0, 10, 0],
-            y: [0, -10, 0],
+            scale: [1, 1.02, 1],
+            x: [0, 8, 0],
+            y: [0, -8, 0],
           }}
           transition={{
-            duration: 2,
+            duration: 4,
             repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
           }}
           className="hidden sm:block absolute ring-6 md:ring-10 ring-black/10 
             h-28 sm:h-40 md:h-50 
@@ -62,13 +58,16 @@ const Hero = () => {
         >
           <motion.div
             animate={{
-              x: [0, 12, 0],
-              y: [0, -12, 0],
+              x: [0, 6, 0],
+              y: [0, -6, 0],
+              scale: [1, 1.03, 1],
             }}
             transition={{
-              duration: 2,
+              duration: 4,
               repeat: Infinity,
-              delay: 1,
+              repeatType: "mirror",
+              ease: "easeInOut",
+              delay: 0.5,
             }}
             className="absolute ring-6 md:ring-10 
               h-full w-full 
@@ -78,18 +77,67 @@ const Hero = () => {
         </motion.div>
 
         {/* bottom square */}
-        <div className="hidden sm:block absolute opacity-20 ring-6 md:ring-10 ring-black/10  
-          h-28 sm:h-40 md:h-50 
-          w-28 sm:w-40 md:w-50 
-          bottom-20 md:bottom-40 right-4 sm:right-10 md:right-20 rounded-2xl z-0">
-          <div className="absolute ring-6 md:ring-10 h-full w-full top-6 md:top-10 left-6 md:left-15 ring-black/10 rounded-2xl"></div>
-        </div>
+        <motion.div
+          animate={{
+            y: [0, -6, 0],
+            scale: [1, 1.02, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+          }}
+          className="hidden sm:block absolute opacity-20 ring-6 md:ring-10 ring-black/10  
+            h-28 sm:h-40 md:h-50 
+            w-28 sm:w-40 md:w-50 
+            bottom-20 md:bottom-40 right-4 sm:right-10 md:right-20 rounded-2xl z-0"
+        >
+          <motion.div
+            animate={{
+              y: [0, -5, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+              delay: 0.4,
+            }}
+            className="absolute ring-6 md:ring-10 h-full w-full top-6 md:top-10 left-6 md:left-15 ring-black/10 rounded-2xl"
+          />
+        </motion.div>
 
         {/* extra square (desktop only) */}
-        <div className="hidden md:block absolute opacity-20 ring-10 
-          h-50 w-50 top-20 right-110 ring-black/10 rounded-2xl z-0">
-          <div className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"></div>
-        </div>
+        <motion.div
+          animate={{
+            x: [0, 6, 0],
+            y: [0, 6, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+          }}
+          className="hidden md:block absolute opacity-20 ring-10 
+            h-50 w-50 top-20 right-110 ring-black/10 rounded-2xl z-0"
+        >
+          <motion.div
+            animate={{
+              x: [0, -5, 0],
+              y: [0, -5, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              repeatType: "mirror",
+              ease: "easeInOut",
+              delay: 0.6,
+            }}
+            className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"
+          />
+        </motion.div>
 
         {/* content */}
         <div className="flex flex-col items-center mb-6 md:mb-10 text-center z-10">
@@ -122,12 +170,12 @@ const Hero = () => {
           ) : (
             <>
               <Link to="/auth" className="w-full sm:w-auto">
-                <button className="w-full px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
+                <button className="w-full cursor-pointer px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
                   Login
                 </button>
               </Link>
               <Link to="/auth" className="w-full sm:w-auto">
-                <button className="w-full px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
+                <button className="w-full cursor-pointer px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
                   Sign Up
                 </button>
               </Link>
