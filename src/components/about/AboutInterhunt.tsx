@@ -18,11 +18,11 @@ const AboutInterhunt = () => {
 
             {/* Text */}
             <div className="flex flex-col gap-6 flex-1">
-              <p className="text-gray-600 leading-relaxed text-base">
-                InternHunt is the flagship event of InternWare — Internship Cell, IITM, Janakpuri, held annually to connect students with industry opportunities. It helps students gain hands-on experience by linking them with diverse companies offering valuable internships.
+              <p className="text-gray-600 leading-relaxed text-base text-justify text-md text-shadow-2xs ">
+                InternHunt 9.0 is an ultimate flagship Internship Fair hosted by InternWare - The Internship Cell of IITM. It is designed to bridge the gap between driven students, emerging professionals, and recruiters, all on one vibrant platform. It creates a platform where talent meets opportunity, helping participants explore different career paths, gain real industry exposure, and move closer to their professional goals.
               </p>
-              <p className="text-gray-600 leading-relaxed text-base">
-                InternHunt is the flagship event of InternWare — Internship Cell, IITM, Janakpuri, held annually to connect students with industry opportunities. It helps students gain hands-on experience by linking them with diverse companies offering valuable internships.
+              <p className="text-gray-600 leading-relaxed text-base text-justify text-md text-shadow-2xs">
+                With participation from leading organizations across various sectors, InternHunt 9.0 focuses on skill development, networking, and practical learning. More than just an internship fair, it acts as a launchpad to connect with industry professionals, grow personally, and unlock new opportunities in the evolving world of internships and careers.
               </p>
               <p className="text-gray-600 leading-relaxed text-base">
                 InternHunt is the flagship event of InternWare — Internship Cell, IITM, Janakpuri, held annually to connect students with industry opportunities. It helps students gain hands-on experience by linking them with diverse companies offering valuable internships.

@@ -6,25 +6,42 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What is InternHunt 9.0?",
-      answer:
-        "InternHunt 9.0 is the flagship event of InternWare — Internship Cell, IITM Janakpuri, held annually to connect students with industry opportunities.",
+      question: "Who can participate in InternHunt 9.0?",
+      answer: "InternHunt 9.0 is open to undergraduate, postgraduate, and diploma students from all streams and disciplines looking to kickstart their careers through internships.",
+       
     },
     {
-      question: "Who can participate?",
-      answer:
-        "All students from IITM Janakpuri and affiliated colleges can participate.",
+      question: "How do I register for InternHunt 9.0?",
+      answer:"You can register for InternHunt 9.0 both online and offline. To register online, simply fill out the registration form available on our official website. For offline registration, visit our registration desk.",
+
     },
     {
-      question: "Do I need prior experience?",
-      answer:
-        "No prior experience is needed. Roles are available for all levels.",
+      question: "Is there a fee for organizations to participate?",
+      answer:"Yes, there is a nominal participation fee of ₹100 for organizations taking part in InternHunt 9.0.",
+    
     },
     {
-      question: "How can I register?",
-      answer:
-        "You can register through the official InternHunt website.",
+      question: "What kind of internships will be available?",
+      answer:"Internships spanning domains such as technology, finance, marketing, design, operations, human resources, and more will be available, depending on the participating organizations.",
+
     },
+    {
+      question: "What should I carry on InternHunt 9.0?",
+      answer:"Participants are advised to carry multiple copies of their resume, a valid student ID card, and any other relevant documents.",
+
+    },
+    {
+      question: "What kind of companies will be participating?",
+      answer:"Tier 1, Tier 2, and Tier 3 companies will be participating in the event, offering a wide range of opportunities across domains. Previous recruiters have included reputed brands like Decathlon and The Times of India, among others.",
+    },
+    {
+      question: "Is prior experience required to participate?",
+      answer:"No, prior experience is not mandatory. InternHunt is designed to provide opportunities for beginners as well as experienced students.",
+    },
+    {
+      question: "8. Who can I contact for queries?",
+      answer:"For any queries, you can reach out to Team InternWare through the contact details provided on the website.",
+    }
   ];
 
   const toggle = (idx: number) => {

@@ -123,7 +123,7 @@ const Onboarding = () => {
   return (
     <>
       <section id="Onboarding">
-        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-[#1F3A5F]/5 via-[#F8FAFC] to-[#CEAC81]/10">
+        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7] from">
 
           <div className="w-full max-w-2xl bg-white/90 backdrop-blur-md rounded-3xl shadow-xl border border-[#CEAC81]/20 p-10 flex flex-col gap-8">
 

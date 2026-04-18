@@ -27,11 +27,6 @@ const ContactHero = () => {
 
           {/* ===== CONTENT ===== */}
 
-          {/* Top Tag */}
-          <div className="px-5 py-2 rounded-full border border-white/30 bg-white/10 text-sm backdrop-blur">
-            Get in Touch
-          </div>
-
           {/* Title */}
           <h1 className="text-5xl md:text-6xl font-extrabold text-center">
             CONTACT <span className="text-[#CEAC81]">US</span>

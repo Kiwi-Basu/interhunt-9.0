@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { motion } from "framer-motion";
 
 const Hero = () => {
 
@@ -19,10 +20,34 @@ const Hero = () => {
           <div className="absolute right-0 top-0 h-30 w-50 rounded-bl-4xl bg-[#CEAC81]"></div>
 
           {/* squares */}
-          <div className="absolute opacity-20 ring-10 ring-black/10  h-50 w-50 top-70 left-20  rounded-2xl z-0 ">
-            <div className="absolute  ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl">
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0.15, scale: 1 }}
+            animate={{
+              opacity: 0.15,
+              scale: 1,
+              x: [0, 10, 0],   
+              y: [0, -10, 0],  
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+
+            }}
+            className="absolute ring-10 ring-black/10 h-50 w-50 top-70 left-20 rounded-2xl z-0"
+          >
+            <motion.div
+              animate={{
+                x: [0, 12, 0],
+                y: [0, -12, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: 1, 
+              }}
+              className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"
+            />
+          </motion.div>
           
           <div className="absolute opacity-20 ring-10 ring-black/10  h-50 w-50 bottom-40 right-20  rounded-2xl z-0 ">
             <div className="absolute  ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl">
