@@ -8,7 +8,7 @@ export interface User {
     college?: string;
     course?: string;
     year?: string;
-    company?: string;  // change this company or something according to that
+    // company?: string;  // change this company or something according to that
     profileImage?: string;
 }
 

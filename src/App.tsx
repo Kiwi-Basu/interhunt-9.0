@@ -41,6 +41,12 @@ const App = () => {
             <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} />
 
+
+          {/* <Route path ="/dashboard" element={<Dashboard />} />
+          <Route path ="/dashboard/profile" element={<Profile />} />
+          <Route path ="/apply/payment" element={<PaymentGateway />} />
+          <Route path ="/apply/upload" element={<Upload />} />
+          <Route path ="/apply/companies" element={<ApplyCompanies />} /> */}
           <Route
             path="/dashboard"
             element={

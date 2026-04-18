@@ -71,12 +71,11 @@ const ContactHero = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-6 w-full sm:w-auto px-4 sm:px-0">
+            
             <button className="w-full px-8 py-3 rounded-full bg-[#CEAC81] text-white font-semibold shadow hover:scale-105 transition">
               Send a Message
             </button>
-            <button className="w-full px-8 py-3 rounded-full border border-[#CEAC81] text-[#CEAC81] font-semibold hover:bg-[#CEAC81] hover:text-white transition">
-              Download Brochure
-            </button>
+
           </div>
 
         </div>
