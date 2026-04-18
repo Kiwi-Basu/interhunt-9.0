@@ -1,108 +1,109 @@
 import GoogleIcon from "../../assets/google-icon-logo-svgrepo-com.svg"
-// import { useNavigate } from "react-router"
-// import axios from "axios"
-// import { useAuth } from "../../context/AuthContext"
-// import { useState } from "react"
+import { useNavigate } from "react-router"
+import axios from "axios"
+import { useAuth } from "../../context/AuthContext"
+import { useState } from "react"
+import { useGoogleLogin } from "@react-oauth/google"
 
 
 const Auth = () => {
 
-  // const {setUser, setIsAuthenticated} = useAuth()
-  // const navigate = useNavigate()
-  // const [isLoading, setIsLoading] = useState(false);
-  // const backendURL = import.meta.env.VITE_BACKEND_URL
+  const {setUser, setIsAuthenticated} = useAuth()
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false);
+  const backendURL = import.meta.env.VITE_BACKEND_URL
 
   // this is the login clicking and that thing if login then home page nahi toh onboard page and login wala
-  // const googleResponse = async (authResult : any) => {
-  //   try {
+  const googleResponse = async (authResult : any) => {
+    try {
 
-  //     if (authResult["code"]) {
-  //       const response = await axios.get(
-  //         `${backendURL}/api/auth/google/callback?code=${authResult["code"]}`,
-  //         {
-  //           withCredentials : true
-  //         }
-  //       )
+      if (authResult["code"]) {
+        const response = await axios.get(
+          `${backendURL}/api/auth/google/callback?code=${authResult["code"]}`,
+          {
+            withCredentials : true
+          }
+        )
       
 
-  //       if (response.data.exist) {
-  //         if (setIsAuthenticated) {
-  //           setIsAuthenticated(true)
-  //         }
+        if (response.data.exist) {
+          if (setIsAuthenticated) {
+            setIsAuthenticated(true)
+          }
 
-  //         try {
+          try {
 
-  //           const [studentResponse , companiesResponse] = await Promise.all([
-  //             axios.get(`${backendURL}/api/students` , {withCredentials : true}),    // student ka api bhi change ig mostly yahi hona chiye waise
-  //             axios.get(`${backendURL}/api/Companies` , {withCredentials : true})   // api replace with company wala
-  //           ])
+            const [studentResponse , companiesResponse] = await Promise.all([
+              axios.get(`${backendURL}/api/students` , {withCredentials : true}),    // student ka api bhi change ig mostly yahi hona chiye waise
+              axios.get(`${backendURL}/api/Companies` , {withCredentials : true})   // api replace with company wala
+            ])
 
-  //           const student = studentResponse.data.studentData;
-  //           const CompanyName = companiesResponse.data?.registered ? companiesResponse.data.companyName : undefined
+            const student = studentResponse.data.studentData;
+            const CompanyName = companiesResponse.data?.registered ? companiesResponse.data.companyName : undefined
 
-  //           if (setUser && student) {
-  //             setUser( {
-  //               id : student._id || student.id,
-  //               name : student.name,
-  //               email : student.email,
-  //               phoneNumber : student.phoneNumber,
-  //               college : student.college || student.otherCollageName,
-  //               course : student.course, 
-  //               year : student.year,
-  //               company : student.company, // change this according to api 
-  //               profileImage : student.profileImage
-  //             })
-  //           }
+            if (setUser && student) {
+              setUser( {
+                id : student._id || student.id,
+                name : student.name,
+                email : student.email,
+                phoneNumber : student.phoneNumber,
+                college : student.college || student.otherCollageName,
+                course : student.course, 
+                year : student.year,
+                // company : student.company, // change this according to api 
+                profileImage : student.profileImage
+              })
+            }
 
-  //         } catch (error) {
-  //           console.error("Error fetching profile data : " , error)
+          } catch (error) {
+            console.error("Error fetching profile data : " , error)
             
-  //           if (setUser) {
-  //             setUser ({
-  //               email : response.data.email,
-  //               id : response.data.userId
-  //             })
-  //           }
-  //         }
+            if (setUser) {
+              setUser ({
+                email : response.data.email,
+                id : response.data.userId
+              })
+            }
+          }
         
 
-  //         navigate("/")
+          navigate("/")
 
-  //       }
-  //       else {
-  //         if (setUser){
-  //           setUser ({
-  //             email : response.data.email,
-  //           })
-  //         }
-  //         navigate("/onboarding")
-  //       }
-  //     }
+        }
+        else {
+          if (setUser){
+            setUser ({
+              email : response.data.email,
+            })
+          }
+          navigate("/onboarding")
+        }
+      }
 
-  //   } catch (error) {
-  //     console.error (error)
-  //   } finally {
-  //     setIsLoading(false)
-  //   }
-  // }
+    } catch (error) {
+      console.error (error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   // google error handler
-  // const handleGoogleError = (error : any) => {
-  //   if ( error.error === "popup_closed_by_user" || error.error === "access_denied") {
-  //     console.log("Account Selection Cancelled")
-  //   }
-  //   else {
-  //     console.log("Google Login Failed")
-  //   }
-  //   setIsLoading(false)
-  // }
+  const handleGoogleError = (error : any) => {
+    if ( error.error === "popup_closed_by_user" || error.error === "access_denied") {
+      console.log("Account Selection Cancelled")
+    }
+    else {
+      console.log("Google Login Failed")
+    }
+    setIsLoading(false)
+  }
 
   //  checks success or fail
-  // const googleLogin = useGoogleLogin ({
-  //   onSuccess : googleResponse ,
-  //   onError : handleGoogleError,
-  //   flow : "auth-code"
-  // })
+  const googleLogin = useGoogleLogin ({
+    onSuccess : googleResponse ,
+    onError : handleGoogleError,
+    flow : "auth-code"
+  })
 
   return (
     <>
@@ -126,12 +127,12 @@ const Auth = () => {
             </p>
 
             <button 
-              // onClick={() => {
-              //   if (!isloading) {
-              //     setIsLoading(true)
-              //     googleLogin()
-              //   }
-              // }} //button unfreeze krdena
+              onClick={() => {
+                if (!isLoading) {
+                  setIsLoading(true)
+                  googleLogin()
+                }
+              }} //button unfreeze krdena
               className="flex items-center justify-center gap-3 md:gap-4 bg-white px-4 md:px-6 py-3 rounded-xl shadow-md border border-[#CEAC81]/30 cursor-pointer hover:border-[#1F3A5F] hover:shadow-lg transition-all duration-300 group">
               
               <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#1F3A5F]/5 rounded-full group-hover:scale-110 transition-transform">
