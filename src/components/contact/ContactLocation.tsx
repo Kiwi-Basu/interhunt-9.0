@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 const ContactLocation = () => {
   return (
     <>
@@ -9,22 +11,40 @@ const ContactLocation = () => {
           <div className="absolute bottom-0 left-0 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
 
           {/* Heading */}
-          <p className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center">
+          <motion.p 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center"
+          >
             Locate <span className="text-[#CEAC81]">Us</span>
-          </p>
+          </motion.p>
 
           {/* Map card */}
-          <div className="border border-[#CEAC81]/20 w-full max-w-6xl p-2 md:p-3 rounded-3xl shadow-xl bg-white relative z-10 hover:shadow-lg transition-all duration-300 mx-4 md:mx-0">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="border border-[#CEAC81]/20 w-full max-w-6xl p-2 md:p-3 rounded-3xl shadow-xl bg-white relative z-10 hover:shadow-lg transition-all duration-300 mx-4 md:mx-0"
+          >
             <iframe
               className="w-full h-64 md:h-100 rounded-2xl"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79224.85153473914!2d77.06527153622272!3d28.6514277638802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1b5567911807%3A0x996e86fe24144daf!2sInstitute%20of%20Information%20Technology%20and%20Management%20(IITM)!5e0!3m2!1sen!2sin!4v1727263090895!5m2!1sen!2sin"
               loading="lazy"
               title="IITM Janakpuri Location"
             ></iframe>
-          </div>
+          </motion.div>
 
           {/* Contact info cards */}
-          <div className="flex flex-col md:flex-row gap-6 md:gap-8 mt-8 md:mt-12 w-full max-w-6xl relative z-10 px-4 md:px-0">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col md:flex-row gap-6 md:gap-8 mt-8 md:mt-12 w-full max-w-6xl relative z-10 px-4 md:px-0"
+          >
 
             {/* Email */}
             <div onClick={() => window.location.href='mailto:internware@iitm.ac.in'} className="flex-1 relative overflow-hidden bg-white/80 backdrop-blur-xl border border-[#CEAC81]/30 shadow-lg rounded-3xl flex items-center gap-6 p-7 hover:-translate-y-1 hover:shadow-2xl hover:border-[#CEAC81]/60 transition-all duration-300 group cursor-pointer">
@@ -62,7 +82,7 @@ const ContactLocation = () => {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </section>

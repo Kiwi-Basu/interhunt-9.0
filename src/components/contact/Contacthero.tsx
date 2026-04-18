@@ -1,81 +1,137 @@
+import { motion } from "motion/react";
+
 const ContactHero = () => {
   return (
-    <>
-      <section id="hero">
-        <div className="min-h-screen relative flex items-center justify-center flex-col gap-10 text-center px-10">
+    <section id="Contact-Hero">
+      <div className="min-h-screen relative flex items-center justify-center flex-col gap-5 text-center px-4 sm:px-6 md:px-10 overflow-hidden">
 
-          {/* ===== SHAPES (UNCHANGED) ===== */}
-          <div className="absolute top-12 left-0 h-25 w-50 rounded-r-4xl bg-[#CEAC81]"></div>
-          <div className="absolute top-0 left-0 h-20 w-80 rounded-br-4xl bg-[#0F1E3D]"></div>
+        {/* 🌈 Glow */}
+        <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 
+          w-[500px] sm:w-[700px] md:w-[900px] 
+          h-[500px] sm:h-[600px] md:h-[700px] 
+          bg-[#CEAC81]/20 blur-[140px] opacity-40 pointer-events-none z-0">
+        </div>
 
-          <div className="absolute bottom-0 right-0 h-20 w-80 rounded-tl-4xl bg-[#0F1E3D]"></div>
-          <div className="absolute bottom-0 right-0 h-30 w-50 rounded-tl-4xl bg-[#CEAC81]"></div>
+        <div className="absolute bottom-[-120px] right-[-120px] 
+          w-[350px] sm:w-[450px] 
+          h-[350px] sm:h-[450px] 
+          bg-[#1F3A5F]/20 blur-[120px] opacity-40 pointer-events-none z-0">
+        </div>
 
-          <div className="absolute right-0 top-0 h-30 w-50 rounded-bl-4xl bg-[#CEAC81]"></div>
+        {/* Corner accents */}
+        <div className="absolute top-0 left-0 
+          h-12 sm:h-16 md:h-20 
+          w-32 sm:w-52 md:w-72 
+          rounded-br-3xl bg-[#0F1E3D] z-0">
+        </div>
 
-          <div className="absolute opacity-20 ring-10 ring-black/10 h-50 w-50 top-70 left-20 rounded-2xl z-0">
-            <div className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"></div>
-          </div>
+        <div className="absolute bottom-0 right-0 
+          h-12 sm:h-16 md:h-20 
+          w-32 sm:w-52 md:w-72 
+          rounded-tl-3xl bg-[#0F1E3D] z-0">
+        </div>
 
-          <div className="absolute opacity-20 ring-10 ring-black/10 h-50 w-50 bottom-40 right-20 rounded-2xl z-0">
-            <div className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"></div>
-          </div>
+        {/* ===== CONTENT ===== */}
 
-          <div className="absolute opacity-20 ring-10 h-50 w-50 top-20 right-110 ring-black/10 rounded-2xl z-0">
-            <div className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"></div>
-          </div>
+        {/* Title */}
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#1F3A5F] z-10"
+        >
+          CONTACT <span className="text-[#CEAC81]">US</span>
+        </motion.h1>
 
-          {/* ===== CONTENT ===== */}
+        {/* Subtitle */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-lg md:max-w-2xl text-md sm:text-base md:text-lg text-gray-600 z-10"
+        >
+          Have questions about InternHunt?
+        </motion.p>
 
-          {/* Title */}
-          <h1 className="text-5xl md:text-6xl font-extrabold text-center">
-            CONTACT <span className="text-[#CEAC81]">US</span>
-          </h1>
+        {/* ===== CARDS (COMPANY STYLE) ===== */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-6 z-10 w-full flex flex-col items-center gap-6"
+        >
 
-          {/* Subtitle */}
-          <p className="max-w-3xl text-base md:text-lg text-gray-600 text-center">
-            Have questions about InternHunt? We’re here to help. Reach out to us
-            for sponsorship opportunities, registrations, or any other details.
-          </p>
-
-          {/* Cards */}
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-6 w-full sm:w-auto px-4 sm:px-0">
+          {/* Top Row */}
+          <div className="flex gap-6 justify-center w-full">
 
             {/* Email */}
-            <div className="w-full sm:w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
-              <p className="text-3xl">📧</p>
-              <p className="font-semibold mt-3 text-sm md:text-base">24/7</p>
-              <p className="text-xs md:text-sm text-gray-500">Email Support</p>
+            <div className="group w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 p-4 rounded-2xl 
+              bg-white/80 backdrop-blur-lg border border-white/40 
+              shadow-md hover:shadow-xl hover:-translate-y-2 
+              transition-all duration-300 flex flex-col items-center justify-center">
+
+              <p className="text-2xl md:text-3xl group-hover:scale-110 transition">{'📧'}</p>
+              <p className="font-semibold mt-2 text-xs sm:text-sm md:text-base text-[#1F3A5F]">
+                Email Us
+              </p>
+              <p className="text-[10px] sm:text-xs text-gray-500">
+                24/7 Support
+              </p>
             </div>
 
             {/* Phone */}
-            <div className="w-full sm:w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
-              <p className="text-3xl">📞</p>
-              <p className="font-semibold mt-3 text-sm md:text-base">Available</p>
-              <p className="text-xs md:text-sm text-gray-500">Phone Support</p>
+            <div className="group w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 p-4 rounded-2xl 
+              bg-white/80 backdrop-blur-lg border border-white/40 
+              shadow-md hover:shadow-xl hover:-translate-y-2 
+              transition-all duration-300 flex flex-col items-center justify-center">
+
+              <p className="text-2xl md:text-3xl group-hover:scale-110 transition">{'📞'}</p>
+              <p className="font-semibold mt-2 text-xs sm:text-sm md:text-base text-[#1F3A5F]">
+                Call Us
+              </p>
+              <p className="text-[10px] sm:text-xs text-gray-500">
+                Quick Response
+              </p>
             </div>
+
+          </div>
+
+          {/* Bottom Center */}
+          <div className="flex justify-center w-full">
 
             {/* Location */}
-            <div className="w-full sm:w-64 p-6 rounded-2xl border border-black/10 bg-white shadow">
-              <p className="text-3xl">📍</p>
-              <p className="font-semibold mt-3 text-sm md:text-base">IITM</p>
-              <p className="text-xs md:text-sm text-gray-500">Campus Location</p>
+            <div className="group w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 p-4 rounded-2xl 
+              bg-white/80 backdrop-blur-lg border border-white/40 
+              shadow-md hover:shadow-xl hover:-translate-y-2 
+              transition-all duration-300 flex flex-col items-center justify-center">
+
+              <p className="text-2xl md:text-3xl group-hover:scale-110 transition">{'📍'}</p>
+              <p className="font-semibold mt-2 text-xs sm:text-sm md:text-base text-[#1F3A5F]">
+                Visit Us
+              </p>
+              <p className="text-[10px] sm:text-xs text-gray-500">
+                IITM Campus
+              </p>
             </div>
 
           </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mt-6 w-full sm:w-auto px-4 sm:px-0">
-            
-            <button className="w-full px-8 py-3 rounded-full bg-[#CEAC81] text-white font-semibold shadow hover:scale-105 transition">
-              Send a Message
-            </button>
+        </motion.div>
 
-          </div>
-
+        {/* CTA */}
+        <div className="mt-6 z-10">
+          <button className="px-8 py-3 rounded-full 
+            bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] 
+            text-white font-semibold shadow-lg 
+            hover:scale-105 hover:shadow-xl 
+            active:scale-95
+            transition-all duration-300">
+            Send a Message
+          </button>
         </div>
-      </section>
-    </>
+
+      </div>
+    </section>
   );
 };
 

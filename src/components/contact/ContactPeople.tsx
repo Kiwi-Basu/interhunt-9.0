@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 const ContactPeople = () => {
   return (
     <>
@@ -9,18 +11,28 @@ const ContactPeople = () => {
           <div className="absolute bottom-10 right-1/4 w-60 md:w-80 h-60 md:h-80 bg-[#CEAC81]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
 
           {/* Heading */}
-          <p className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center">
+          <motion.p 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center"
+          >
             Contact <span className="text-[#CEAC81]">Us</span>
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-8 md:gap-10 lg:gap-8 xl:gap-12 relative z-10 w-full max-w-6xl mx-auto mt-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col lg:flex-row justify-center items-center gap-8 md:gap-10 lg:gap-8 xl:gap-12 relative z-10 w-full max-w-6xl mx-auto mt-6"
+          >
 
             {/* Card 1 */}
             <div className="border border-[#CEAC81]/20 bg-white/80 backdrop-blur-xl shadow-lg rounded-3xl flex flex-col items-center p-8 w-full md:w-72 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-default group">
               <div className="w-full flex justify-end mb-2">
-                <a href="https://www.linkedin.com/in/alicesinghal" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors" title="LinkedIn Profile">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
+              
               </div>
               <div className="relative mb-6">
                 <div className="absolute inset-0 bg-[#CEAC81] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
@@ -32,7 +44,7 @@ const ContactPeople = () => {
               <div className="flex flex-col items-center w-full">
                 <p className="text-xl font-bold text-[#1F3A5F] mb-5">Ms. Alice Singhal</p>
                 
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6"></div>
+                <div className="w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent mb-6"></div>
                 
                 <div className="flex flex-col gap-3 w-full px-2">
                   <a href="tel:+919785978501" className="flex items-center gap-3 text-gray-600 hover:text-[#1F3A5F] transition-colors group/link bg-gray-50/50 p-2 rounded-xl border border-transparent hover:border-gray-100">
@@ -44,9 +56,11 @@ const ContactPeople = () => {
                   
                   <a href="mailto:alice.singhal@example.com" className="flex items-center gap-3 text-gray-600 hover:text-[#1F3A5F] transition-colors group/link bg-gray-50/50 p-2 rounded-xl border border-transparent hover:border-gray-100">
                     <div className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center group-hover/link:bg-[#CEAC81]/10 transition-colors shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#1F3A5F]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                      </svg>
                     </div>
-                    <span className="text-[13px] font-medium text-gray-500">Email Alice</span>
+                    <span className="text-[13px] font-medium text-gray-500">Linkedin</span>
                   </a>
                 </div>
               </div>
@@ -61,9 +75,6 @@ const ContactPeople = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-[#CEAC81]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                   Lead
                 </span>
-                <a href="https://www.linkedin.com/in/riyamadaan" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors" title="LinkedIn Profile">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
               </div>
               
               <div className="relative mb-6 mt-2">
@@ -88,9 +99,11 @@ const ContactPeople = () => {
                   
                   <a href="mailto:riya.madaan@example.com" className="flex items-center gap-4 text-gray-600 hover:text-[#1F3A5F] transition-colors group/link bg-gray-50/50 p-2.5 rounded-xl border border-transparent hover:border-gray-100">
                     <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center group-hover/link:bg-[#CEAC81]/10 transition-colors shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#1F3A5F]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                      </svg>
                     </div>
-                    <span className="text-[14px] font-medium text-gray-500">Email Riya</span>
+                    <span className="text-[14px] font-medium text-gray-500">Linkedin</span>
                   </a>
                 </div>
               </div>
@@ -99,9 +112,6 @@ const ContactPeople = () => {
             {/* Card 3 */}
             <div className="border border-[#CEAC81]/20 bg-white/80 backdrop-blur-xl shadow-lg rounded-3xl flex flex-col items-center p-8 w-full md:w-72 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl cursor-default group">
               <div className="w-full flex justify-end mb-2">
-                <a href="https://www.linkedin.com/in/pranshusharma" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors" title="LinkedIn Profile">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
               </div>
               <div className="relative mb-6">
                 <div className="absolute inset-0 bg-[#CEAC81] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
@@ -114,7 +124,7 @@ const ContactPeople = () => {
                 <p className="text-xl font-bold text-[#1F3A5F] mb-5">Mr. Pranshu Sharma</p>
 
                 
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6"></div>
+                <div className="w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent mb-6"></div>
                 
                 <div className="flex flex-col gap-3 w-full px-2">
                   <a href="tel:+919560787745" className="flex items-center gap-3 text-gray-600 hover:text-[#1F3A5F] transition-colors group/link bg-gray-50/50 p-2 rounded-xl border border-transparent hover:border-gray-100">
@@ -126,15 +136,17 @@ const ContactPeople = () => {
                   
                   <a href="mailto:pranshu.sharma@example.com" className="flex items-center gap-3 text-gray-600 hover:text-[#1F3A5F] transition-colors group/link bg-gray-50/50 p-2 rounded-xl border border-transparent hover:border-gray-100">
                     <div className="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center group-hover/link:bg-[#CEAC81]/10 transition-colors shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#1F3A5F]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                      </svg>
                     </div>
-                    <span className="text-[13px] font-medium text-gray-500">Email Pranshu</span>
+                    <span className="text-[13px] font-medium text-gray-500">Linkedin</span>
                   </a>
                 </div>
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </section>
