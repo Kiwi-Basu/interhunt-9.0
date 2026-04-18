@@ -112,7 +112,7 @@ const Navbar = () => {
 
               {/* DROPDOWN */}
               {isOpen && (
-                <div className="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50">
+                <div className="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50 text-black">
                   <Link
                     to="/dashboard/profile"
                     className="block px-4 py-2 text-sm hover:bg-gray-100"

@@ -77,7 +77,7 @@ const ProfileDetail = () => {
 
             {/* OPTIONAL BUTTON (if you want quick access) */}
             <button
-              onClick={() => navigate("/dashboard/upload")}
+              onClick={() => navigate("/apply/payment")}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium hover:scale-105 transition"
             >
               Apply For Companies

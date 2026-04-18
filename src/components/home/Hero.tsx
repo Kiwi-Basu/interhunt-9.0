@@ -47,7 +47,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 md:gap-5 z-10 w-full sm:w-auto px-4 sm:px-0">
             {user ? (
-              <Link to="/company" className="w-full sm:w-auto"><button className="w-full px-8 md:px-20 py-3 text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">Apply for Companies</button></Link>
+              <Link to="/apply/payment" className="w-full sm:w-auto"><button className="w-full px-8 md:px-20 py-3 text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">Apply for Companies</button></Link>
             ) : (
               <>
                 <Link to="/auth" className="w-full sm:w-auto"><button className="w-full px-8 md:px-10 md:w-50 cursor-pointer py-3 md:py-2 text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">Login</button></Link>

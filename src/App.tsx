@@ -11,10 +11,19 @@ import Footer from "./components/layout/Footer"
 import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
 import Upload from "./components/apply/UploadResume"
-import Payment from "./components/apply/PaymentGateway"
+import PaymentGateway from "./components/apply/PaymentGateway"
 import ApplyCompanies from "./components/apply/ApplyCompanies"
+import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
+import useLocalStorage from "./hooks/useLocalStroage"
 
 const App = () => {
+  
+  const [isLoggedIn] = useLocalStorage("isLoggedIn" , true)
+  const [userInfo] = useLocalStorage("userInfo" , {})
+  const [isRegistered] = useLocalStorage("isRegistered" , true)
+  const isEmptyObject = (obj: Record<string, unknown>) => {
+    return Object.keys(obj).length === 0;
+  };
   return (
     <>
       <section id="App" >
@@ -26,13 +35,72 @@ const App = () => {
           <Route path="/company" element={<Companies />} />
           <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/apply/upload" element={<Upload />} />
-          <Route path="/apply/payment" element={<Payment />} />
+            <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} />
+
+          <Route
+            path="/dashboard"
+            element={
+              <RenderProtectedRoute
+                condition={isLoggedIn && isRegistered}
+                renderPage={<Dashboard />}
+                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                errorMessage="Access denied"
+              />
+            }
+          />
+
+          <Route
+            path="/apply/payment"
+            element={
+              <RenderProtectedRoute
+                condition={isLoggedIn && isRegistered}
+                renderPage={<PaymentGateway />}
+                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                errorMessage="Access denied"
+              />
+            }
+          />
+          
+          <Route
+            path="/apply/upload"
+            element={
+              <RenderProtectedRoute
+                condition={isLoggedIn && isRegistered}
+                renderPage={<Upload />}
+                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                errorMessage="Access denied"
+              />
+            }
+          />
+
+          <Route
+            path="/apply/companies"
+            element={
+              <RenderProtectedRoute
+                condition={isLoggedIn && isRegistered}
+                renderPage={<ApplyCompanies />}
+                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                errorMessage="Access denied"
+              />
+            }
+          />
+
+          <Route
+            path = "/onboarding"
+            element ={
+              <RenderProtectedRoute
+                condition={isLoggedIn &&isEmptyObject(userInfo)&& !isRegistered}
+                renderPage={<Onboarding />}
+                fallback={!isLoggedIn ? "/auth" : "/dashboard"}
+                errorMessage="Access denied"
+              />
+            }
+          />
+
 
         </Routes>
         <Footer />

@@ -1,75 +1,195 @@
+import { useEffect, useState } from "react";
+import PaymentButton from "../utils/PaymentButton";
+import { motion } from "framer-motion";
+
+import type { UserInfo } from "../../types/user";
+
 const PaymentGateway = () => {
+  const [userInfo, setUserInfo] = useState<UserInfo>({});
+  const [isIITMStudent, setIsIITMStudent] = useState(false);
 
-    // logic and last mai dashboard mai chale jayega
+  useEffect(() => {
+    const storedUserInfo = localStorage.getItem("userInfo");
+    if (storedUserInfo) {
+      const parsedUserInfo = JSON.parse(storedUserInfo);
+      setUserInfo(parsedUserInfo);
+
+      const college = parsedUserInfo.collageName || "";
+      setIsIITMStudent(
+        college.includes("IITM") ||
+        college.includes("IINTM") ||
+        college.includes("ICE (MDU)") ||
+        college.includes("IPITM (MDU)")
+      );
+    }
+  }, []);
+
   return (
-    <section id="Payment">
-      <div className="min-h-screen flex items-center justify-center px-4 md:px-20 py-10 md:py-20 bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
+    <>
+      <section id="payment">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9] relative overflow-hidden"
+        >
 
-        <div className="w-full max-w-xl bg-white border border-[#CEAC81]/20 rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col gap-6 md:gap-8 text-center mx-4 md:mx-0">
-
-          {/* TITLE */}
-          <div className="flex flex-col gap-2">
-            <h1 className="text-3xl md:text-4xl font-extrabold text-[#1F3A5F]">
-              Unlock Dashboard
-            </h1>
-            <p className="text-gray-500 text-sm md:text-base">
-              Complete your registration to access company applications
-            </p>
+          {/* Background accents */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-[#CEAC81]/10 blur-3xl"></div>
+            <div className="absolute bottom-1/4 -right-20 w-80 h-80 rounded-full bg-[#1F3A5F]/10 blur-3xl"></div>
           </div>
 
-          {/* PRICE CARD */}
-          <div className="bg-[#1F3A5F]/5 border border-[#1F3A5F]/20 rounded-2xl p-6 md:p-8 flex flex-col gap-2 md:gap-3">
+          <div className="container mx-auto px-4 pt-32 pb-16 relative z-10">
+            <div className="max-w-4xl mx-auto">
 
-            <p className="text-gray-500 text-xs md:text-sm uppercase tracking-wider">
-              Registration Fee
-            </p>
+              {/* HEADER */}
+              <div className="text-center mb-12">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1F3A5F]">
+                  Register for{" "}
+                  <span className="text-[#CEAC81]">InternHunt 9.0</span>
+                </h1>
+                <p className="text-lg text-gray-600">
+                  Complete your registration by making the payment
+                </p>
+              </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1F3A5F]">
-              ₹100
-            </h2>
+              {/* MAIN CARD */}
+              <div className="rounded-2xl shadow-xl p-8 mb-10 border border-[#CEAC81]/20 bg-white">
 
-            <p className="text-gray-400 text-xs md:text-sm">
-              One-time payment to unlock full dashboard access
-            </p>
+                {/* USER INFO */}
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold mb-4 text-[#1F3A5F]">
+                    Registration Details
+                  </h2>
 
+                  <div className="grid md:grid-cols-2 gap-4 text-gray-600">
+                    <div>
+                      <p className="font-medium">Name:</p>
+                      <p>{userInfo.name || "Not available"}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">Email:</p>
+                      <p>{localStorage.getItem("gmail") || "Not available"}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">College:</p>
+                      <p>{userInfo.collageName || "Not available"}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">Course:</p>
+                      <p>{userInfo.course || "Not available"}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">Year:</p>
+                      <p>{userInfo.year || "Not available"}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">Phone:</p>
+                      <p>{userInfo.phoneNumber || "Not available"}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* PRICING */}
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold mb-4 text-[#1F3A5F]">
+                    Registration Fee
+                  </h2>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+
+                    {isIITMStudent ? (
+                      <div className="rounded-xl p-6 border-2 border-[#CEAC81] bg-[#CEAC81]/10">
+                        <div className="flex justify-between mb-4">
+                          <h3 className="text-xl font-bold text-[#1F3A5F]">
+                            IITM Group
+                          </h3>
+                          <span className="bg-[#1F3A5F] text-white text-xs px-3 py-1 rounded-full">
+                            Your Category
+                          </span>
+                        </div>
+
+                        <p className="text-sm text-gray-600 mb-3">
+                          For IITM, IINTM & ICE (MDU) students
+                        </p>
+
+                        <p className="text-3xl font-bold text-[#1F3A5F]">
+                          ₹100
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="rounded-xl p-6 border-2 border-[#CEAC81] bg-[#CEAC81]/10">
+                        <div className="flex justify-between mb-4">
+                          <h3 className="text-xl font-bold text-[#1F3A5F]">
+                            Other Colleges
+                          </h3>
+                          <span className="bg-[#1F3A5F] text-white text-xs px-3 py-1 rounded-full">
+                            Your Category
+                          </span>
+                        </div>
+
+                        <p className="text-sm text-gray-600 mb-3">
+                          For all other institutions
+                        </p>
+
+                        <p className="text-3xl font-bold text-[#1F3A5F]">
+                          ₹120
+                        </p>
+                      </div>
+                    )}
+
+                  </div>
+                </div>
+
+                {/* BENEFITS */}
+                <div className="mb-8">
+                  <h2 className="text-2xl font-semibold mb-4 text-[#1F3A5F]">
+                    Benefits of Registration
+                  </h2>
+
+                  <ul className="grid md:grid-cols-2 gap-3 text-gray-600">
+                    {[
+                      "Access to exclusive internship opportunities",
+                      "Networking with industry professionals",
+                      "Workshops & skill sessions",
+                      "Resume review",
+                      "Interview opportunities",
+                      "Real-world experience",
+                    ].map((b, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-[#CEAC81]">✔</span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* PAYMENT */}
+                <div className="text-center mt-10">
+                  <div className="inline-block">
+                    <PaymentButton />
+                  </div>
+
+                  <p className="mt-4 text-sm text-gray-500">
+                    By completing payment, you agree to our{" "}
+                    <a
+                      href="https://iitminternware.com/termAndconditions"
+                      target="_blank"
+                      className="underline text-[#1F3A5F] hover:text-[#CEAC81]"
+                    >
+                      terms & conditions
+                    </a>
+                  </p>
+                </div>
+
+              </div>
+            </div>
           </div>
 
-          {/* FEATURES */}
-          <div className="flex flex-col gap-3 text-left">
-
-            <div className="flex items-center gap-3">
-              <span className="text-green-500">✓</span>
-              <p className="text-gray-700 text-sm">Access to all companies</p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="text-green-500">✓</span>
-              <p className="text-gray-700 text-sm">Apply to multiple companies</p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="text-green-500">✓</span>
-              <p className="text-gray-700 text-sm">Track application status</p>
-            </div>
-
-          </div>
-
-          {/* BUTTON */}
-          <button
-            className="mt-2 md:mt-4 bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-semibold py-3 md:py-4 rounded-xl shadow-lg hover:shadow-xl hover:scale-95 transition-all duration-300 cursor-pointer"
-          >
-            Pay ₹100 & Continue
-          </button>
-
-          {/* NOTE */}
-          <p className="text-xs text-gray-400 mt-2">
-            Secure payment powered by Cashfree
-          </p>
-
-        </div>
-
-      </div>
-    </section>
+        </motion.div>
+      </section>
+    </>
   );
 };
 
