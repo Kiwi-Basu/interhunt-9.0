@@ -49,28 +49,32 @@ const PaymentGateway = () => {
   }, []);
 
   // ✅ CREATE ORDER SESSION
-  const sessionGenerator = async () => {
-    try {
-      const orderId = `order_${Date.now()}`;
+ // Only change the sessionGenerator function
+// ✅ CREATE ORDER SESSION
+const sessionGenerator = async () => {
+  try {
+    // ✅ Correct endpoint - matches your backend route
+    const res = await axios.post(
+      `${backendURL}/api/payment/createOrder`,  // Note: "createOrder" not "create-order"
+      {
+        eventName: "InternHunt 9.0",
+      },
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
-      const res = await axios.post(`${url}/create-order`, {
-        order_amount: isIITMStudent ? "100" : "120",
-        order_id: orderId,
-        order_currency: "INR",
-        customer_details: {
-          customer_id: orderId,
-          customer_name: user?.name,
-          customer_email: user?.email,
-          customer_phone: user?.phoneNumber,
-        },
-      });
-
-      return res?.data?.payment_session_id || null;
-    } catch (err) {
-      console.error("Session error:", err);
-      return null;
-    }
-  };
+    console.log("Order response:", res.data);
+    
+    // Your backend returns: { success: true, data: { paymentSessionId, orderId } }
+    return res?.data?.data?.paymentSessionId || null;
+    
+  } catch (err) {
+    console.error("Session error:", err);
+    return null;
+  }
+};
 
   // ✅ REGISTER USER AFTER PAYMENT
   const registerStudent = async () => {
