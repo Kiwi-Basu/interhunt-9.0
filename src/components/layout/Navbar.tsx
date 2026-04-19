@@ -22,13 +22,13 @@ const Navbar = () => {
 
   const bg = useTransform(
     scrollYProgress,
-    [0.04, 0.06],
+    [0.02, 0.06],
     ["rgba(255,255,255,0)", "#1F3A5F"]
   );
 
   const color = useTransform(
     scrollYProgress,
-    [0.04, 0.06],
+    [0.02, 0.06],
     ["#1F3A5F", "#ffffff"]
   );
 

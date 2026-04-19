@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router";
+import { useAuth } from "../../context/AuthContext";
 
 const ProfileDetail = () => {
 
+  const { user } = useAuth();
+
   const navigate = useNavigate();
 
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
-  
 
   return (
     <>
@@ -33,42 +34,41 @@ const ProfileDetail = () => {
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">Name</span>
                   <span className="font-semibold text-gray-900 text-sm">
-                    {user.name || "Not provided"}
+                    {user?.name || "Not provided"}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">Phone</span>
                   <span className="font-semibold text-gray-900 text-sm">
-                    {user.phoneNumber || "Not provided"}
+                    {user?.phoneNumber || "Not provided"}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">Email</span>
                   <span className="font-semibold text-gray-900 text-sm">
-  {user?.email || "Not provided"}
-</span>
+
                 </div>
 
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">Course</span>
                   <span className="font-semibold text-gray-900 text-sm">
-                    {user.course || "Not provided"}
+                    {user?.course || "Not provided"}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">Year</span>
                   <span className="font-semibold text-gray-900 text-sm">
-                    {user.year || "Not provided"}
+                    {user?.year || "Not provided"}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-full bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">College</span>
                   <span className="font-semibold text-gray-900 text-sm">
-                    {user.collageName || "Not provided"}
+                    {user?.college || "Not provided"}
                   </span>
                 </div>
 

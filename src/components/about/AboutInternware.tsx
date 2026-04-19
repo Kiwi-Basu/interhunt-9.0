@@ -32,13 +32,13 @@ const AboutInternware = () => {
 
             {/* Text panels */}
             <div className="bg-white border border-[#CEAC81]/20 rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
-              <p className="text-lg text-gray-600 text-center leading-relaxed">
+              <p className="text-lg text-gray-600 text-center leading-relaxed text-md text-shadow-2xs">
                 InternWare is a student-led organization at IITM, Janakpuri dedicated to bridging the gap between academic learning and industry requirements. We focus on providing students with practical exposure and opportunities to enhance their skills through internships, workshops, and industry collaborations.
               </p>
             </div>
 
             <div className="bg-white border border-[#CEAC81]/20 rounded-3xl p-8 shadow-md hover:shadow-lg transition-all duration-300">
-              <p className="text-lg text-gray-600 text-center leading-relaxed">
+              <p className="text-lg text-gray-600 text-center leading-relaxed text-md text-shadow-2xs">
                 Founded with a vision to empower students with real-world experience, InternWare has grown to become a platform that connects talented students with leading companies across various sectors. Our flagship event, InternHunt, is a testament to our commitment to creating meaningful opportunities for students.
               </p>
             </div>

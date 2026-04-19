@@ -123,38 +123,38 @@ const Onboarding = () => {
   return (
     <>
       <section id="Onboarding">
-        <div className="min-h-screen p-10 flex items-center justify-center bg-linear-to-br from-[#1F3A5F]/5 via-[#F8FAFC] to-[#CEAC81]/10">
+        <div className="min-h-screen px-4 py-10 sm:px-6 md:px-10 flex items-center justify-center bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7]">
 
-          <div className="w-full max-w-2xl bg-white/90 backdrop-blur-md rounded-3xl shadow-xl border border-[#CEAC81]/20 p-10 flex flex-col gap-8">
+          <div className="w-full max-w-xl bg-white/90 backdrop-blur-md rounded-3xl shadow-xl border border-[#CEAC81]/20 p-6 sm:p-8 md:p-10 flex flex-col gap-6">
 
             {/* Header */}
-            <div className="flex flex-col items-center gap-2 text-center">
-              <p className="text-3xl font-extrabold text-[#1F3A5F] tracking-wide">
+            <div className="text-center">
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#1F3A5F]">
                 Create your account
               </p>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-500 text-sm mt-1">
                 Complete your profile to continue
               </p>
             </div>
 
             {/* Form */}
             <form
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-5"
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSubmit()
+                handleSubmit();
               }}
             >
 
               {/* Name + Phone */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Full Name</label>
                   <input
-                    name = "name"
+                    name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    required
                     type="text"
                     className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
@@ -163,29 +163,26 @@ const Onboarding = () => {
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Phone Number</label>
                   <input
-                    name = "phoneNumber"
+                    name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
-                    required
                     type="tel"
                     className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
                 </div>
+
               </div>
 
               {/* College */}
               <div className="flex flex-col gap-1">
                 <label className="text-sm font-medium text-gray-700">College / Institution</label>
                 <select
-                  name = "collageName"
+                  name="collageName"
                   value={formData.collageName}
                   onChange={handleInputChange}
-                  required
                   className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                 >
-                  <option value="" disabled>
-                    Select
-                  </option>
+                  <option value="" disabled>Select</option>
                   <option value="IITM">IITM</option>
                   <option value="IINTM">IINTM</option>
                   <option value="ICE">ICE (MDU)</option>
@@ -193,34 +190,32 @@ const Onboarding = () => {
                 </select>
               </div>
 
-              {/* College Name */}
+              {/* Other College */}
               {formData.collageName === "OTHER" && (
-                <div className="flex flex-col gap-1 animate-fadeIn">
+                <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">College Name</label>
                   <input
-                    name = "otherCollageName"
+                    name="otherCollageName"
                     value={formData.otherCollageName}
                     onChange={handleInputChange}
-                    required
                     type="text"
                     className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   />
                 </div>
               )}
 
-              <div className="grid grid-cols-2 gap-4">
+              {/* Course + Year */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Course</label>
                   <select
-                    name = "course"
+                    name="course"
                     value={formData.course}
                     onChange={handleInputChange}
                     className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   >
-                    <option value="" disabled>
-                      Select...
-                    </option>
+                    <option value="" disabled>Select...</option>
                     <option value="BCA">BCA</option>
                     <option value="BBA">BBA</option>
                     <option value="Bcom">B.Com</option>
@@ -235,14 +230,12 @@ const Onboarding = () => {
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Academic Year</label>
                   <select
-                    name = "year"
+                    name="year"
                     value={formData.year}
                     onChange={handleInputChange}
                     className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   >
-                    <option value="" disabled>
-                      Select...
-                    </option>
+                    <option value="" disabled>Select...</option>
                     <option value="1">1st Year</option>
                     <option value="2">2nd Year</option>
                     <option value="3">3rd Year</option>
@@ -252,11 +245,12 @@ const Onboarding = () => {
 
               </div>
 
+              {/* Other Course */}
               {formData.course === "OTHER" && (
-                <div className="flex flex-col gap-1 animate-fadeIn">
+                <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Course Name</label>
                   <input
-                    name = "otherCourse"
+                    name="otherCourse"
                     value={formData.otherCourse}
                     onChange={handleInputChange}
                     type="text"
@@ -265,10 +259,12 @@ const Onboarding = () => {
                 </div>
               )}
 
-              <button 
+              {/* Submit */}
+              <button
                 type="submit"
-                disabled = {!isFormValid()}
-                className="mt-4 bg-[#1F3A5F] text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                disabled={!isFormValid()}
+                className="mt-2 bg-[#1F3A5F] text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50"
+              >
                 Register
               </button>
 
