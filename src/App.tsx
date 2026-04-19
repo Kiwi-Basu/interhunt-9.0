@@ -12,12 +12,12 @@ import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
 import PaymentGateway from "./components/register/PaymentGateway"
 import ApplyCompanies from "./components/apply/ApplyCompanies"
-import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
-import { useAuth } from "./context/AuthContext"
+// import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
+// import { useAuth } from "./context/AuthContext"
 
 const App = () => {
 
-  const { setUser , isAuthenticated , setIsAuthenticated} = useAuth()
+  // const { setUser , isAuthenticated , setIsAuthenticated} = useAuth()
 
   return (
     <>
