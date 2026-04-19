@@ -1,7 +1,7 @@
 // components/ui/ScrollToTop.tsx
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
-import { useScrollPosition } from '../../hooks/UseScrollPosition';
+import { useScrollPosition } from '../../hooks/useScrollPosition';
 
 const ScrollToTop = () => {
     const { showScrollTop } = useScrollPosition();
