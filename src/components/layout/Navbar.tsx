@@ -7,8 +7,9 @@ import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const { user } = useAuth();
-  const { setUser, setIsAuthenticated } = useAuth();
+  
 
 
   // 🔥 user from localStorage
@@ -63,11 +64,7 @@ const Navbar = () => {
   // 🔥 logout
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
-
-    setUser(null);
-    setIsAuthenticated(false);
-
+    logout();
     setIsOpen(false);
     navigate("/");
   };
