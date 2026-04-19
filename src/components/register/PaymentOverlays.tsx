@@ -35,10 +35,10 @@ const PaymentOverlays = ({
                             exit={{ scale: 0.9, opacity: 0 }}
                             className="bg-[#F5F5DC] backdrop-blur-xl rounded-3xl p-12 text-center border border-[#D4A853]/50 shadow-2xl max-w-md w-full"
                         >
-                            <div className="w-24 h-24 bg-linear-to-br from-[#800020] to-[#9B0B2F] rounded-full flex items-center justify-center mx-auto mb-6">
+                            <div className="w-24 h-24 bg-[#c8c9ca] rounded-full flex items-center justify-center mx-auto mb-6">
                                 <Loader2 className="w-12 h-12 text-white animate-spin" />
                             </div>
-                            <h2 className="text-3xl font-bold text-[#800020] mb-3">
+                            <h2 className="text-3xl font-bold text-[#1F3A5F] mb-3">
                                 Processing Payment
                             </h2>
                             <p className="text-gray-700 mb-4">
@@ -75,11 +75,11 @@ const PaymentOverlays = ({
                             >
                                 <CheckCircle2 className="w-12 h-12 text-white" />
                             </motion.div>
-                            <h2 className="text-3xl font-bold text-[#800020] mb-3">
+                            <h2 className="text-3xl font-bold text-[#1F3A5F] mb-3">
                                 Payment Successful!
                             </h2>
                             <p className="text-gray-700 mb-8">
-                                Your registration for उMUNg Fourth Edition has been confirmed successfully
+                                Your registration for <span className="font-bold font-rayakan">Interhunt 9.0</span> has been confirmed successfully
                             </p>
                             <button
                                 onClick={onGoToProfile}
