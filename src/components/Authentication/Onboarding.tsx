@@ -4,21 +4,21 @@ import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
 
 interface FormData {
-    name: string;
-    phoneNumber: string;
-    collageName: string;
-    course: string;
-    year: string;
-    otherCollageName: string;
-    otherCourse: string;
+  name: string;
+  phoneNumber: string;
+  collageName: string;
+  course: string;
+  year: string;
+  otherCollageName: string;
+  otherCourse: string;
 }
 
 const Onboarding = () => {
 
   const navigate = useNavigate()
-  const [isLoading,setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const backendURL = import.meta.env.VITE_BACKEND_URL
-  const { user , setUser , setIsAuthenticated, setIsRegistered } = useAuth()
+  const { user, setUser, setIsAuthenticated, setIsRegistered } = useAuth()
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -33,91 +33,92 @@ const Onboarding = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-      if (name === "phoneNumber") {
-        const phoneNumber = value.replace(/\D/g, "");
-        if (phoneNumber.length <= 10) {
-          setFormData(prev => ({ ...prev, [name]: phoneNumber }));
-        }
-      } 
-      else {
-        setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === "phoneNumber") {
+      const phoneNumber = value.replace(/\D/g, "");
+      if (phoneNumber.length <= 10) {
+        setFormData(prev => ({ ...prev, [name]: phoneNumber }));
       }
-    };
+    }
+    else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
+  };
 
-    const isFormValid = () => {
-      const {name , phoneNumber , collageName , course , year , otherCollageName , otherCourse } = formData
+  const isFormValid = () => {
+    const { name, phoneNumber, collageName, course, year, otherCollageName, otherCourse } = formData
 
-      return !!name.trim() && 
+    return !!name.trim() &&
       phoneNumber.length === 10 &&
       !!collageName &&
-      !!course &&     
+      !!course &&
       !!year &&
       (collageName !== "OTHER" || !!otherCollageName.trim()) &&
       (course !== "OTHER" || !!otherCourse.trim());
+  }
+
+  const handleSubmit = async () => {
+    const finalData = {
+      ...formData,
+      collageName: formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
+      course: formData.course === "OTHER" ? formData.otherCourse : formData.course,
     }
 
-    const handleSubmit = async () => {
-  const finalData = {
-    ...formData,
-    collageName: formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
-    course: formData.course === "OTHER" ? formData.otherCourse : formData.course,
-  }
-  
-  // console.log("submitted", finalData)
-  
-  // ✅ UNCOMMENT AND FIX THIS
-  setIsLoading(true)
-  
-  try {
-    const response = await axios.post(`${backendURL}/api/students`, {
-      name: formData.name,
-      email: user?.email,  // Make sure user.email exists from Google login
-      phoneNumber: formData.phoneNumber,
-      collageName: finalData.collageName,
-      course: finalData.course,
-      year: formData.year
-    }, {
-      withCredentials: true,
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    // console.log("submitted", finalData)
 
-    // console.log("API Response:", response.data)
+    // ✅ UNCOMMENT AND FIX THIS
+    setIsLoading(true)
 
-    if (response.status === 201 || response.status === 200) {
-      // Update localStorage
-      const userData = {
-        id: response.data.data?.id || response.data.id,
-        email: response.data.data?.email || response.data.email,
+    try {
+      const response = await axios.post(`${backendURL}/api/students`, {
         name: formData.name,
+        email: user?.email,  // Make sure user.email exists from Google login
         phoneNumber: formData.phoneNumber,
-        college: finalData.collageName,
-        course: finalData.course,
-        year: formData.year,
         collageName: finalData.collageName,
-      }
-      
-      if (setIsAuthenticated) {
-        setIsAuthenticated(true)
-      }
-      setIsRegistered(true)
-      
-      if (setUser) {
-        setUser(userData)
-      }
+        course: finalData.course,
+        year: formData.year
+      }, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
 
-      navigate("/")
+      // console.log("API Response:", response.data)
+
+      if (response.status === 201 || response.status === 200) {
+        // Update localStorage
+        const userData = {
+          id: response.data.data?.id || response.data.id,
+          email: response.data.data?.email || response.data.email,
+          name: formData.name,
+          phoneNumber: formData.phoneNumber,
+          college: finalData.collageName,
+          course: finalData.course,
+          year: formData.year,
+          collageName: finalData.collageName,
+        }
+
+        if (setIsAuthenticated) {
+          setIsAuthenticated(true)
+        }
+        setIsRegistered(true)
+
+        if (setUser) {
+          setUser(userData)
+        }
+
+        navigate("/")
+      }
+    } catch (error) {
+      // console.log("Error creating account", (error as import("axios").AxiosError)?.response?.data || error)
+      const axiosError = error as import("axios").AxiosError<{ message?: string }>;
+      alert(axiosError.response?.data?.message || "Failed to create account")
+    } finally {
+      setIsLoading(false)
     }
-  } catch (error:any) {
-    // console.log("Error creating account", error.response?.data || error)
-    alert(error.response?.data?.message || "Failed to create account")
-  } finally {
-    setIsLoading(false)
   }
-}
 
-    
+
 
 
 
@@ -149,7 +150,7 @@ const Onboarding = () => {
 
               {/* Name + Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
+
                 <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Full Name</label>
                   <input

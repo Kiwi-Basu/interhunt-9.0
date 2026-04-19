@@ -28,80 +28,78 @@ const App = () => {
 
         <Navbar />
         <AuthGuard>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/company" element={<Companies />} />
-            <Route path="/sponsor" element={<Sponsor />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/auth" element={<Auth />} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/company" element={<Companies />} />
+              <Route path="/sponsor" element={<Sponsor />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/auth" element={<Auth />} />
 
-            {/* <Route path="/dashboard/profile" element={<Profile />} />
+              {/* <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-            <Route path="/dashboard/profile" element={<Profile />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/profile" element={<Profile />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
-          <Route path="/apply/upload" element={<Upload />} />
-          <Route path="/apply/companies" element={<ApplyCompanies />} />
-           */}
+          <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-            <Route
-              path="/dashboard"
-              element={
-                <RenderProtectedRoute
-                  condition={isAuthenticated && isRegistered}
-                  renderPage={<Dashboard />}
-                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
-                  errorMessage="Access denied"
-                />
-              }
-            />
+              <Route
+                path="/dashboard"
+                element={
+                  <RenderProtectedRoute
+                    condition={isAuthenticated && isRegistered}
+                    renderPage={<Dashboard />}
+                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                    errorMessage="Access denied"
+                  />
+                }
+              />
 
-            <Route
-              path="/apply/payment"
-              element={
-                <RenderProtectedRoute
-                  condition={isAuthenticated && isRegistered}
-                  renderPage={<PaymentGateway />}
-                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
-                  errorMessage="Access denied"
-                />
-              }
-            />
+              <Route
+                path="/apply/payment"
+                element={
+                  <RenderProtectedRoute
+                    condition={isAuthenticated && isRegistered}
+                    renderPage={<PaymentGateway />}
+                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                    errorMessage="Access denied"
+                  />
+                }
+              />
 
-            <Route
-              path="/apply/companies"
-              element={
-                <RenderProtectedRoute
-                  condition={isAuthenticated && isRegistered}
-                  renderPage={<ApplyCompanies />}
-                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
-                  errorMessage="Access denied"
-                />
-              }
-            />
+              <Route
+                path="/apply/companies"
+                element={
+                  <RenderProtectedRoute
+                    condition={isAuthenticated && isRegistered}
+                    renderPage={<ApplyCompanies />}
+                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                    errorMessage="Access denied"
+                  />
+                }
+              />
 
-            <Route
-              path="/onboarding"
-              element={
-                <RenderProtectedRoute
-                  condition={isAuthenticated}
-                  renderPage={<Onboarding />}
-                  fallback="/auth"
-                  errorMessage="Access denied"
-                />
-              }
-            />
+              <Route
+                path="/onboarding"
+                element={
+                  <RenderProtectedRoute
+                    condition={isAuthenticated}
+                    renderPage={<Onboarding />}
+                    fallback="/auth"
+                    errorMessage="Access denied"
+                  />
+                }
+              />
 
 
-          </Routes>
-        </Suspense>
+            </Routes>
+          </Suspense>
         </AuthGuard>
         <Footer />
       </section>
