@@ -8,6 +8,8 @@ import { useAuth } from "../../context/AuthContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { setUser, setIsAuthenticated } = useAuth();
+
 
   // 🔥 user from localStorage
   // const user = JSON.parse(localStorage.getItem("user") || "null");
@@ -59,11 +61,15 @@ const Navbar = () => {
   }, []);
 
   // 🔥 logout
+
   const handleLogout = () => {
     localStorage.removeItem("user");
+
+    setUser(null);
+    setIsAuthenticated(false);
+
     setIsOpen(false);
-    navigate("/"); // go home
-    window.location.reload(); // force UI refresh (since using localStorage)
+    navigate("/");
   };
 
   return (
