@@ -1,44 +1,40 @@
-# Multi-stage build for Vite React Frontend
-FROM node:24-alpine AS builder
+# Multi-stage build for Vite React Frontend using Bun
+FROM oven/bun:alpine AS builder
 
 WORKDIR /app
 
-# Copy package files first for better caching
-COPY package*.json ./
+# Copy package files first
+COPY package.json bun.lock ./
 
-# Install all dependencies (including devDependencies for build)
-RUN npm ci --ignore-scripts
-
-RUN npm prune --omit-dev
+# Install dependencies using Bun
+RUN bun install --frozen-lockfile
 
 # Copy all source code
 COPY . .
 
-# Build the application - creates dist folder
-RUN npm run build
+# Build the application
+RUN bun run build
 
 # Production stage
-FROM node:24-alpine AS final
+FROM oven/bun:alpine AS final
 
 WORKDIR /app
-
 
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
 
-# Create system user and group for security and Change ownership of app directory to the new user
-RUN addgroup -S appgroup && adduser -S -G appgroup -h /home/appuser appuser && chown -R appuser:appgroup /app
+# Create system user and group for security
+RUN addgroup -S appgroup && adduser -S -G appgroup -h /home/appuser appuser
+
+# Change ownership of app directory
+RUN chown -R appuser:appgroup /app
 
 # Switch to non-root user
 USER appuser
 
-# Expose port (typically 3000 for serve, but can be configured)
+# Expose port
 EXPOSE 3000
 
-# Install serve globally to serve the static files
-USER root
-RUN npm install -g serve
-USER appuser
-
-# Serve the built application (serve.json in dist/ handles SPA fallback rewrites)
-CMD ["serve", "dist", "-l", "3000"]   
+# Serve the built application using Bun
+# We use bunx to run the 'serve' package without installing it globally
+CMD ["bun", "x", "serve", "-s", "dist", "-l", "3000"]

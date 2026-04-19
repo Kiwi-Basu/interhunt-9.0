@@ -18,11 +18,7 @@ import useLocalStorage from "./hooks/useLocalStorage"
 const App = () => {
 
   const [isLoggedIn] = useLocalStorage("isLoggedIn", true)
-  const [userInfo] = useLocalStorage("userInfo", {})
   const [isRegistered] = useLocalStorage("isRegistered", true)
-  const isEmptyObject = (obj: Record<string, unknown>) => {
-    return Object.keys(obj).length === 0;
-  };
   return (
     <>
       <section id="App" >
@@ -42,8 +38,8 @@ const App = () => {
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-          {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/profile" element={<Profile />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/upload" element={<Upload />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} />
@@ -90,7 +86,7 @@ const App = () => {
             path = "/onboarding"
             element ={
               <RenderProtectedRoute
-                condition={isLoggedIn &&isEmptyObject(userInfo)&& !isRegistered}
+                condition={isLoggedIn && !isRegistered}
                 renderPage={<Onboarding />}
                 fallback={!isLoggedIn ? "/auth" : "/dashboard"}
                 errorMessage="Access denied"
