@@ -12,7 +12,12 @@ export const verifyAuthStatus = async (backendURL: string) => {
             withCredentials: true,
         });
 
-        if (response.status === 200 && response.data.userInfo) {
+        console.log("Verify auth response:", response.data);
+
+        // ✅ Handle root level userInfo
+        const userInfo = response.data?.data?.userInfo || response.data?.userInfo;
+        
+        if (response.status === 200 && userInfo) {
             return response.data;
         }
         return null;
@@ -23,39 +28,31 @@ export const verifyAuthStatus = async (backendURL: string) => {
 };
 
 /**
- * Fetches comprehensive user data including student profile and committee information
+ * Fetches comprehensive user data including student profile
  * @param backendURL - The backend API URL
- * @returns User object with all profile and committee data, or null if fetch fails
+ * @returns User object with all profile data, or null if fetch fails
  */
 export const fetchUserData = async (backendURL: string): Promise<User | null> => {
     try {
-        const [studentResponse, committeeResponse] = await Promise.all([
-            axios.get(`${backendURL}/api/students`, {
-                withCredentials: true,
-            }),
-            axios.get(`${backendURL}/api/umung4`, {
-                withCredentials: true,
-            })
-        ]);
+        const studentResponse = await axios.get(`${backendURL}/api/students`, {
+            withCredentials: true,
+        });
 
-        if (studentResponse.status === 200 && studentResponse.data.studentData) {
-            const student = studentResponse.data.studentData;
+        console.log("Student response:", studentResponse.data);
 
-            // Get committee name from umung4 API if registered
-            const committeeName = committeeResponse.data?.registered
-                ? committeeResponse.data.committeeName
-                : undefined;
-
+        // Handle both response structures
+        const studentData = studentResponse.data?.data?.studentData || studentResponse.data?.studentData;
+        
+        if (studentResponse.status === 200 && studentData) {
             return {
-                id: student._id || student.id,
-                email: student.email,
-                name: student.name,
-                phoneNumber: student.phoneNumber,
-                college: student.college || student.collageName,
-                course: student.course,
-                year: student.year,
-                // committee: committeeName,
-                profileImage: student.profileImage
+                id: studentData._id || studentData.id,
+                email: studentData.email,
+                name: studentData.name,
+                phoneNumber: studentData.phoneNumber,
+                college: studentData.collageName || studentData.college,
+                course: studentData.course,
+                year: studentData.year,
+                profileImage: studentData.profileImage
             };
         }
 
@@ -78,7 +75,12 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
     // First, verify authentication
     const authData = await verifyAuthStatus(backendURL);
 
-    if (!authData || !authData.userInfo) {
+    console.log("AuthData:", authData);
+
+    // Handle both response structures
+    const userInfo = authData?.data?.userInfo || authData?.userInfo;
+
+    if (!authData || !userInfo) {
         return {
             isAuthenticated: false,
             user: null
@@ -99,8 +101,9 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
     return {
         isAuthenticated: true,
         user: {
-            id: authData.userInfo.userId,
-            email: authData.userInfo.email
+            id: userInfo.userId,
+            email: userInfo.gmail || userInfo.email,
+            name: userInfo.name || "",
         }
     };
 };
