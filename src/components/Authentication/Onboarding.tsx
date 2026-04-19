@@ -16,9 +16,9 @@ interface FormData {
 const Onboarding = () => {
 
   const navigate = useNavigate()
-  // const [isLoading, setIsLoading] = useState(false)
-  // const backendURL = import.meta.env.VITE_BACKEND_URL
-  // const { user , setUser ,setIsAuthenticated } = useAuth()
+  const [isLoading, setIsLoading] = useState(false)
+  const backendURL = import.meta.env.VITE_BACKEND_URL
+  const { user , setUser ,setIsAuthenticated } = useAuth()
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -57,66 +57,72 @@ const Onboarding = () => {
     }
 
     const handleSubmit = async () => {
-
-      // test
-      const finalData = {
-        ...formData,
-        collageName : formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
-        course : formData.course === "OTHER" ? formData.otherCourse : formData.course,
+  const finalData = {
+    ...formData,
+    collageName: formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
+    course: formData.course === "OTHER" ? formData.otherCourse : formData.course,
+  }
+  
+  console.log("submitted", finalData)
+  
+  // ✅ UNCOMMENT AND FIX THIS
+  setIsLoading(true)
+  
+  try {
+    const response = await axios.post(`${backendURL}/api/students`, {
+      name: formData.name,
+      email: user?.email,  // Make sure user.email exists from Google login
+      phoneNumber: formData.phoneNumber,
+      collageName: finalData.collageName,
+      course: finalData.course,
+      year: formData.year
+    }, {
+      withCredentials: true,
+      headers: {
+        "Content-Type": "application/json"
       }
-      console.log("submitted" , finalData)
-      alert("registered")
-      localStorage.setItem("user", JSON.stringify(finalData))
+    })
+
+    console.log("API Response:", response.data)
+
+    if (response.status === 201 || response.status === 200) {
+      // Update localStorage
+      const userData = {
+        id: response.data.data?.id || response.data.id,
+        email: response.data.data?.email || response.data.email,
+        name: formData.name,
+        phoneNumber: formData.phoneNumber,
+        college: finalData.collageName,
+        course: finalData.course,
+        year: formData.year,
+        collageName: finalData.collageName,
+      }
+      
+      localStorage.setItem("user", JSON.stringify(userData))
+      localStorage.setItem("userInfo", JSON.stringify(userData))
+      localStorage.setItem("isLoggedIn", "true")
+      localStorage.setItem("isRegistered", "true")
+      
+      if (setIsAuthenticated) {
+        setIsAuthenticated(true)
+      }
+      
+      if (setUser) {
+        setUser(userData)
+      }
+
+      console.log("Account created successfully")
       navigate("/")
-
-      
-      // api wala
-      // setIsLoading(true)
-      
-      // replace with apiiiiiiiiii
-      // try {
-        
-      //   const response = await axios.post(`${backendURL}/api/students/`, {
-      //     name : formData.name,
-      //     email : user?.email,
-      //     phoneNumber : formData.phoneNumber,
-      //     collageName : formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
-      //     course : formData.course === "OTHER" ? formData.otherCourse : formData.course,
-      //     year : formData.year
-      //   }, {
-      //     withCredentials : true,
-      //     headers : {
-      //       "Content-Type" : "application/json"
-      //     }
-      //   })
-
-      //   if (response.status === 201) {
-      //     if(setIsAuthenticated) {
-      //       setIsAuthenticated(true)
-      //     }
-      //     if (setUser) {
-      //       setUser( {
-      //         email : response.data.email,
-      //         id : response.data.id,
-      //         name : formData.name,
-      //         phoneNumber : formData.phoneNumber,
-      //         college : formData.collageName === "OTHER" ? formData.otherCollageName : formData.collageName,
-      //         course : formData.course === "OTHER" ? formData.otherCourse : formData.course,
-      //         year : formData.year
-      //       })
-      //     }
-
-      //     console.log("Account created successfully")
-      //     navigate("/")
-      //   }
-
-      // } catch (error) {
-      //     console.log("Error creating account" , error)
-      // } finally {
-      //   setIsLoading(false)
-      // }
-
     }
+  } catch (error: any) {
+    console.log("Error creating account", error.response?.data || error)
+    alert(error.response?.data?.message || "Failed to create account")
+  } finally {
+    setIsLoading(false)
+  }
+}
+
+    
 
 
 
