@@ -14,7 +14,7 @@ import Upload from "./components/apply/UploadResume"
 import PaymentGateway from "./components/register/PaymentGateway"
 import ApplyCompanies from "./components/apply/ApplyCompanies"
 import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
-import useLocalStorage from "./hooks/useLocalStroage"
+import useLocalStorage from "./hooks/useLocalStorage"
 
 const App = () => {
 

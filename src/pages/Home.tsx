@@ -3,6 +3,7 @@ import AboutEventSection from "../components/home/About";
 import RecruitersSection from "../components/home/Companies";
 import PreviousEditionsSection from "../components/home/PreviousEdition";
 import FAQSection from "../components/home/FAQ";
+import ScrollToTop from "../components/layout/ScrolltoTop";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <RecruitersSection />
         <PreviousEditionsSection />
         <FAQSection />
+        <ScrollToTop />
       </section>
     </>
   );

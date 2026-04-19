@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
+import ScrollToTop from "../layout/ScrolltoTop";
 
 interface FormData {
     name: string;
@@ -277,6 +278,7 @@ const Onboarding = () => {
             </form>
           </div>
         </div>
+        <ScrollToTop />
       </section>
     </>
   );

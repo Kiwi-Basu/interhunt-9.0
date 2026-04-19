@@ -51,7 +51,7 @@ const CompanyHero = () => {
             ring-[#CEAC81]/20 rounded-2xl">
           </div>
         </div>
-        
+
         <div className="hidden sm:block absolute opacity-10 ring-6 md:ring-8 ring-[#1F3A5F]/20 
           h-28 sm:h-40 md:h-50 
           w-28 sm:w-40 md:w-50 
@@ -84,20 +84,20 @@ const CompanyHero = () => {
         <div className="flex flex-wrap justify-center gap-4 md:gap-5 z-10">
 
           <div className="h-28 w-28 sm:h-32 sm:w-32 md:h-35 md:w-35 border rounded-2xl shadow-md border-[#CEAC81]/30 bg-white flex items-center justify-center hover:-translate-y-3 transition-all duration-300 overflow-hidden">
-            <img src={comp1} alt="" className="h-16 sm:h-20 md:h-24 object-contain"/>
+            <img src={comp1} alt="" className="h-16 sm:h-20 md:h-24 object-contain" />
           </div>
 
           <div className="h-28 w-28 sm:h-32 sm:w-32 md:h-35 md:w-35 border rounded-2xl shadow-md border-[#CEAC81]/30 bg-white flex items-center justify-center hover:-translate-y-3 transition-all duration-300 overflow-hidden">
-            <img src={comp2} alt="" className="h-10 sm:h-12 md:h-15 object-contain"/>
+            <img src={comp2} alt="" className="h-10 sm:h-12 md:h-15 object-contain" />
           </div>
 
           <div className="h-28 w-28 sm:h-32 sm:w-32 md:h-35 md:w-35 border rounded-2xl shadow-md border-[#CEAC81]/30 bg-white flex items-center justify-center hover:-translate-y-3 transition-all duration-300 overflow-hidden">
-            <img src={comp3} alt="" className="h-12 sm:h-16 md:h-20 object-contain"/>
+            <img src={comp3} alt="" className="h-12 sm:h-16 md:h-20 object-contain" />
           </div>
 
         </div>
 
-      </div>    
+      </div>
     </section>
   )
 }

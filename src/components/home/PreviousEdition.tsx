@@ -127,7 +127,7 @@ const PreviousEdition = () => {
                   {/* Button */}
                   <a href={card.links} target="_blank">
                     <button className="cursor-pointer w-full py-2 rounded-xl bg-[#1F3A5F] text-white font-semibold transition-all duration-300 hover:bg-[#CEAC81] hover:text-[#1F3A5F]">
-                      Read More
+                      Learn More
                     </button>
                   </a>
 

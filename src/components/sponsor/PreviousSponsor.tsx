@@ -16,10 +16,10 @@ const PreviousSponsor = () => {
   return (
     <>
       <section id="Previous-Sponsor">
-        <div className="min-h-screen p-6 md:p-20 py-16 md:py-20 flex flex-col items-center bg-[#F8FAFC] relative overflow-hidden">
+        <div className="min-h-screen p-6 md:p-20 py-16 md:py-20 flex flex-col items-center bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9] relative overflow-hidden">
 
           {/* subtle divider */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-linear-to-r from-transparent via-[#CEAC81]/30 to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4  h-px bg-linear-to-r from-transparent via-[#CEAC81]/30 to-transparent pointer-events-none"></div>
 
           {/* Heading */}
           <p className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center">
@@ -40,7 +40,7 @@ const PreviousSponsor = () => {
             {sponsors.map((sponsor, idx) => (
               <div
                 key={idx}
-                className="h-40 md:h-52 w-[45%] sm:w-44 border border-gray-100 bg-white flex flex-col gap-2 md:gap-3 p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-sm hover:-translate-y-2 hover:border-[#CEAC81]/30 hover:shadow-md duration-300 transition-all group cursor-pointer opacity-60 hover:opacity-100"
+                className="h-40 md:h-52 w-[45%] sm:w-44 border border-gray-100 bg-white flex flex-col gap-2 md:gap-3 p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-sm hover:-translate-y-2 hover:border-[#CEAC81]/30 hover:shadow-md duration-300 transition-all group  opacity-60 hover:opacity-100"
               >
                 <div className="flex-1 flex items-center justify-center border border-gray-100 rounded-2xl bg-gray-50 p-3 grayscale group-hover:grayscale-0 group-hover:bg-[#1F3A5F]/5 transition-all duration-300">
                   <img

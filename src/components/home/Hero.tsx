@@ -40,7 +40,7 @@ const Hero = () => {
 
         {/* animated square (top-left area) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0.15, scale: 0.95 }}
           animate={{
             opacity: 0.15,
             scale: [1, 1.02, 1],
@@ -158,7 +158,7 @@ const Hero = () => {
           py-3 sm:py-4 md:py-5 
           rounded-2xl shadow-lg border-white/20 bg-[#f6f2f2] z-10">
           <p className="text-center">MAY 09,</p>
-          <p className="text-center text-[#0F1E3D]">2026</p>
+          <p className="text-center text-[#0F1E3D] font-extrabold tracking-wider">2026</p>
         </div>
 
         {/* buttons */}

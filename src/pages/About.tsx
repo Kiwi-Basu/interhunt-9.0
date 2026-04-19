@@ -1,6 +1,7 @@
 import AboutHero from "../components/about/AboutHero"
 import AboutInterhunt from "../components/about/AboutInterhunt"
 import AboutInternware from "../components/about/AboutInternware"
+import ScrollToTop from "../components/layout/ScrolltoTop"
 
 const About = () => {
   return (
@@ -9,6 +10,7 @@ const About = () => {
         <AboutHero />
         <AboutInternware />
         <AboutInterhunt />
+        <ScrollToTop />
       </section>
     </>
   )

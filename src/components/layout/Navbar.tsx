@@ -1,15 +1,19 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { Link, useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useState, useEffect, useRef } from "react";
 import logo from "../../assets/Asset 1@4x.png";
 import { IoPersonCircleOutline, IoMenu, IoClose } from "react-icons/io5";
 import { useAuth } from "../../context/AuthContext";
 
+
 const Navbar = () => {
   const navigate = useNavigate();
   const { logout } = useAuth();
   const { user } = useAuth();
-  
+
+  const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
 
   // 🔥 user from localStorage
@@ -87,21 +91,22 @@ const Navbar = () => {
         </div>
 
         {/* LOGO */}
-        <Link to="/" className="mr-auto lg:mr-0 flex items-center">
+        <NavLink to="/" onClick={scrollToTop} className="mr-auto lg:mr-0 flex items-center">
           <img src={logo} alt="InternHunt 9.0" className="h-5" />
-        </Link>
+        </NavLink>
 
         {/* NAV LINKS (DESKTOP) */}
         <div className="hidden lg:flex gap-5 text-sm">
           {navItems.map((nav, idx) => (
-            <Link
+            <NavLink
               to={nav.link}
               key={idx}
-              className="relative text-lg cursor-pointer group hover:text-[#CEAC81] transition-colors"
+              onClick={scrollToTop}
+              className={({ isActive }) => `relative text-lg cursor-pointer group transition-colors ${isActive ? "text-[#CEAC81]" : "hover:text-[#CEAC81]"}`}
             >
               {nav.name}
               <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-[#CEAC81] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
-            </Link>
+            </NavLink>
           ))}
         </div>
 
@@ -127,21 +132,21 @@ const Navbar = () => {
               {/* DROPDOWN */}
               {isOpen && (
                 <div className="absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50 text-black">
-                  <Link
+                  <NavLink
                     to="/dashboard/profile"
                     className="block px-4 py-2 text-sm hover:bg-gray-100"
                     onClick={() => setIsOpen(false)}
                   >
                     Profile
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/dashboard"
                     className="block px-4 py-2 text-sm hover:bg-gray-100"
                     onClick={() => setIsOpen(false)}
                   >
                     DashBoard
-                  </Link>
+                  </NavLink>
 
                   <button
                     onClick={handleLogout}
@@ -153,12 +158,12 @@ const Navbar = () => {
               )}
             </>
           ) : (
-            <Link
+            <NavLink
               to="/auth"
               className="relative text-base lg:text-xl cursor-pointer hover:text-[#CEAC81] transition"
             >
               Login
-            </Link>
+            </NavLink>
           )}
         </div>
       </motion.div>
@@ -167,14 +172,14 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[95%] bg-[#1F3A5F] text-white rounded-2xl shadow-xl flex flex-col items-center py-6 gap-4 z-40 border border-[#CEAC81]/20 backdrop-blur-md">
           {navItems.map((nav, idx) => (
-            <Link
+            <NavLink
               to={nav.link}
               key={idx}
               className="text-lg font-medium hover:text-[#CEAC81] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {nav.name}
-            </Link>
+            </NavLink>
           ))}
         </div>
       )}

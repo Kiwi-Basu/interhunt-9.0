@@ -1,3 +1,5 @@
+import { Rocket , BowArrow , Sparkles} from "lucide-react";
+
 const AboutInterhunt = () => {
   return (
     <section id="About-InterHunt">
@@ -44,7 +46,7 @@ const AboutInterhunt = () => {
 
             {/* Card 1 */}
             <div className="w-full sm:w-[45%] md:w-72 h-24 md:h-28 border border-[#CEAC81]/30 bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center gap-2 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
-              <span className="text-xl sm:text-2xl">🚀</span>
+              <Rocket className="text-xl sm:text-2xl text-[#CEAC81]" />
               <p className="text-[#1F3A5F] font-semibold text-sm md:text-base tracking-wide">
                 Why InternHunt?
               </p>
@@ -53,7 +55,7 @@ const AboutInterhunt = () => {
 
             {/* Card 2 */}
             <div className="w-full sm:w-[45%] md:w-72 h-24 md:h-28 border border-[#CEAC81]/30 bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center gap-2 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
-              <span className="text-xl sm:text-2xl">🎯</span>
+              <BowArrow className="text-xl sm:text-2xl text-[#CEAC81]" />
               <p className="text-[#1F3A5F] font-semibold text-sm md:text-base tracking-wide">
                 Our Mission
               </p>
@@ -62,7 +64,7 @@ const AboutInterhunt = () => {
             
             {/* Card 3 */}
             <div className="w-full sm:w-[45%] md:w-72 h-24 md:h-28 border border-[#CEAC81]/30 bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center gap-2 hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-default">
-              <span className="text-xl sm:text-2xl">✨</span>
+              <Sparkles className="text-xl sm:text-2xl text-[#CEAC81]"/>
               <p className="text-[#1F3A5F] font-semibold text-sm md:text-base tracking-wide">
                 Skill Develop
               </p>

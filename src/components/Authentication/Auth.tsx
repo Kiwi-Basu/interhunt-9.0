@@ -4,6 +4,8 @@ import axios from "axios"
 import { useAuth } from "../../context/AuthContext"
 import { useState } from "react"
 import { useGoogleLogin } from "@react-oauth/google"
+import ScrollToTop from '../layout/ScrolltoTop';
+
 
 
 const Auth = () => {
@@ -150,6 +152,7 @@ const Auth = () => {
 
           </div>
         </div>
+        <ScrollToTop />
       </section>
     </>
   )

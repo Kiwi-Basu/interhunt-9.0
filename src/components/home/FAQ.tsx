@@ -67,7 +67,7 @@ const FAQSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
-                className={`bg-white rounded-2xl shadow-sm border transition-all duration-300 ${
+                className={`bg-white rounded-2xl  shadow-sm border transition-all duration-300 ${
                   openIndex === idx
                     ? "border-[#CEAC81] shadow-md"
                     : "border-[#CEAC81]/20"
@@ -76,7 +76,7 @@ const FAQSection = () => {
                 {/* Question */}
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full flex justify-between items-center p-4 md:p-5 text-left font-semibold text-[#0F172A] text-sm md:text-base gap-2"
+                  className="w-full cursor-pointer flex justify-between items-center p-4 md:p-5 text-left font-semibold text-[#0F172A] text-sm md:text-base gap-2"
                 >
                   <span>{faq.question}</span>
 

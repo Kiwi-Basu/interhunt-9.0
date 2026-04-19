@@ -148,7 +148,7 @@ const sessionGenerator = async () => {
                 <div className="text-center mt-10">
                   <button
                     onClick={handlePayment}
-                    className="px-8 py-4 rounded-full font-medium text-white bg-linear-to-r from-sky-400 to-blue-600 hover:scale-105 transition-all duration-200 shadow-lg"
+                    className="px-8 py-4 rounded-full font-extrabold shadow-2xl text-[#1F3A5F] bg-[#CEAC81] cursor-pointer hover:scale-105 transition-all duration-200"
                   >
                     Pay Now
                   </button>
