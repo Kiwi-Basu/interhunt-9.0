@@ -6,11 +6,11 @@ import ScrollToTop from "./ScrolltoTop";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Companies", href: "/company" },
-    { name: "Sponsor", href: "/sponsor" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", link: "/" },
+    { name: "About", link: "/about" },
+    { name: "Companies", link: "/company" },
+    { name: "Sponsor", link: "/sponsor" },
+    { name: "Contact", link: "/contact" },
   ];
 
   return (
@@ -65,7 +65,7 @@ const Footer = () => {
                   {quickLinks.map((link) => (
                     <li key={link.name}>
                       <NavLink onClick={ScrollToTop}
-                        to={link.href}
+                        to={link.link}
                         className="text-[#1F3A5F] text-sm hover:text-[#CEAC81] transition-all duration-200"
                       >
                         {link.name}
