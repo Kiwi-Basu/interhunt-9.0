@@ -7,7 +7,6 @@ const ProfileDetail = () => {
 
   const navigate = useNavigate();
 
-  // const user = JSON.parse(localStorage.getItem("user") || "{}"); 
 
   return (
     <>
@@ -49,8 +48,7 @@ const ProfileDetail = () => {
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
                   <span className="text-xs text-gray-400 mb-1.5">Email</span>
                   <span className="font-semibold text-gray-900 text-sm">
-                    {user?.email || "Not provided"}
-                  </span>
+
                 </div>
 
                 <div className="flex flex-col w-full sm:w-[48%] md:w-[32%] bg-white border border-gray-100 rounded-xl p-4">
