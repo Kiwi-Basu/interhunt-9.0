@@ -35,7 +35,7 @@ const Auth = () => {
 
             const [studentResponse , companiesResponse] = await Promise.all([
               axios.get(`${backendURL}/api/students` , {withCredentials : true}),    // student ka api bhi change ig mostly yahi hona chiye waise
-              axios.get(`${backendURL}/api/Companies` , {withCredentials : true})   // api replace with company wala
+              axios.get(`${backendURL}/api/companies` , {withCredentials : true})   // api replace with company wala
             ])
 
             const student = studentResponse.data.studentData;

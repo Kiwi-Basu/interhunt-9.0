@@ -54,7 +54,7 @@ const PaymentButton = () => {
     if (gmail.length > 0) {
       try {
         await axios
-          .post(`${backendURL}/api/internHunt/register`, data)
+          .post(`${backendURL}/api/internHunt/register`, data)//change
           .then((res) => {
             console.log(".then Response: ", res.data);
             if (res.data.exist === false && res.data.success) {
