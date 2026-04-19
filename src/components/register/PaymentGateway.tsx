@@ -39,7 +39,7 @@ const PaymentGateway = () => {
   useEffect(() => {
     const init = async () => {
       try {
-        const sdk = await load({ mode: "production" });
+        const sdk = await load({ mode: "sandbox" });
         setCashfree(sdk);
       } catch (err) {
         console.error("Cashfree init error:", err);
@@ -54,9 +54,8 @@ const PaymentGateway = () => {
 const sessionGenerator = async () => {
   try {
     // ✅ Correct endpoint - matches your backend route
-    const res = await axios.post(
-      `${backendURL}/api/payment/createOrder`,  // Note: "createOrder" not "create-order"
-      {
+    const res = await axios.post(`${backendURL}/api/payment/createOrder`, {// Note: "createOrder" not "create-order"
+      
         eventName: "InternHunt 9.0",
       },
       {
@@ -68,7 +67,7 @@ const sessionGenerator = async () => {
     console.log("Order response:", res.data);
     
     // Your backend returns: { success: true, data: { paymentSessionId, orderId } }
-    return res?.data?.data?.paymentSessionId || null;
+    return res?.data?.paymentSessionId || null;
     
   } catch (err) {
     console.error("Session error:", err);
@@ -79,7 +78,7 @@ const sessionGenerator = async () => {
   // ✅ REGISTER USER AFTER PAYMENT
   const registerStudent = async () => {
     try {
-      await axios.post(`${backendURL}/api/internHunt/register`, {
+      await axios.post(`${backendURL}/api/internHunt9/register`, {
         email: user?.email,
         name: user?.name,
         number: user?.phoneNumber,
