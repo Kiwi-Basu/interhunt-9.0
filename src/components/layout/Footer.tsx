@@ -1,10 +1,12 @@
 import { NavLink } from "react-router";
 import logo from "../../assets/Asset 1@4x.png";
-import ScrollToTop from "./ScrolltoTop";
 
 
 
 const Footer = () => {
+  const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   const quickLinks = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
@@ -64,7 +66,7 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {quickLinks.map((link) => (
                     <li key={link.name}>
-                      <NavLink onClick={ScrollToTop}
+                      <NavLink onClick={scrollToTop}
                         to={link.link}
                         className="text-[#1F3A5F] text-sm hover:text-[#CEAC81] transition-all duration-200"
                       >
