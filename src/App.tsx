@@ -13,12 +13,12 @@ import Profile from "./pages/Profile"
 import PaymentGateway from "./components/register/PaymentGateway"
 import ApplyCompanies from "./components/apply/ApplyCompanies"
 import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
-import useLocalStorage from "./hooks/useLocalStorage"
+import { useAuth } from "./context/AuthContext"
 
 const App = () => {
 
-  const [isLoggedIn] = useLocalStorage("isLoggedIn", true)
-  const [isRegistered] = useLocalStorage("isRegistered", true)
+  const { setUser , isAuthenticated , setIsAuthenticated} = useAuth()
+
   return (
     <>
       <section id="App" >
@@ -50,9 +50,9 @@ const App = () => {
             path="/dashboard"
             element={
               <RenderProtectedRoute
-                condition={isLoggedIn && isRegistered}
+                condition={isAuthenticated}
                 renderPage={<Dashboard />}
-                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
                 errorMessage="Access denied"
               />
             }
@@ -62,9 +62,9 @@ const App = () => {
             path="/apply/payment"
             element={
               <RenderProtectedRoute
-                condition={isLoggedIn && isRegistered}
+                condition={isAuthenticated}
                 renderPage={<PaymentGateway />}
-                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
                 errorMessage="Access denied"
               />
             }
@@ -74,9 +74,9 @@ const App = () => {
             path="/apply/companies"
             element={
               <RenderProtectedRoute
-                condition={isLoggedIn && isRegistered}
+                condition={isAuthenticated}
                 renderPage={<ApplyCompanies />}
-                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
+                fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
                 errorMessage="Access denied"
               />
             }
@@ -86,10 +86,10 @@ const App = () => {
             path = "/onboarding"
             element ={
               <RenderProtectedRoute
-                condition={isLoggedIn}
+                condition={isAuthenticated}
                 renderPage={<Onboarding />}
-                fallback={!isLoggedIn ? "/auth"}
-                errorMessage="Access denied"
+                fallback={!isAuthenticated ? "/auth" : "/dashboard"}
+                errorMessage="Access not denied"
               />
             }
           />
