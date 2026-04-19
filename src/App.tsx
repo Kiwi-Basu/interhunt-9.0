@@ -10,7 +10,6 @@ import Onboarding from "./components/Authentication/Onboarding"
 import Footer from "./components/layout/Footer"
 import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
-import Upload from "./components/apply/UploadResume"
 import PaymentGateway from "./components/register/PaymentGateway"
 import ApplyCompanies from "./components/apply/ApplyCompanies"
 import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
@@ -42,12 +41,15 @@ const App = () => {
           <Route path="/apply/companies" element={<ApplyCompanies />} />
 
 
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/upload" element={<Upload />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} />
-          {/* <Route
+           */}
+
+
+          <Route
             path="/dashboard"
             element={
               <RenderProtectedRoute
@@ -65,18 +67,6 @@ const App = () => {
               <RenderProtectedRoute
                 condition={isLoggedIn && isRegistered}
                 renderPage={<PaymentGateway />}
-                fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
-                errorMessage="Access denied"
-              />
-            }
-          />
-          
-          <Route
-            path="/apply/upload"
-            element={
-              <RenderProtectedRoute
-                condition={isLoggedIn && isRegistered}
-                renderPage={<Upload />}
                 fallback={!isLoggedIn ? "/auth" : "/apply/payment"}
                 errorMessage="Access denied"
               />
@@ -105,7 +95,7 @@ const App = () => {
                 errorMessage="Access denied"
               />
             }
-          /> */}
+          />
 
 
         </Routes>

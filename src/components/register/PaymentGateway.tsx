@@ -21,7 +21,6 @@ const PaymentGateway = () => {
   const [paymentFailed, setPaymentFailed] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
 
-  const url = import.meta.env.VITE_SERVER_URL;
   const backendURL = import.meta.env.VITE_BACKEND_URL;
 
   // ✅ IITM CHECK (fixed field)
@@ -64,7 +63,7 @@ const sessionGenerator = async () => {
       }
     );
 
-    console.log("Order response:", res.data);
+    // console.log("Order response:", res.data);
     
     // Your backend returns: { success: true, data: { paymentSessionId, orderId } }
     return res?.data?.paymentSessionId || null;

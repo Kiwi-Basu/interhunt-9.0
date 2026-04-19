@@ -35,11 +35,11 @@ const ApplyCompanies = () => {
   };
 
   const handleSubmit = () => {
-    console.log({
-      tier1,
-      tier2,
-      tier3
-    });
+    // console.log({
+    //   tier1,
+    //   tier2,
+    //   tier3
+    // });
 
     localStorage.setItem("isApplied", "true");
     alert("Applications submitted!");

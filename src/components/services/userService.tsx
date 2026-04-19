@@ -12,7 +12,7 @@ export const verifyAuthStatus = async (backendURL: string) => {
             withCredentials: true,
         });
 
-        console.log("Verify auth response:", response.data);
+        // console.log("Verify auth response:", response.data);
 
         // ✅ Handle root level userInfo
         const userInfo = response.data?.data?.userInfo || response.data?.userInfo;
@@ -38,7 +38,7 @@ export const fetchUserData = async (backendURL: string): Promise<User | null> =>
             withCredentials: true,
         });
 
-        console.log("Student response:", studentResponse.data);
+        // console.log("Student response:", studentResponse.data);
 
         // Handle both response structures
         const studentData = studentResponse.data?.data?.studentData || studentResponse.data?.studentData;
@@ -75,7 +75,7 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
     // First, verify authentication
     const authData = await verifyAuthStatus(backendURL);
 
-    console.log("AuthData:", authData);
+    // console.log("AuthData:", authData);
 
     // Handle both response structures
     const userInfo = authData?.data?.userInfo || authData?.userInfo;

@@ -35,13 +35,15 @@ const Auth = () => {
 
           try {
 
-            const [studentResponse , companiesResponse] = await Promise.all([
+            const [studentResponse] = await Promise.all([  // companiesResponse is not used so removed "comma dal ka company ka dalna"
               axios.get(`${backendURL}/api/students` , {withCredentials : true}),    // student ka api bhi change ig mostly yahi hona chiye waise
-              axios.get(`${backendURL}/api/companies` , {withCredentials : true})   // api replace with company wala
+              // axios.get(`${backendURL}/api/companies` , {withCredentials : true})   // api replace with company wala
             ])
 
             const student = studentResponse.data.studentData;
-            const CompanyName = companiesResponse.data?.registered ? companiesResponse.data.companyName : undefined
+            
+            // phase 2 ka hai
+            // const CompanyName = companiesResponse.data?.registered ? companiesResponse.data.companyName : undefined
 
             if (setUser && student) {
               setUser( {
@@ -92,10 +94,10 @@ const Auth = () => {
   // google error handler
   const handleGoogleError = (error : any) => {
     if ( error.error === "popup_closed_by_user" || error.error === "access_denied") {
-      console.log("Account Selection Cancelled")
+      // console.log("Account Selection Cancelled")
     }
     else {
-      console.log("Google Login Failed")
+      // console.log("Google Login Failed")
     }
     setIsLoading(false)
   }

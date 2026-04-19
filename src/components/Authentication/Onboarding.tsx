@@ -17,7 +17,7 @@ interface FormData {
 const Onboarding = () => {
 
   const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading,setIsLoading] = useState(false)
   const backendURL = import.meta.env.VITE_BACKEND_URL
   const { user , setUser ,setIsAuthenticated } = useAuth()
 
@@ -64,7 +64,7 @@ const Onboarding = () => {
     course: formData.course === "OTHER" ? formData.otherCourse : formData.course,
   }
   
-  console.log("submitted", finalData)
+  // console.log("submitted", finalData)
   
   // ✅ UNCOMMENT AND FIX THIS
   setIsLoading(true)
@@ -84,7 +84,7 @@ const Onboarding = () => {
       }
     })
 
-    console.log("API Response:", response.data)
+    // console.log("API Response:", response.data)
 
     if (response.status === 201 || response.status === 200) {
       // Update localStorage
@@ -112,11 +112,11 @@ const Onboarding = () => {
         setUser(userData)
       }
 
-      console.log("Account created successfully")
+      // console.log("Account created successfully")
       navigate("/")
     }
-  } catch (error: any) {
-    console.log("Error creating account", error.response?.data || error)
+  } catch (error:any) {
+    // console.log("Error creating account", error.response?.data || error)
     alert(error.response?.data?.message || "Failed to create account")
   } finally {
     setIsLoading(false)
@@ -272,9 +272,8 @@ const Onboarding = () => {
                 disabled={!isFormValid()}
                 className="mt-2 bg-[#1F3A5F] text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50"
               >
-                Register
+                {isLoading ? "Registering..." : "Register"}
               </button>
-
             </form>
           </div>
         </div>
