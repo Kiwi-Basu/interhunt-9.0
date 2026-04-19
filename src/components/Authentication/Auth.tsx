@@ -79,6 +79,9 @@ const Auth = () => {
               email: response.data.email,
             })
           }
+          if (setIsAuthenticated) {
+            setIsAuthenticated(true)
+          }
           navigate("/onboarding")
         }
       }

@@ -14,13 +14,11 @@ const RenderProtectedRoute = ({
     errorMessage : string;
     devMode? : boolean
 }) => {
-    const checkFailed = () => {
-        if(!condition) {
-            console.log(errorMessage)
-            return <Navigate to={fallback} />
-        }
+    if (!condition && !devMode) {
+        console.log(errorMessage)
+        return <Navigate to={fallback} />
     }
-    return <div> {devMode ? renderPage : checkFailed()}</div>
+    return <>{renderPage}</>
 }
 
 export default RenderProtectedRoute

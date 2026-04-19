@@ -16,7 +16,9 @@ export interface AuthContextType {
     user : User | null;
     setUser : (user : User | null) => void;
     isAuthenticated : boolean;
-    setIsAuthenticated : (isAuthtenticated : boolean) => void;
+    setIsAuthenticated : (isAuthenticated : boolean) => void;
+    isRegistered : boolean;
+    setIsRegistered : (isRegistered : boolean) => void;
     isLoading : boolean;
     logout : () => void;
     refetchUserData : () => Promise<void>;

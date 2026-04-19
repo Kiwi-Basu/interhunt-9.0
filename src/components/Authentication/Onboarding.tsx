@@ -18,7 +18,7 @@ const Onboarding = () => {
   const navigate = useNavigate()
   const [isLoading,setIsLoading] = useState(false)
   const backendURL = import.meta.env.VITE_BACKEND_URL
-  const { user , setUser ,setIsAuthenticated } = useAuth()
+  const { user , setUser , setIsAuthenticated, setIsRegistered } = useAuth()
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -98,20 +98,15 @@ const Onboarding = () => {
         collageName: finalData.collageName,
       }
       
-      localStorage.setItem("user", JSON.stringify(userData))
-      localStorage.setItem("userInfo", JSON.stringify(userData))
-      localStorage.setItem("isLoggedIn", "true")
-      localStorage.setItem("isRegistered", "true")
-      
       if (setIsAuthenticated) {
         setIsAuthenticated(true)
       }
+      setIsRegistered(true)
       
       if (setUser) {
         setUser(userData)
       }
 
-      // console.log("Account created successfully")
       navigate("/")
     }
   } catch (error:any) {

@@ -11,6 +11,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const backendURL = import.meta.env.VITE_BACKEND_URL;
@@ -22,6 +23,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
             setIsAuthenticated(authStatus);
             setUser(userData);
+            // A registered user has a full profile (name populated by onboarding)
+            setIsRegistered(!!(userData?.name));
         } catch (error) {
             console.error('Error verifying auth status:', error);
             setIsAuthenticated(false);
@@ -62,7 +65,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }, [checkAuthStatus]);
 
     return (
-        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, isLoading, logout, refetchUserData }}>
+        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, isRegistered, setIsRegistered, isLoading, logout, refetchUserData }}>
             {children}
         </AuthContext.Provider>
     );
