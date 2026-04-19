@@ -2,6 +2,9 @@ import { Link } from "react-router"
 import { motion } from "motion/react"
 
 const About = () => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
   return (
     <>
       <section id="about">
@@ -40,7 +43,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link to="/about">
+            <Link to="/about" onClick={scrollToTop}>
               <button className="px-10 py-3 bg-[#1F3A5F] text-white rounded-full shadow-md hover:shadow-[#1F3A5F]/30 cursor-pointer hover:scale-105 flex items-center gap-2 duration-300 hover:bg-[#CEAC81] hover:text-[#1F3A5F]">
                 <p className="text-lg font-semibold">Know More</p>
                 <span className="text-2xl">→</span>
@@ -54,4 +57,4 @@ const About = () => {
   )
 }
 
-export default About
+export default About
