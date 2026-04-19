@@ -16,12 +16,12 @@ const Auth = () => {
   const backendURL = import.meta.env.VITE_BACKEND_URL
 
   // this is the login clicking and that thing if login then home page nahi toh onboard page and login wala
-  const googleResponse = async (authResult : any) => {
+  const googleResponse = async (authResult : {code : string}) => {
     try {
 
-      if (authResult["code"]) {
+      if (authResult.code) {
         const response = await axios.get(
-          `${backendURL}/api/auth/google/callback?code=${authResult["code"]}`,
+          `${backendURL}/api/auth/google/callback?code=${authResult.code}`,
           {
             withCredentials : true
           }
