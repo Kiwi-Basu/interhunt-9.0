@@ -107,11 +107,19 @@ const Navbar = () => {
           {user ? (
             <>
               {/* PROFILE ICON */}
-              <img src={user?.profileImage} alt="" className="h-10 w-10 rounded-full" /> ||
-              <IoPersonCircleOutline
-                className="text-3xl cursor-pointer"
-                onClick={() => setIsOpen((prev) => !prev)}
-              />
+              {user?.profileImage ? (
+                <img
+                  src={user.profileImage}
+                  alt="profile"
+                  className="h-10 w-10 rounded-full cursor-pointer"
+                  onClick={() => setIsOpen(prev => !prev)}
+                />
+              ) : (
+                <IoPersonCircleOutline
+                  className="text-3xl cursor-pointer"
+                  onClick={() => setIsOpen(prev => !prev)}
+                />
+              )}
 
               {/* DROPDOWN */}
               {isOpen && (
