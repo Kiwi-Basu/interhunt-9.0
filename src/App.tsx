@@ -34,11 +34,12 @@ const App = () => {
           <Route path="/company" element={<Companies />} />
           <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/about" element={<About />} />
-          <Route path="/dashboard/profile" element={<Profile />} />
+
+          {/* <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
-          <Route path="/apply/companies" element={<ApplyCompanies />} />
+          <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
           {/* <Route path="/dashboard" element={<Dashboard />} />
