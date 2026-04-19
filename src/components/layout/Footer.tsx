@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import logo from "../../assets/Asset 1@4x.png";
 import ScrollToTop from "./ScrolltoTop";
 
@@ -64,12 +64,12 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {quickLinks.map((link) => (
                     <li key={link.name}>
-                      <Link onClick={ScrollToTop}
+                      <NavLink onClick={ScrollToTop}
                         to={link.href}
                         className="text-[#1F3A5F] text-sm hover:text-[#CEAC81] transition-all duration-200"
                       >
                         {link.name}
-                      </Link>
+                      </NavLink>
                     </li>
                   ))}
                 </ul>
