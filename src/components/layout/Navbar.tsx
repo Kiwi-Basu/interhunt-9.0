@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router";
 import { useState, useEffect, useRef } from "react";
 import logo from "../../assets/Asset 1@4x.png";
 import { IoPersonCircleOutline, IoMenu, IoClose } from "react-icons/io5";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   // 🔥 user from localStorage
-  const user = JSON.parse(localStorage.getItem("user") || "null");
+  // const user = JSON.parse(localStorage.getItem("user") || "null");
 
   // 🔥 dropdown state
   const [isOpen, setIsOpen] = useState(false);
@@ -105,6 +107,7 @@ const Navbar = () => {
           {user ? (
             <>
               {/* PROFILE ICON */}
+              <img src={user?.profileImage} alt="" className="h-10 w-10 rounded-full" /> ||
               <IoPersonCircleOutline
                 className="text-3xl cursor-pointer"
                 onClick={() => setIsOpen((prev) => !prev)}

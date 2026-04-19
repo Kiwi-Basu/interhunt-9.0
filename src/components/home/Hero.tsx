@@ -1,8 +1,10 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
+import { useAuth } from "../../context/AuthContext";
 
 const Hero = () => {
-  const user = JSON.parse(localStorage.getItem("user") || "null");
+  // const user = JSON.parse(localStorage.getItem("user") || "null");
+  const { user } = useAuth();
 
   return (
     <section id="hero">

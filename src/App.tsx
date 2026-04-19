@@ -11,16 +11,16 @@ import Footer from "./components/layout/Footer"
 import Dashboard from "./pages/Dashboard"
 import Profile from "./pages/Profile"
 import Upload from "./components/apply/UploadResume"
-import PaymentGateway from "./components/apply/PaymentGateway"
+import PaymentGateway from "./components/register/PaymentGateway"
 import ApplyCompanies from "./components/apply/ApplyCompanies"
 import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
 import useLocalStorage from "./hooks/useLocalStroage"
 
 const App = () => {
-  
-  const [isLoggedIn] = useLocalStorage("isLoggedIn" , true)
-  const [userInfo] = useLocalStorage("userInfo" , {})
-  const [isRegistered] = useLocalStorage("isRegistered" , true)
+
+  const [isLoggedIn] = useLocalStorage("isLoggedIn", true)
+  const [userInfo] = useLocalStorage("userInfo", {})
+  const [isRegistered] = useLocalStorage("isRegistered", true)
   const isEmptyObject = (obj: Record<string, unknown>) => {
     return Object.keys(obj).length === 0;
   };
@@ -38,15 +38,15 @@ const App = () => {
           <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/onboarding" element={<Onboarding />} />
-            <Route path="/apply/payment" element={<PaymentGateway />} />
+          <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} />
 
 
-          <Route path ="/dashboard" element={<Dashboard />} />
-          <Route path ="/dashboard/profile" element={<Profile />} />
-          <Route path ="/apply/payment" element={<PaymentGateway />} />
-          <Route path ="/apply/upload" element={<Upload />} />
-          <Route path ="/apply/companies" element={<ApplyCompanies />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/profile" element={<Profile />} />
+          <Route path="/apply/payment" element={<PaymentGateway />} />
+          <Route path="/apply/upload" element={<Upload />} />
+          <Route path="/apply/companies" element={<ApplyCompanies />} />
           {/* <Route
             path="/dashboard"
             element={
