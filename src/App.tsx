@@ -31,19 +31,18 @@ const App = () => {
           <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/about" element={<About />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/onboarding" element={<Onboarding />} />
 
           {/* <Route path="/dashboard/profile" element={<Profile />} />
-          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
           <Route path="/dashboard/profile" element={<Profile />} />
-          {/* <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
-          <Route path="/apply/upload" element={<Upload />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} />
-           */}
+          
 
 
           <Route
