@@ -47,14 +47,14 @@ const ContactLocation = () => {
           >
 
             {/* Email */}
-            <div onClick={() => window.location.href='mailto:internware@iitm.ac.in'} className="flex-1 relative overflow-hidden bg-white/80 backdrop-blur-xl border border-[#CEAC81]/30 shadow-lg rounded-3xl flex items-center gap-6 p-7 hover:-translate-y-1 hover:shadow-2xl hover:border-[#CEAC81]/60 transition-all duration-300 group cursor-pointer">
+            <div onClick={() => window.location.href='mailto:internware@gmail.com'} className="flex-1 relative overflow-hidden bg-white/80 backdrop-blur-xl border border-[#CEAC81]/30 shadow-lg rounded-3xl flex items-center gap-6 p-7 hover:-translate-y-1 hover:shadow-2xl hover:border-[#CEAC81]/60 transition-all duration-300 group cursor-pointer">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#CEAC81]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-[#1F3A5F]/10 to-[#CEAC81]/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-[#1F3A5F]/10 transition-all duration-300 shadow-sm border border-white">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-[#1F3A5F]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </div>
               <div className="flex flex-col relative z-10">
                 <p className="font-extrabold text-xl tracking-wide text-[#1F3A5F] mb-0.5">Email Us</p>
-                <p className="text-[#CEAC81] font-semibold text-[15px]">internware@iitm.ac.in</p>
+                <p className="text-[#CEAC81] font-semibold text-[15px]">internware@gmail.com</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-x-4 group-hover:translate-x-0 relative z-10">
                 <div className="h-10 w-10 rounded-full bg-[#1F3A5F] flex items-center justify-center shadow-lg">

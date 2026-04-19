@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
+import dateImage from "../../assets/Home/DateImage.png"
+
 
 const Hero = () => {
   // const user = JSON.parse(localStorage.getItem("user") || "null");
@@ -153,12 +155,8 @@ const Hero = () => {
         </div>
 
         {/* date */}
-        <div className="text-4xl sm:text-5xl md:text-9xl font-bold border mb-8 md:mb-10 
-          px-4 sm:px-6 md:px-10 
-          py-3 sm:py-4 md:py-5 
-          rounded-2xl shadow-lg border-white/20 bg-[#f6f2f2] z-10">
-          <p className="text-center">MAY 09,</p>
-          <p className="text-center text-[#0F1E3D] font-extrabold tracking-wider">2026</p>
+        <div className="border mb-8 md:mb-10 px-4 sm:px-6 md:px-6 py-3 sm:py-4 md:py-5 rounded-2xl shadow-lg border-white/20 bg-[#f6f2f2] z-10 ">
+          <img src={dateImage} alt="" className="h-75" />
         </div>
 
         {/* buttons */}
