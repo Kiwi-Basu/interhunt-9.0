@@ -32,9 +32,8 @@ RUN chown -R appuser:appgroup /app
 # Switch to non-root user
 USER appuser
 
-# Expose port
-EXPOSE 3000
+# Expose port 80 for Coolify
+EXPOSE 80
 
-# Serve the built application using Bun
-# We use bunx to run the 'serve' package without installing it globally
-CMD ["bun", "x", "serve", "-s", "dist", "-l", "3000"]
+# Serve the built application using Bun on port 80
+CMD ["bun", "x", "serve", "-s", "dist", "-l", "80"]
