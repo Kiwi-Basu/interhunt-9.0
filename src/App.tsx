@@ -45,7 +45,7 @@ const App = () => {
           
 
 
-          <Route
+          {/* <Route
             path="/dashboard"
             element={
               <RenderProtectedRoute
@@ -91,7 +91,7 @@ const App = () => {
                 errorMessage="Access not denied"
               />
             }
-          />
+          /> */}
 
 
         </Routes>
