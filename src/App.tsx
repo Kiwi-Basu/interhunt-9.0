@@ -86,9 +86,9 @@ const App = () => {
             path = "/onboarding"
             element ={
               <RenderProtectedRoute
-                condition={isLoggedIn && !isRegistered}
+                condition={isLoggedIn}
                 renderPage={<Onboarding />}
-                fallback={!isLoggedIn ? "/auth" : "/dashboard"}
+                fallback={!isLoggedIn ? "/auth"}
                 errorMessage="Access denied"
               />
             }
