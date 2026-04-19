@@ -140,10 +140,11 @@ const Auth = () => {
 
               <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#1F3A5F]/5 rounded-full group-hover:scale-110 transition-transform">
                 <img src={GoogleIcon} alt="Google Icon" className="w-5 h-5 md:w-6 md:h-6" />
+                <p>Sign in with Google</p>
               </div>
 
               <span className="text-base md:text-lg font-semibold text-[#1F3A5F] group-hover:text-[#CEAC81]">
-                {/* {isLoading ? "Signing in..." : "Continue with Google"}   changes accordingly */}
+                {isLoading ? "Signing in..." : "Continue with Google"}   changes accordingly
               </span>
             </button>
 
