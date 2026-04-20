@@ -28,7 +28,13 @@ const App = () => {
 
         <Navbar />
         <AuthGuard>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={
+            <div className="min-h-screen bg-[#d1d2d3] flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-[#D8B893] text-xl font-semibold">Loading...</p>
+              </div>
+            </div>
+          }>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/contact" element={<Contact />} />
@@ -43,7 +49,7 @@ const App = () => {
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-              <Route path="/dashboard/profile" element={<Profile />} />
+              {/* <Route path="/dashboard/profile" element={<Profile />} /> */}
               {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
@@ -81,6 +87,19 @@ const App = () => {
                   <RenderProtectedRoute
                     condition={isAuthenticated && isRegistered}
                     renderPage={<ApplyCompanies />}
+                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                    errorMessage="Access denied"
+                    isLoading={isLoading}
+                  />
+                }
+              />
+
+              <Route
+                path="/dashboard/profile"
+                element={
+                  <RenderProtectedRoute
+                    condition={isAuthenticated}
+                    renderPage={<Profile />}
                     fallback={!isAuthenticated ? "/auth" : "/onboarding"}
                     errorMessage="Access denied"
                     isLoading={isLoading}
