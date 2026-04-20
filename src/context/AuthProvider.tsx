@@ -11,7 +11,10 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [isRegistered, setIsRegistered] = useState(false);
+    const [hasProfile, setHasProfile] = useState(false);
+    // hasPurchased is session-only — no backend field exists for it.
+    // It is set to true only when payment polling resolves as 'completed'.
+    const [hasPurchased, setHasPurchased] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const backendURL = import.meta.env.VITE_BACKEND_URL;
@@ -23,8 +26,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
             setIsAuthenticated(authStatus);
             setUser(userData);
-            // A registered user has a full profile (name populated by onboarding)
-            setIsRegistered(!!(userData?.name));
+            // hasProfile is true when the user has completed onboarding (has a name)
+            setHasProfile(!!(userData?.name));
         } catch (error) {
             console.error('Error verifying auth status:', error);
             setIsAuthenticated(false);
@@ -56,6 +59,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         } finally {
             setUser(null);
             setIsAuthenticated(false);
+            setHasPurchased(false);
         }
     };
 
@@ -65,7 +69,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }, [checkAuthStatus]);
 
     return (
-        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, isRegistered, setIsRegistered, isLoading, logout, refetchUserData }}>
+        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, hasProfile, setHasProfile, hasPurchased, setHasPurchased, isLoading, logout, refetchUserData }}>
             {children}
         </AuthContext.Provider>
     );

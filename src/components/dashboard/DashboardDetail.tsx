@@ -1,18 +1,10 @@
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, isRegistered } = useAuth();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/auth");
-    } else if (!isRegistered) {
-      navigate("/apply/payment");
-    }
-  }, [isAuthenticated, isRegistered, navigate]);
+  const { hasPurchased } = useAuth();
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center px-4 py-10">
@@ -32,7 +24,7 @@ const Dashboard = () => {
 
         {/* STEP 1 */}
         <div className={`p-6 rounded-2xl border shadow-sm transition ${
-          isRegistered
+          hasPurchased
             ? "bg-green-50 border-green-200"
             : "bg-white border-gray-200"
         }`}>
@@ -41,21 +33,21 @@ const Dashboard = () => {
           </h2>
 
           <p className="text-gray-500 mt-1">
-            {isRegistered
+            {hasPurchased
               ? "Payment completed successfully."
               : "Complete payment to continue."}
           </p>
 
           <button
             onClick={() => navigate("/apply/payment")}
-            disabled={isRegistered}
+            disabled={hasPurchased}
             className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${
-              isRegistered
+              hasPurchased
                 ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                 : "bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
             }`}
           >
-            {isRegistered ? "Completed" : "Go to Payment"}
+            {hasPurchased ? "Completed" : "Go to Payment"}
           </button>
         </div>
 
@@ -72,9 +64,9 @@ const Dashboard = () => {
 
           <button
             onClick={() => navigate("/companies")}
-            disabled={!isRegistered}
+            disabled={!hasPurchased}
             className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${
-              !isRegistered
+              !hasPurchased
                 ? "bg-gray-200 text-gray-500 cursor-not-allowed"
                 : "bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
             }`}

@@ -18,7 +18,7 @@ const Onboarding = () => {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
   const backendURL = import.meta.env.VITE_BACKEND_URL
-  const { user, setUser, setIsAuthenticated, setIsRegistered } = useAuth()
+  const { user, setUser, setIsAuthenticated, setHasProfile } = useAuth()
 
   const getYearOptions = (course : string) => {
     switch (course) {
@@ -123,13 +123,13 @@ const Onboarding = () => {
         if (setIsAuthenticated) {
           setIsAuthenticated(true)
         }
-        setIsRegistered(true)
+        setHasProfile(true)
 
         if (setUser) {
           setUser(userData)
         }
 
-        navigate("/")
+        navigate("/apply/payment")
       }
     } catch (error) {
       // console.log("Error creating account", (error as import("axios").AxiosError)?.response?.data || error)

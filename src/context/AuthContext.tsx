@@ -17,8 +17,12 @@ export interface AuthContextType {
     setUser : (user : User | null) => void;
     isAuthenticated : boolean;
     setIsAuthenticated : (isAuthenticated : boolean) => void;
-    isRegistered : boolean;
-    setIsRegistered : (isRegistered : boolean) => void;
+    /** True when user has completed onboarding (has a student profile on the platform) */
+    hasProfile : boolean;
+    setHasProfile : (hasProfile : boolean) => void;
+    /** True when user has paid and registered for the InternHunt event (session-only) */
+    hasPurchased : boolean;
+    setHasPurchased : (hasPurchased : boolean) => void;
     isLoading : boolean;
     logout : () => void;
     refetchUserData : () => Promise<void>;

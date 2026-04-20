@@ -11,7 +11,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const PaymentGateway = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, setHasPurchased } = useAuth();
   type PaymentStatus = 'initiated' | 'completed' | 'failed' | 'dropped';
 
   const [cashfree, setCashfree] = useState<any>(null);
@@ -66,10 +66,9 @@ const PaymentGateway = () => {
         const status: PaymentStatus = response.data.paymentStatus;
 
         if (status === 'completed') {
+          setHasPurchased(true);
           setPaymentProcessing(false);
           setPaymentSuccess(true);
-          // Refetch user data to update committee information
-          // await refetchUserData();
           return true;
         } else if (status === 'failed') {
           setPaymentProcessing(false);

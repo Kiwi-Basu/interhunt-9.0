@@ -26,7 +26,7 @@ const NotFound = lazy(() => import("./pages/NotFound"))
 
 const App = () => {
 
-  const { isAuthenticated, isRegistered, isLoading } = useAuth()
+  const { isAuthenticated, hasProfile, hasPurchased, isLoading } = useAuth()
   return (
     <>
       <section id="App" >
@@ -74,10 +74,10 @@ const App = () => {
               path="/dashboard"
               element={
                 <RenderProtectedRoute
-                  condition={isAuthenticated && isRegistered}
+                  condition={isAuthenticated && hasProfile && hasPurchased}
                   renderPage={<Dashboard />}
-                  fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
-                  errorMessage="Access denied"
+                  fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
+                  errorMessage="Access denied: payment required"
                   isLoading={isLoading}
                 />
               }
@@ -87,10 +87,10 @@ const App = () => {
               path="/apply/payment"
               element={
                 <RenderProtectedRoute
-                  condition={isAuthenticated && !isRegistered}
+                  condition={isAuthenticated && hasProfile && !hasPurchased}
                   renderPage={<PaymentGateway />}
-                  fallback={!isAuthenticated ? "/auth" : "/dashboard"}
-                  errorMessage="Access denied"
+                  fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/dashboard"}
+                  errorMessage="Access denied: already purchased or no profile"
                   isLoading={isLoading}
                 />
               }
@@ -100,10 +100,10 @@ const App = () => {
               path="/apply/companies"
               element={
                 <RenderProtectedRoute
-                  condition={isAuthenticated && isRegistered}
+                  condition={isAuthenticated && hasProfile && hasPurchased}
                   renderPage={<ApplyCompanies />}
-                  fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
-                  errorMessage="Access denied"
+                  fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
+                  errorMessage="Access denied: payment required"
                   isLoading={isLoading}
                 />
               }
