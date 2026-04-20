@@ -11,7 +11,7 @@ const TierCompanies2 = () => {
   return (
     <>
       <section id="Tier-2-company">
-        <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           {/* Soft silver tint */}
           <div className="absolute inset-0 bg-linear-to-br from-slate-50 via-gray-50 to-slate-100 pointer-events-none"></div>

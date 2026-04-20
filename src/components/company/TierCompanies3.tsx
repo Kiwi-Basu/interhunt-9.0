@@ -11,9 +11,9 @@ const TierCompanies3 = () => {
   return (
     <>
       <section id="Tier-3-company">
-        <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
-          <div className="absolute inset-0 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#EDE3D6]/40 pointer-events-none"></div>
+          <div className="absolute inset-0  pointer-events-none"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#CEAC81]/10 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
 
           {/* Tier badge + heading */}

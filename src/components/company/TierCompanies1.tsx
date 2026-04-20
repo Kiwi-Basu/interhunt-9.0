@@ -1,3 +1,6 @@
+import { Link } from "react-router"
+import { Rocket } from "lucide-react";
+
 const TierCompanies1 = () => {
   const company1 = [
     { img: "image", companyName: "Something", description: "something something something", knowmore: "pdf" },
@@ -11,10 +14,52 @@ const TierCompanies1 = () => {
   return (
     <>
       <section id="Tier-1-company">
-        <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        {/* Releasing soon */}
+        <div className="min-h-screen flex flex-col justify-center items-center  p-6 md:p-20 py-16 md:py-20 relative overflow-hidden bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
+          {/* subtle gradient background */}
+          <div className="absolute inset-0  pointer-events-none"></div>
+
+          {/* soft glow */}
+          <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-yellow-200/20 rounded-full blur-3xl opacity-60"></div>
+          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-yellow-300/10 rounded-full blur-3xl opacity-40"></div>
+
+          {/* content */}
+          <div className="relative z-10 flex flex-col items-center text-center gap-5">
+
+            {/* badge */}
+            <div className="mb-6 px-6 py-2 flex items-center gap-2 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-700 text-xs font-bold tracking-widest uppercase shadow-sm">
+              <Rocket /> Coming Soon
+            </div>
+
+            {/* heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1F3A5F] mb-6">
+              Companies Releasing Soon
+            </h1>
+
+            {/* subtext */}
+            <p className="text-gray-500 max-w-xl text-sm md:text-base leading-relaxed">
+              We’re onboarding top-tier companies for this season. Stay tuned — exciting opportunities are about to drop.
+            </p>
+            
+            <Link to="/dashboard">
+              <button className="w-full cursor-pointer px-8 md:px-10 md:w-auto py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">View Dashboard</button>
+            </Link>
+
+            {/* animated loader */}
+            <div className="flex gap-2 mt-8">
+              <span className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+              <span className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+              <span className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce"></span>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Tier 1 companies */}
+        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           {/* Soft gold background tint */}
-          <div className="absolute inset-0 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F3E6D4]/40 pointer-events-none"></div>
+          <div className="absolute inset-0  pointer-events-none"></div>
 
           {/* soft gold glow (less intense, more premium) */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#CEAC81]/15 rounded-full blur-3xl opacity-60 pointer-events-none"></div>

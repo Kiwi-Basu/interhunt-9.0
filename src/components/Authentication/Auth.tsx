@@ -145,13 +145,20 @@ const Auth = () => {
                 <img src={GoogleIcon} alt="Google Icon" className="w-5 h-5 md:w-6 md:h-6" />
               </div>
 
-              <span className="text-base md:text-lg font-semibold text-[#1F3A5F] group-hover:text-[#CEAC81]">
-                {/* {isLoading ? "Signing in..." : "Continue with Google"}   changes accordingly */}
-              </span>
+              {isLoading ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+                  <span className="text-base md:text-lg font-semibold text-[#1F3A5F]">Signing in...</span>
+                </div>
+              ) : (
+                <span className="text-base md:text-lg font-semibold text-[#1F3A5F] group-hover:text-[#CEAC81]">
+                  Continue with Google
+                </span>
+              )}
             </button>
 
             <p className="text-xs text-center text-gray-500">
-              By continuing, you agree to our Terms & Privacy Policy
+              By continuing, you agree to our <span className="font-semibold text-[#1F3A5F]">Terms & Privacy Policy</span>
             </p>
 
           </div>
