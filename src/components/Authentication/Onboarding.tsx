@@ -51,14 +51,18 @@ const Onboarding = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+
     if (name === "phoneNumber") {
       const phoneNumber = value.replace(/\D/g, "");
       if (phoneNumber.length <= 10) {
         setFormData(prev => ({ ...prev, [name]: phoneNumber }));
       }
-    }
-    else {
-      setFormData(prev => ({ ...prev, [name]: value }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+        ...(name === "course" && { year: "" })
+      }));
     }
   };
 
@@ -289,7 +293,7 @@ const Onboarding = () => {
               <button
                 type="submit"
                 disabled={!isFormValid()}
-                className="mt-2 bg-[#1F3A5F] text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50"
+                className="mt-2 bg-[#1F3A5F] cursor-pointer text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-50"
               >
                 {isLoading ? "Registering..." : "Register"}
               </button>
