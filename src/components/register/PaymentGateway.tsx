@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 import RegisterForm from "./registerForm";
 import PricingSummary from "./PricingSummary";
 import PaymentOverlays from "./PaymentOverlays";
-
 import { useAuth } from "../../context/AuthContext";
 
 const PaymentGateway = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  type PaymentStatus = 'initiated' | 'completed' | 'failed' | 'dropped';
 
   const [cashfree, setCashfree] = useState<any>(null);
 
@@ -20,6 +20,7 @@ const PaymentGateway = () => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [paymentFailed, setPaymentFailed] = useState(false);
   const [paymentCancelled, setPaymentCancelled] = useState(false);
+  const [paymentLoading, setPaymentLoading] = useState(false);
 
   const backendURL = import.meta.env.VITE_BACKEND_URL;
 
@@ -34,7 +35,7 @@ const PaymentGateway = () => {
     );
   })();
 
-  // ✅ INIT SDK
+    // Initialize Cashfree SDK
   useEffect(() => {
     const init = async () => {
       try {
@@ -47,80 +48,109 @@ const PaymentGateway = () => {
     init();
   }, []);
 
-  // ✅ CREATE ORDER SESSION
-  // Only change the sessionGenerator function
-  // ✅ CREATE ORDER SESSION
-  const sessionGenerator = async () => {
-    try {
-      // ✅ Correct endpoint - matches your backend route
-      const res = await axios.post(`${backendURL}/api/payment/createOrder`, {// Note: "createOrder" not "create-order"
 
-        eventName: "InternHunt 9.0",
-      },
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "application/json" },
+    // Poll payment status
+    const pollPaymentStatus = async (orderIdParam: string) => {
+        let attempts = 0;
+        const maxAttempts = 60; // Poll for 5 minutes (60 * 5 seconds)
+
+        const poll = async () => {
+            try {
+                const response = await axios.get(
+                    `${backendURL}/api/leadershipTalk3/registrationStatus?orderId=${orderIdParam}`,
+                    {
+                        withCredentials: true,
+                    }
+                );
+
+                const status: PaymentStatus = response.data.paymentStatus;
+
+                if (status === 'completed') {
+                    setPaymentProcessing(false);
+                    setPaymentSuccess(true);
+                    // Refetch user data to update committee information
+                    await refetchUserData();
+                    return true;
+                } else if (status === 'failed') {
+                    setPaymentProcessing(false);
+                    setPaymentFailed(true);
+                    return true;
+                } else if (status === 'dropped') {
+                    setPaymentProcessing(false);
+                    setPaymentCancelled(true);
+                    return true;
+                } else if (status === 'initiated' && attempts < maxAttempts) {
+                    attempts++;
+                    setTimeout(poll, 2000); // Poll every 2 seconds
+                } else {
+                    // Timeout reached
+                    setPaymentProcessing(false);
+                    setPaymentFailed(true);
+                    return true;
+                }
+            } catch (error) {
+                console.error('Error polling payment status:', error);
+                if (attempts < maxAttempts) {
+                    attempts++;
+                    setTimeout(poll, 2000);
+                } else {
+                    setPaymentProcessing(false);
+                    setPaymentFailed(true);
+                }
+            }
+        };
+
+        poll();
+    };
+
+        // Handle coupon application
+    // const handleCouponApplied = (discountAmount: number, code: string) => {
+    //     setDiscount(discountAmount);
+    //     setCouponCode(code);
+    // };
+
+    // Handle payment
+    const handlePayment = async () => {
+        setPaymentLoading(true);
+
+        try {
+            const response = await axios.post(`${backendURL}/api/payment/createOrder`, {
+            }, {
+                withCredentials: true,
+            });
+
+            const paymentSessionId = response.data.paymentSessionId;
+            const orderIdFromResponse = response.data.orderId;
+
+            if (paymentSessionId && cashfree) {
+                const checkoutOptions = {
+                    paymentSessionId,
+                    payment_session_id: paymentSessionId,
+                    redirectTarget: '_modal',
+                };
+
+                await cashfree.checkout(checkoutOptions)
+                    .then(() => {
+                        setPaymentProcessing(true);
+                        setPaymentLoading(false);
+                        pollPaymentStatus(orderIdFromResponse);
+                    })
+                    .catch((err: Error) => {
+                        console.error(err.message, 'Failed to complete payment');
+                        setPaymentLoading(false);
+                    });
+            }
+        } catch (error) {
+            console.error(error, 'Failed to create orderId');
+            setPaymentLoading(false);
         }
-      );
+    };
 
-      // console.log("Order response:", res.data);
-
-      // Your backend returns: { success: true, data: { paymentSessionId, orderId } }
-      return res?.data?.paymentSessionId || null;
-
-    } catch (err) {
-      console.error("Session error:", err);
-      return null;
-    }
-  };
-
-  // ✅ REGISTER USER AFTER PAYMENT
-  const registerStudent = async () => {
-    try {
-      await axios.post(`${backendURL}/api/internHunt9/register`, {
-        email: user?.email,
-        name: user?.name,
-        number: user?.phoneNumber,
-        collegeName: user?.college,
-        course: user?.course,
-        year: user?.year,
-        amount: isIITMStudent ? "100" : "120",
-        paymentMode: "Online",
-      });
-    } catch (err) {
-      console.error("Registration error:", err);
-    }
-  };
-
-  // ✅ MAIN PAYMENT FLOW
-  const handlePayment = async () => {
-    setPaymentProcessing(true);
-
-    try {
-      if (!cashfree) throw new Error("Payment SDK not loaded");
-
-      const sessionId = await sessionGenerator();
-
-      if (!sessionId) throw new Error("Failed to create payment session");
-
-      const result = await cashfree.checkout({
-        paymentSessionId: sessionId,
-        redirectTarget: "_modal",
-      });
-
-      if (result?.paymentDetails) {
-        await registerStudent();
-        setPaymentSuccess(true);
-      } else {
-        setPaymentFailed(true);
-      }
-    } catch (err) {
-      console.error("Payment error:", err);
-      setPaymentFailed(true);
-    } finally {
-      setPaymentProcessing(false);
-    }
-  };
+    // Handle try again
+    const handleTryAgain = () => {
+        setPaymentFailed(false);
+        setPaymentCancelled(false);
+    };
 
   return (
     <>
