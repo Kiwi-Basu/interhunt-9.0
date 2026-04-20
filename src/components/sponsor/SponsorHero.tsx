@@ -36,7 +36,7 @@ const SponsorHero = () => {
           <p className="text-lg md:text-2xl font-medium text-gray-600 px-4 z-10">Partner with us to connect with top talent and showcase your brand</p>
 
           <div className="z-10 w-full px-4 sm:w-auto sm:px-0">
-            <button className="w-full px-5 py-3 md:py-2 rounded-full bg-[#CEAC81] text-lg md:text-2xl text-white font-medium cursor-pointer shadow-lg border border-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300">Download Sponsor Proposal</button>
+            <a href="https://s3-api.iitminternware.com/internware/internhunt9/Sponsors-Proposal.pdf" target="_blank"><button className="w-full px-5 py-3 md:py-2 rounded-full bg-[#CEAC81] text-lg md:text-2xl text-white font-medium cursor-pointer shadow-lg border border-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300">Download Sponsor Proposal</button></a>
           </div>
 
           
