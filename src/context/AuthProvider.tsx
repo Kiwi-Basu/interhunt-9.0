@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         try {
             const { user: userData } = await fetchCompleteUserData(backendURL);
             setUser(userData);
+            setHasProfile(!!(userData?.name));
         } catch (error) {
             console.error('Error refetching user data:', error);
         }

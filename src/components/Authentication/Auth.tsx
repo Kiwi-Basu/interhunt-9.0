@@ -9,7 +9,7 @@ import { useGoogleLogin } from "@react-oauth/google"
 
 const Auth = () => {
 
-  const { setUser, setIsAuthenticated } = useAuth()
+  const { setUser, setIsAuthenticated, setHasProfile } = useAuth()
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false);
   const backendURL = import.meta.env.VITE_BACKEND_URL
@@ -50,12 +50,13 @@ const Auth = () => {
                 name: student.name,
                 email: student.email,
                 phoneNumber: student.phoneNumber,
-                college: student.college || student.otherCollageName,
+                college: student.collageName || student.college,
                 course: student.course,
                 year: student.year,
-                // company : student.company, // change this according to api 
                 profileImage: student.profileImage
               })
+              // Sync hasProfile so route guards don't wrongly redirect to /onboarding
+              setHasProfile(!!(student.name))
             }
 
           } catch (error) {
