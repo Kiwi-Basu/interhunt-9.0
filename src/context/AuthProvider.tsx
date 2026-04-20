@@ -22,12 +22,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     // Verify authentication status and fetch student data
     const checkAuthStatus = useCallback(async () => {
         try {
-            const { isAuthenticated: authStatus, user: userData } = await fetchCompleteUserData(backendURL);
+            const { isAuthenticated: authStatus, user: userData, hasPurchased: purchased } = await fetchCompleteUserData(backendURL);
 
             setIsAuthenticated(authStatus);
             setUser(userData);
-            // hasProfile is true when the user has completed onboarding (has a name)
             setHasProfile(!!(userData?.name));
+            setHasPurchased(purchased);
         } catch (error) {
             console.error('Error verifying auth status:', error);
             setIsAuthenticated(false);
@@ -40,9 +40,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     // Refetch user data (exposed to components)
     const refetchUserData = useCallback(async () => {
         try {
-            const { user: userData } = await fetchCompleteUserData(backendURL);
+            const { user: userData, hasPurchased: purchased } = await fetchCompleteUserData(backendURL);
             setUser(userData);
             setHasProfile(!!(userData?.name));
+            setHasPurchased(purchased);
         } catch (error) {
             console.error('Error refetching user data:', error);
         }
