@@ -20,6 +20,24 @@ const Onboarding = () => {
   const backendURL = import.meta.env.VITE_BACKEND_URL
   const { user, setUser, setIsAuthenticated, setIsRegistered } = useAuth()
 
+  const getYearOptions = (course : string) => {
+    switch (course) {
+      case "BTech":
+        return [1, 2, 3, 4];
+      case "MBA":
+      case "MCA":
+        return [1, 2];
+      case "BCA":
+      case "BBA":
+      case "Bcom":
+      case "BA(JMC)":
+        return [1, 2, 3];
+      default:
+        return [];
+    }
+  };
+
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phoneNumber: "",
@@ -229,19 +247,25 @@ const Onboarding = () => {
                   </select>
                 </div>
 
-                <div className="flex flex-col gap-1">
+               <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Academic Year</label>
                   <select
                     name="year"
                     value={formData.year}
                     onChange={handleInputChange}
+                    disabled={!formData.course} // optional UX improvement
                     className="border border-gray-300 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-[#CEAC81]/50 focus:border-[#CEAC81]"
                   >
                     <option value="" disabled>Select...</option>
-                    <option value="1">1st Year</option>
-                    <option value="2">2nd Year</option>
-                    <option value="3">3rd Year</option>
-                    <option value="4">4th Year</option>
+
+                    {getYearOptions(formData.course).map((year) => (
+                      <option key={year} value={year}>
+                        {year === 1 ? "1st Year" :
+                        year === 2 ? "2nd Year" :
+                        year === 3 ? "3rd Year" :
+                        "4th Year"}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

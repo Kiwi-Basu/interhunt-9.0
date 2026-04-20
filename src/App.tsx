@@ -76,7 +76,6 @@ const App = () => {
                   fallback={!isAuthenticated ? "/auth" : "/onboarding"}
                   errorMessage="Access denied"
                   isLoading={isLoading}
-                  devMode
                 />
               }
             />
@@ -102,6 +101,7 @@ const App = () => {
                   renderPage={<Onboarding />}
                   fallback="/auth"
                   errorMessage="Access denied"
+                  
                 />
               }
             />
