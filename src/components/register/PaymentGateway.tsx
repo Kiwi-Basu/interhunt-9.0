@@ -179,7 +179,7 @@ const PaymentGateway = () => {
           setPaymentFailed(false);
           setPaymentCancelled(false);
         }}
-        onGoToProfile={() => navigate("/dashboard/profile")}
+        onGoToProfile={() => navigate("/dashboard")}
       />
     </>
   );

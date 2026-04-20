@@ -54,8 +54,8 @@ const App = () => {
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
-
-              <Route
+                <Route path="/dashboard" element={<Dashboard />} />
+              {/* <Route
                 path="/dashboard"
                 element={
                   <RenderProtectedRoute
@@ -66,7 +66,7 @@ const App = () => {
                     isLoading={isLoading}
                   />
                 }
-              />
+              /> */}
 
               <Route
                 path="/apply/payment"
