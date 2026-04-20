@@ -21,7 +21,7 @@ const ApplyCompanies = lazy(() => import("./components/apply/ApplyCompanies"))
 
 const App = () => {
 
-  const { isAuthenticated, isRegistered } = useAuth()
+  const { isAuthenticated, isRegistered, isLoading } = useAuth()
   return (
     <>
       <section id="App" >
@@ -57,6 +57,7 @@ const App = () => {
                     renderPage={<Dashboard />}
                     fallback={!isAuthenticated ? "/auth" : "/onboarding"}
                     errorMessage="Access denied"
+                    isLoading={isLoading}
                   />
                 }
               />
@@ -69,6 +70,7 @@ const App = () => {
                     renderPage={<PaymentGateway />}
                     fallback={!isAuthenticated ? "/auth" : "/onboarding"}
                     errorMessage="Access denied"
+                    isLoading={isLoading}
                   />
                 }
               />
@@ -81,6 +83,7 @@ const App = () => {
                     renderPage={<ApplyCompanies />}
                     fallback={!isAuthenticated ? "/auth" : "/onboarding"}
                     errorMessage="Access denied"
+                    isLoading={isLoading}
                   />
                 }
               />
