@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { hasPurchased } = useAuth();
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center px-4 py-10">
+    <section className="min-h-screen bg-linear-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center px-4 py-10">
 
       {/* HEADER */}
       <div className="w-full max-w-4xl bg-white border border-[#CEAC81]/20 rounded-2xl p-6 shadow-sm mb-8">
@@ -43,7 +43,7 @@ const Dashboard = () => {
             disabled={hasPurchased}
             className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${hasPurchased
               ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-              : "bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
+              : "bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
               }`}
           >
             {hasPurchased ? "Completed" : "Go to Payment"}
