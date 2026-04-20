@@ -115,6 +115,7 @@ const PaymentGateway = () => {
 
     try {
       const response = await axios.post(`${backendURL}/api/payment/createOrder`, {
+        eventName: "InternHunt 9.0"
       }, {
         withCredentials: true,
       });
