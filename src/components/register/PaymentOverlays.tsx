@@ -83,7 +83,7 @@ const PaymentOverlays = ({
                             </p>
                             <button
                                 onClick={onGoToProfile}
-                                className="w-full px-8 py-4 bg-linear-to-r from-[#D4A853] to-[#FFD98E] text-[#800020] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                                className="w-full px-8 py-4 bg-linear-to-r from-[#D4A853] to-[#FFD98E] text-[#1F3A5F] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                             >
                                 Go to Profile
                             </button>
@@ -111,11 +111,11 @@ const PaymentOverlays = ({
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                                className="w-24 h-24 bg-linear-to-br from-red-500 to-rose-600 rounded-full flex items-center justify-center mx-auto mb-6"
+                                className="w-24 h-24 bg-[#c8c9ca] rounded-full flex items-center justify-center mx-auto mb-6"
                             >
                                 <XCircle className="w-12 h-12 text-white" />
                             </motion.div>
-                            <h2 className="text-3xl font-bold text-[#800020] mb-3">
+                            <h2 className="text-3xl font-bold text-[#1F3A5F] mb-3">
                                 Payment Failed
                             </h2>
                             <p className="text-gray-700 mb-8">
@@ -123,7 +123,7 @@ const PaymentOverlays = ({
                             </p>
                             <button
                                 onClick={onTryAgain}
-                                className="w-full px-8 py-4 bg-linear-to-r from-[#D4A853] to-[#FFD98E] text-[#800020] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                                className="w-full px-8 py-4 bg-linear-to-r from-[#D4A853] to-[#FFD98E] text-[#1F3A5F] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                             >
                                 Try Again
                             </button>
@@ -151,11 +151,11 @@ const PaymentOverlays = ({
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                                className="w-24 h-24 bg-linear-to-br from-orange-500 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-6"
+                                className="w-24 h-24 bg-[#c8c9ca] rounded-full flex items-center justify-center mx-auto mb-6"
                             >
                                 <AlertCircle className="w-12 h-12 text-white" />
                             </motion.div>
-                            <h2 className="text-3xl font-bold text-[#800020] mb-3">
+                            <h2 className="text-3xl font-bold text-[#1F3A5F] mb-3">
                                 Payment Cancelled
                             </h2>
                             <p className="text-gray-700 mb-8">
@@ -163,7 +163,7 @@ const PaymentOverlays = ({
                             </p>
                             <button
                                 onClick={onTryAgain}
-                                className="w-full px-8 py-4 bg-linear-to-r from-[#D4A853] to-[#FFD98E] text-[#800020] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                                className="w-full px-8 py-4 bg-linear-to-r from-[#D4A853] to-[#FFD98E] text-[#1F3A5F] font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                             >
                                 Try Again
                             </button>
