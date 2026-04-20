@@ -4,19 +4,19 @@ const CurrentSponsor = () => {
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-  const sponsors = [
-    { img: "img", sponsorName: "name" },
-    { img: "img2", sponsorName: "Alpha Corp" },
-    { img: "img3", sponsorName: "Beta Solutions" },
-    { img: "img4", sponsorName: "Gamma Tech" },
-    { img: "img5", sponsorName: "Delta Innovations" },
-    { img: "img6", sponsorName: "Epsilon Systems" },
-    { img: "img7", sponsorName: "Zeta Enterprises" },
-    { img: "img8", sponsorName: "Theta Labs" },
-    { img: "img9", sponsorName: "Lambda Group" },
-    { img: "img10", sponsorName: "Omega Corp" },
-    { img: "img11", sponsorName: "Nova Industries" },
-  ];
+  // const sponsors = [
+  //   { img: "img", sponsorName: "name" },
+  //   { img: "img2", sponsorName: "Alpha Corp" },
+  //   { img: "img3", sponsorName: "Beta Solutions" },
+  //   { img: "img4", sponsorName: "Gamma Tech" },
+  //   { img: "img5", sponsorName: "Delta Innovations" },
+  //   { img: "img6", sponsorName: "Epsilon Systems" },
+  //   { img: "img7", sponsorName: "Zeta Enterprises" },
+  //   { img: "img8", sponsorName: "Theta Labs" },
+  //   { img: "img9", sponsorName: "Lambda Group" },
+  //   { img: "img10", sponsorName: "Omega Corp" },
+  //   { img: "img11", sponsorName: "Nova Industries" },
+  // ];
 
   return (
     <>
