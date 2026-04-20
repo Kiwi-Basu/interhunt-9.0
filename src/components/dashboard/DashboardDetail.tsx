@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { hasPurchased } = useAuth();
 
   return (
-    <section className="min-h-screen bg-linear-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center px-4 py-10">
+    <section className="min-h-screen bg-linear-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center p-20">
 
       {/* HEADER */}
       <div className="w-full max-w-4xl bg-white border border-[#CEAC81]/20 rounded-2xl p-6 shadow-sm mb-8">
