@@ -5,43 +5,32 @@ import logo from "../../assets/Asset 1@4x.png";
 import { IoPersonCircleOutline, IoMenu, IoClose } from "react-icons/io5";
 import { useAuth } from "../../context/AuthContext";
 
-
 const Navbar = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth();
-  const { user } = useAuth();
+  const { user, logout } = useAuth(); // ✅ FIXED (single call)
 
   const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-
-  // 🔥 user from localStorage
-  // const user = JSON.parse(localStorage.getItem("user") || "null");
-
-  // 🔥 dropdown state
   const [isOpen, setIsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  // 🔥 scroll animation
   const scrollYProgress = useScroll().scrollYProgress;
 
   const width = useTransform(scrollYProgress, [0.02, 0.06], ["95%", "50%"]);
-
   const bg = useTransform(
     scrollYProgress,
     [0.02, 0.06],
     ["rgba(255,255,255,0)", "#1F3A5F"]
   );
-
   const color = useTransform(
     scrollYProgress,
     [0.02, 0.06],
     ["#1F3A5F", "#ffffff"]
   );
 
-  // 🔥 navbar items
   const navItems = [
     { name: "About", link: "/about" },
     { name: "Company", link: "/company" },
@@ -49,7 +38,16 @@ const Navbar = () => {
     { name: "Contact", link: "/contact" },
   ];
 
-  // 🔥 close dropdown when clicking outside
+  // ✅ Resolve image safely
+  const getProfileImage = (img?: string) => {
+    if (!img) return null;
+    if (img.startsWith("http")) return img;
+    return `${import.meta.env.VITE_API_BASE_URL}/${img}`;
+  };
+
+  const profileImg = getProfileImage(user?.profileImage);
+
+  // Close dropdown outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (
@@ -65,8 +63,6 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 🔥 logout
-
   const handleLogout = () => {
     logout();
     setIsOpen(false);
@@ -76,33 +72,40 @@ const Navbar = () => {
   return (
     <section id="Navbar">
       <motion.div
-        style={{
-          width,
-          backgroundColor: bg,
-          color: color,
-        }}
+        style={{ width, backgroundColor: bg, color }}
         className="fixed p-2 lg:p-3.75 top-2 lg:top-4 left-1/2 -translate-x-1/2 z-50 rounded-full flex justify-between items-center px-4 lg:px-6 w-[95%] lg:w-auto min-w-[300px]"
       >
-        {/* HAMBURGER (MOBILE ONLY) */}
+        {/* MOBILE MENU BUTTON */}
         <div className="lg:hidden flex items-center pr-3">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-2xl cursor-pointer">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="text-2xl cursor-pointer"
+          >
             {isMobileMenuOpen ? <IoClose /> : <IoMenu />}
           </button>
         </div>
 
         {/* LOGO */}
-        <NavLink to="/" onClick={scrollToTop} className="mr-auto lg:mr-0 flex items-center">
+        <NavLink
+          to="/"
+          onClick={scrollToTop}
+          className="mr-auto lg:mr-0 flex items-center"
+        >
           <img src={logo} alt="InternHunt 9.0" className="h-5" />
         </NavLink>
 
-        {/* NAV LINKS (DESKTOP) */}
+        {/* DESKTOP NAV */}
         <div className="hidden lg:flex gap-5 text-sm">
           {navItems.map((nav, idx) => (
             <NavLink
               to={nav.link}
               key={idx}
               onClick={scrollToTop}
-              className={({ isActive }) => `relative text-lg cursor-pointer group transition-colors ${isActive ? "text-[#CEAC81]" : "hover:text-[#CEAC81]"}`}
+              className={({ isActive }) =>
+                `relative text-lg cursor-pointer group transition-colors ${
+                  isActive ? "text-[#CEAC81]" : "hover:text-[#CEAC81]"
+                }`
+              }
             >
               {nav.name}
               <span className="absolute left-0 -bottom-1 h-0.5 w-full bg-[#CEAC81] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
@@ -114,18 +117,23 @@ const Navbar = () => {
         <div className="relative" ref={dropdownRef}>
           {user ? (
             <>
-              {/* PROFILE ICON */}
-              {user?.profileImage ? (
+              {/* ✅ FIXED PROFILE IMAGE */}
+              {profileImg ? (
                 <img
-                  src={user.profileImage}
+                  key={profileImg} // 🔥 forces refresh when image changes
+                  src={profileImg}
                   alt="profile"
-                  className="h-10 w-10 rounded-full cursor-pointer"
-                  onClick={() => setIsOpen(prev => !prev)}
+                  className="h-10 w-10 rounded-full cursor-pointer object-cover"
+                  onClick={() => setIsOpen((prev) => !prev)}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display =
+                      "none";
+                  }}
                 />
               ) : (
                 <IoPersonCircleOutline
                   className="text-3xl cursor-pointer"
-                  onClick={() => setIsOpen(prev => !prev)}
+                  onClick={() => setIsOpen((prev) => !prev)}
                 />
               )}
 
@@ -168,7 +176,7 @@ const Navbar = () => {
         </div>
       </motion.div>
 
-      {/* MOBILE MENU DROPDOWN */}
+      {/* MOBILE MENU */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[95%] bg-[#1F3A5F] text-white rounded-2xl shadow-xl flex flex-col items-center py-6 gap-4 z-40 border border-[#CEAC81]/20 backdrop-blur-md">
           {navItems.map((nav, idx) => (

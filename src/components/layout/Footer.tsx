@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import logo from "../../assets/Asset 1@4x.png";
+import { Mail , MapPin } from "lucide-react";
 
 
 
@@ -86,14 +87,14 @@ const Footer = () => {
                 <div className="space-y-4">
 
                   <a
-                    href="mailto:internware@iitm.ac.in"
-                    className="flex items-center gap-3 text-[#1F3A5F] text-sm hover:text-[#CEAC81] transition"
+                    href="mailto:internware@gmail.com"
+                    className="flex items-center gap-3 text-[#1F3A5F] text-sm hover:text-[#CEAC81] transition "
                   >
-                    📧 internware@gmail.com
+                    <Mail className="text-sm"/> internware@gmail.com
                   </a>
 
-                  <div className="flex items-start gap-3 text-[#1F3A5F] text-sm">
-                    📍
+                  <div className="flex items-start gap-3 text-[#1F3A5F] text-sm ">
+                    <MapPin className="text-sm"/>
                     <p>
                       IITM, D-29, Institutional Area,
                       Janakpuri, New Delhi,

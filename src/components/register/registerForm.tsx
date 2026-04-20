@@ -1,4 +1,5 @@
 import { useAuth } from "../../context/AuthContext";
+import { Check } from "lucide-react";
 
 const RegisterForm = () => {
   const { user } = useAuth();
@@ -36,7 +37,7 @@ const RegisterForm = () => {
             "Resume Reviewer",
           ].map((b, i) => (
             <li key={i} className="flex items-start gap-2">
-              <span className="text-[#CEAC81]">✔</span>
+              <Check />
               {b}
             </li>
           ))}

@@ -56,18 +56,14 @@ const TierCompanies1 = () => {
         </div>
 
         {/* Tier 1 companies */}
-        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        {/* <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
-          {/* Soft gold background tint */}
           <div className="absolute inset-0  pointer-events-none"></div>
 
-          {/* soft gold glow (less intense, more premium) */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#CEAC81]/15 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
 
-          {/* second faint glow for depth */}
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#CEAC81]/10 rounded-full blur-3xl opacity-40 pointer-events-none"></div>
 
-          {/* Tier badge + heading */}
           <div className="relative z-10 flex flex-col items-center mb-12">
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-16 bg-linear-to-r from-transparent to-yellow-400"></div>
@@ -81,7 +77,6 @@ const TierCompanies1 = () => {
             </p>
           </div>
 
-          {/* Company cards */}
           <div className="flex flex-wrap justify-evenly gap-y-8 relative z-10 w-full max-w-7xl">
             {company1.map((company, idx) => (
               <div
@@ -89,22 +84,18 @@ const TierCompanies1 = () => {
                 className="relative border border-yellow-50 bg-white shadow-lg shadow-yellow-50 rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-50 hover:border-yellow-50 group cursor-pointer mx-4 sm:mx-0"
               >
                 
-                {/* Logo placeholder */}
                 <div className="h-20 w-20 self-center rounded-2xl bg-yellow-50 border border-yellow-50 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
                   <span className="text-yellow-500 text-xs font-bold tracking-widest uppercase">Logo</span>
                 </div>
 
-                {/* Company name */}
                 <p className="text-center font-bold text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100">
                   {company.companyName}
                 </p>
 
-                {/* Description */}
                 <div className="bg-gray-50 rounded-xl p-4 text-gray-500 leading-relaxed text-sm border border-gray-100 text-center">
                   {company.description}
                 </div>
 
-                {/* Buttons */}
                 <div className="flex gap-3">
                   <button className="flex-1 font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-yellow-50 border border-yellow-200 text-yellow-700 hover:bg-yellow-100 transition-all text-sm tracking-wide">
                     Know More
@@ -117,7 +108,7 @@ const TierCompanies1 = () => {
             ))}
           </div>
 
-        </div>
+        </div> */}
       </section>
     </>
   );
