@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
+import { Rocket } from "lucide-react";
 
 
 const Dashboard = () => {
@@ -23,11 +24,10 @@ const Dashboard = () => {
       <div className="w-full max-w-4xl space-y-5">
 
         {/* STEP 1 */}
-        <div className={`p-6 rounded-2xl border shadow-sm transition ${
-          hasPurchased
-            ? "bg-green-50 border-green-200"
-            : "bg-white border-gray-200"
-        }`}>
+        <div className={`p-6 rounded-2xl border shadow-sm transition ${hasPurchased
+          ? "bg-green-50 border-green-200"
+          : "bg-white border-gray-200"
+          }`}>
           <h2 className="font-semibold text-[#1F3A5F] text-lg">
             1. Register (Payment)
           </h2>
@@ -41,38 +41,38 @@ const Dashboard = () => {
           <button
             onClick={() => navigate("/apply/payment")}
             disabled={hasPurchased}
-            className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${
-              hasPurchased
-                ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                : "bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
-            }`}
+            className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${hasPurchased
+              ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+              : "bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
+              }`}
           >
             {hasPurchased ? "Completed" : "Go to Payment"}
           </button>
         </div>
 
-
-        {/* STEP 2*/}
-        <div className="p-6 rounded-2xl border border-gray-200 bg-white shadow-sm">
+        {/* STEP 2 - COMPANIES (LOCKED) */}
+        <div className="p-6 rounded-2xl border border-gray-200 bg-gray-50 shadow-sm opacity-80 cursor-not-allowed">
           <h2 className="font-semibold text-[#1F3A5F] text-lg">
-            3. Apply to Companies
+            2. Apply to Companies
           </h2>
 
           <p className="text-gray-500 mt-1">
-            Browse companies and submit your application.
+            Company selection starting soon <Rocket />
           </p>
 
+
+          {/* CURRENT LOCKED BUTTON */}
           <button
-            onClick={() => navigate("/companies")}
-            disabled={!hasPurchased}
-            className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${
-              !hasPurchased
-                ? "bg-gray-200 text-gray-500 cursor-not-allowed"
-                : "bg-gradient-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105"
-            }`}
+            disabled
+            className="mt-4 px-5 py-2 rounded-full text-sm font-medium bg-gray-200 text-gray-500 cursor-not-allowed"
           >
-            Browse Companies
+            Coming Soon
           </button>
+
+          {/* OPTIONAL BADGE */}
+          <span className="inline-block mt-3 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
+            Upcoming Feature
+          </span>
         </div>
 
       </div>
