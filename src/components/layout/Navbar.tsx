@@ -109,7 +109,7 @@ const Navbar = () => {
             </NavLink>
           ))}
         </div>
-x
+
         {/* RIGHT SECTION */}
         <div className="relative" ref={dropdownRef}>
           {user ? (
@@ -117,7 +117,7 @@ x
               {/* PROFILE ICON */}
               {user?.profileImage ? (
                 <img
-                  src={user?.profileImage}
+                  src={user.profileImage}
                   alt="profile"
                   className="h-10 w-10 rounded-full cursor-pointer"
                   onClick={() => setIsOpen(prev => !prev)}
