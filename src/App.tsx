@@ -40,7 +40,15 @@ const App = () => {
             <Route path="/company" element={<Companies />} />
             <Route path="/sponsor" element={<Sponsor />} />
             <Route path="/about" element={<About />} />
-            <Route path="/auth" element={<Auth />} />
+            <Route path="/auth" element={
+              <RenderProtectedRoute
+                condition={!isAuthenticated}
+                renderPage={<Auth />}
+                fallback="/dashboard"
+                errorMessage="You are already logged in"
+                isLoading={isLoading}
+              />
+            } />
 
             {/* <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/onboarding" element={<Onboarding />} />
@@ -48,7 +56,15 @@ const App = () => {
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-            <Route path="/dashboard/profile" element={<Profile />} />
+            <Route path="/dashboard/profile" element={
+              <RenderProtectedRoute
+                condition={isAuthenticated}
+                renderPage={<Profile />}
+                fallback={"/auth"}
+                errorMessage="Access denied"
+                isLoading={isLoading}
+              />
+            } />
             {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
@@ -60,7 +76,7 @@ const App = () => {
                 <RenderProtectedRoute
                   condition={isAuthenticated && isRegistered}
                   renderPage={<Dashboard />}
-                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                  fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
                   errorMessage="Access denied"
                   isLoading={isLoading}
                 />
@@ -73,7 +89,7 @@ const App = () => {
                 <RenderProtectedRoute
                   condition={isAuthenticated && !isRegistered}
                   renderPage={<PaymentGateway />}
-                  fallback={!isRegistered ? "/onboarding" : "/auth"}
+                  fallback={!isAuthenticated ? "/auth" : "/dashboard"}
                   errorMessage="Access denied"
                   isLoading={isLoading}
                 />
@@ -86,7 +102,7 @@ const App = () => {
                 <RenderProtectedRoute
                   condition={isAuthenticated && isRegistered}
                   renderPage={<ApplyCompanies />}
-                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                  fallback={!isAuthenticated ? "/auth" : "/apply/payment"}
                   errorMessage="Access denied"
                   isLoading={isLoading}
                 />
