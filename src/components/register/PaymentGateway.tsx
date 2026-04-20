@@ -35,7 +35,7 @@ const PaymentGateway = () => {
     );
   })();
 
-    // Initialize Cashfree SDK
+  // Initialize Cashfree SDK
   useEffect(() => {
     const init = async () => {
       try {
@@ -49,108 +49,108 @@ const PaymentGateway = () => {
   }, []);
 
 
-    // Poll payment status
-    const pollPaymentStatus = async (orderIdParam: string) => {
-        let attempts = 0;
-        const maxAttempts = 60; // Poll for 5 minutes (60 * 5 seconds)
+  // Poll payment status
+  const pollPaymentStatus = async (orderIdParam: string) => {
+    let attempts = 0;
+    const maxAttempts = 60; // Poll for 5 minutes (60 * 5 seconds)
 
-        const poll = async () => {
-            try {
-                const response = await axios.get(
-                    `${backendURL}/api/leadershipTalk3/registrationStatus?orderId=${orderIdParam}`,
-                    {
-                        withCredentials: true,
-                    }
-                );
+    const poll = async () => {
+      try {
+        const response = await axios.get(
+          `${backendURL}/api/leadershipTalk3/registrationStatus?orderId=${orderIdParam}`,
+          {
+            withCredentials: true,
+          }
+        );
 
-                const status: PaymentStatus = response.data.paymentStatus;
+        const status: PaymentStatus = response.data.paymentStatus;
 
-                if (status === 'completed') {
-                    setPaymentProcessing(false);
-                    setPaymentSuccess(true);
-                    // Refetch user data to update committee information
-                    await refetchUserData();
-                    return true;
-                } else if (status === 'failed') {
-                    setPaymentProcessing(false);
-                    setPaymentFailed(true);
-                    return true;
-                } else if (status === 'dropped') {
-                    setPaymentProcessing(false);
-                    setPaymentCancelled(true);
-                    return true;
-                } else if (status === 'initiated' && attempts < maxAttempts) {
-                    attempts++;
-                    setTimeout(poll, 2000); // Poll every 2 seconds
-                } else {
-                    // Timeout reached
-                    setPaymentProcessing(false);
-                    setPaymentFailed(true);
-                    return true;
-                }
-            } catch (error) {
-                console.error('Error polling payment status:', error);
-                if (attempts < maxAttempts) {
-                    attempts++;
-                    setTimeout(poll, 2000);
-                } else {
-                    setPaymentProcessing(false);
-                    setPaymentFailed(true);
-                }
-            }
+        if (status === 'completed') {
+          setPaymentProcessing(false);
+          setPaymentSuccess(true);
+          // Refetch user data to update committee information
+          // await refetchUserData();
+          return true;
+        } else if (status === 'failed') {
+          setPaymentProcessing(false);
+          setPaymentFailed(true);
+          return true;
+        } else if (status === 'dropped') {
+          setPaymentProcessing(false);
+          setPaymentCancelled(true);
+          return true;
+        } else if (status === 'initiated' && attempts < maxAttempts) {
+          attempts++;
+          setTimeout(poll, 2000); // Poll every 2 seconds
+        } else {
+          // Timeout reached
+          setPaymentProcessing(false);
+          setPaymentFailed(true);
+          return true;
+        }
+      } catch (error) {
+        console.error('Error polling payment status:', error);
+        if (attempts < maxAttempts) {
+          attempts++;
+          setTimeout(poll, 2000);
+        } else {
+          setPaymentProcessing(false);
+          setPaymentFailed(true);
+        }
+      }
+    };
+
+    poll();
+  };
+
+  // Handle coupon application
+  // const handleCouponApplied = (discountAmount: number, code: string) => {
+  //     setDiscount(discountAmount);
+  //     setCouponCode(code);
+  // };
+
+  // Handle payment
+  const handlePayment = async () => {
+    setPaymentLoading(true);
+
+    try {
+      const response = await axios.post(`${backendURL}/api/payment/createOrder`, {
+      }, {
+        withCredentials: true,
+      });
+
+      const paymentSessionId = response.data.paymentSessionId;
+      const orderIdFromResponse = response.data.orderId;
+
+      if (paymentSessionId && cashfree) {
+        const checkoutOptions = {
+          paymentSessionId,
+          payment_session_id: paymentSessionId,
+          redirectTarget: '_modal',
         };
 
-        poll();
-    };
-
-        // Handle coupon application
-    // const handleCouponApplied = (discountAmount: number, code: string) => {
-    //     setDiscount(discountAmount);
-    //     setCouponCode(code);
-    // };
-
-    // Handle payment
-    const handlePayment = async () => {
-        setPaymentLoading(true);
-
-        try {
-            const response = await axios.post(`${backendURL}/api/payment/createOrder`, {
-            }, {
-                withCredentials: true,
-            });
-
-            const paymentSessionId = response.data.paymentSessionId;
-            const orderIdFromResponse = response.data.orderId;
-
-            if (paymentSessionId && cashfree) {
-                const checkoutOptions = {
-                    paymentSessionId,
-                    payment_session_id: paymentSessionId,
-                    redirectTarget: '_modal',
-                };
-
-                await cashfree.checkout(checkoutOptions)
-                    .then(() => {
-                        setPaymentProcessing(true);
-                        setPaymentLoading(false);
-                        pollPaymentStatus(orderIdFromResponse);
-                    })
-                    .catch((err: Error) => {
-                        console.error(err.message, 'Failed to complete payment');
-                        setPaymentLoading(false);
-                    });
-            }
-        } catch (error) {
-            console.error(error, 'Failed to create orderId');
+        await cashfree.checkout(checkoutOptions)
+          .then(() => {
+            setPaymentProcessing(true);
             setPaymentLoading(false);
-        }
-    };
+            pollPaymentStatus(orderIdFromResponse);
+          })
+          .catch((err: Error) => {
+            console.error(err.message, 'Failed to complete payment');
+            setPaymentLoading(false);
+          });
+      }
+    } catch (error) {
+      console.error(error, 'Failed to create orderId');
+      setPaymentLoading(false);
+    }
+  };
 
-    // Handle try again
-    const handleTryAgain = () => {
-        setPaymentFailed(false);
-        setPaymentCancelled(false);
-    };
+  // Handle try again
+  const handleTryAgain = () => {
+    setPaymentFailed(false);
+    setPaymentCancelled(false);
+  };
 
   return (
     <>
@@ -176,9 +176,10 @@ const PaymentGateway = () => {
                 <div className="text-center mt-10">
                   <button
                     onClick={handlePayment}
-                    className="px-8 py-4 rounded-full font-extrabold shadow-2xl text-[#1F3A5F] bg-[#CEAC81] cursor-pointer hover:scale-105 transition-all duration-200"
+                    disabled={paymentLoading}
+                    className={`px-8 py-4 rounded-full font-extrabold shadow-2xl text-[#1F3A5F] bg-[#CEAC81] cursor-pointer hover:scale-105 transition-all duration-200 ${paymentLoading ? "opacity-50 cursor-not-allowed" : ""}`}
                   >
-                    Pay Now
+                    {paymentLoading ? "Processing..." : "Pay Now"}
                   </button>
 
                   <p className="mt-4 text-sm text-gray-500">
@@ -205,10 +206,7 @@ const PaymentGateway = () => {
         paymentSuccess={paymentSuccess}
         paymentFailed={paymentFailed}
         paymentCancelled={paymentCancelled}
-        onTryAgain={() => {
-          setPaymentFailed(false);
-          setPaymentCancelled(false);
-        }}
+        onTryAgain={handleTryAgain}
         onGoToProfile={() => navigate("/dashboard")}
       />
     </>
