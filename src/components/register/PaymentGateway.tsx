@@ -38,7 +38,7 @@ const PaymentGateway = () => {
   useEffect(() => {
     const init = async () => {
       try {
-        const sdk = await load({ mode: "sandbox" });
+        const sdk = await load({ mode: "production" });
         setCashfree(sdk);
       } catch (err) {
         console.error("Cashfree init error:", err);
@@ -48,31 +48,31 @@ const PaymentGateway = () => {
   }, []);
 
   // ✅ CREATE ORDER SESSION
- // Only change the sessionGenerator function
-// ✅ CREATE ORDER SESSION
-const sessionGenerator = async () => {
-  try {
-    // ✅ Correct endpoint - matches your backend route
-    const res = await axios.post(`${backendURL}/api/payment/createOrder`, {// Note: "createOrder" not "create-order"
-      
+  // Only change the sessionGenerator function
+  // ✅ CREATE ORDER SESSION
+  const sessionGenerator = async () => {
+    try {
+      // ✅ Correct endpoint - matches your backend route
+      const res = await axios.post(`${backendURL}/api/payment/createOrder`, {// Note: "createOrder" not "create-order"
+
         eventName: "InternHunt 9.0",
       },
-      {
-        withCredentials: true,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
-    // console.log("Order response:", res.data);
-    
-    // Your backend returns: { success: true, data: { paymentSessionId, orderId } }
-    return res?.data?.paymentSessionId || null;
-    
-  } catch (err) {
-    console.error("Session error:", err);
-    return null;
-  }
-};
+      // console.log("Order response:", res.data);
+
+      // Your backend returns: { success: true, data: { paymentSessionId, orderId } }
+      return res?.data?.paymentSessionId || null;
+
+    } catch (err) {
+      console.error("Session error:", err);
+      return null;
+    }
+  };
 
   // ✅ REGISTER USER AFTER PAYMENT
   const registerStudent = async () => {
