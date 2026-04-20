@@ -1,8 +1,12 @@
 import { Route, Routes } from "react-router"
-import { lazy, Suspense } from "react"
+import {
+  lazy,
+  // Suspense
+} from "react"
 import Navbar from "./components/layout/Navbar"
 import Footer from "./components/layout/Footer"
 import RenderProtectedRoute from "./components/utils/RenderProtectedRoute"
+// import PageLoader from "./components/utils/PageLoader"
 import { useAuth } from "./context/AuthContext"
 import { AuthGuard } from "./components/Authentication/AuthGuard"
 
@@ -18,6 +22,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Profile = lazy(() => import("./pages/Profile"))
 const PaymentGateway = lazy(() => import("./components/register/PaymentGateway"))
 const ApplyCompanies = lazy(() => import("./components/apply/ApplyCompanies"))
+const NotFound = lazy(() => import("./pages/NotFound"))
 
 const App = () => {
 
@@ -28,81 +33,83 @@ const App = () => {
 
         <Navbar />
         <AuthGuard>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/company" element={<Companies />} />
-              <Route path="/sponsor" element={<Sponsor />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/auth" element={<Auth />} />
+          {/* <Suspense fallback={<PageLoader />}> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/company" element={<Companies />} />
+            <Route path="/sponsor" element={<Sponsor />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/auth" element={<Auth />} />
 
-              {/* <Route path="/dashboard/profile" element={<Profile />} />
+            {/* <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-              <Route path="/dashboard/profile" element={<Profile />} />
-              {/* <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/profile" element={<Profile />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/apply/payment" element={<PaymentGateway />} />
           <Route path="/apply/companies" element={<ApplyCompanies />} /> */}
 
 
-              <Route
-                path="/dashboard"
-                element={
-                  <RenderProtectedRoute
-                    condition={isAuthenticated && isRegistered}
-                    renderPage={<Dashboard />}
-                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
-                    errorMessage="Access denied"
-                    isLoading={isLoading}
-                  />
-                }
-              />
+            <Route
+              path="/dashboard"
+              element={
+                <RenderProtectedRoute
+                  condition={isAuthenticated && isRegistered}
+                  renderPage={<Dashboard />}
+                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                  errorMessage="Access denied"
+                  isLoading={isLoading}
+                />
+              }
+            />
 
-              <Route
-                path="/apply/payment"
-                element={
-                  <RenderProtectedRoute
-                    condition={isAuthenticated && isRegistered}
-                    renderPage={<PaymentGateway />}
-                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
-                    errorMessage="Access denied"
-                    isLoading={isLoading}
-                  />
-                }
-              />
+            <Route
+              path="/apply/payment"
+              element={
+                <RenderProtectedRoute
+                  condition={isAuthenticated && isRegistered}
+                  renderPage={<PaymentGateway />}
+                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                  errorMessage="Access denied"
+                  isLoading={isLoading}
+                />
+              }
+            />
 
-              <Route
-                path="/apply/companies"
-                element={
-                  <RenderProtectedRoute
-                    condition={isAuthenticated && isRegistered}
-                    renderPage={<ApplyCompanies />}
-                    fallback={!isAuthenticated ? "/auth" : "/onboarding"}
-                    errorMessage="Access denied"
-                    isLoading={isLoading}
-                  />
-                }
-              />
+            <Route
+              path="/apply/companies"
+              element={
+                <RenderProtectedRoute
+                  condition={isAuthenticated && isRegistered}
+                  renderPage={<ApplyCompanies />}
+                  fallback={!isAuthenticated ? "/auth" : "/onboarding"}
+                  errorMessage="Access denied"
+                  isLoading={isLoading}
+                />
+              }
+            />
 
-              <Route
-                path="/onboarding"
-                element={
-                  <RenderProtectedRoute
-                    condition={isAuthenticated}
-                    renderPage={<Onboarding />}
-                    fallback="/auth"
-                    errorMessage="Access denied"
-                  />
-                }
-              />
+            <Route
+              path="/onboarding"
+              element={
+                <RenderProtectedRoute
+                  condition={isAuthenticated}
+                  renderPage={<Onboarding />}
+                  fallback="/auth"
+                  errorMessage="Access denied"
+                />
+              }
+            />
 
 
-            </Routes>
-          </Suspense>
+            <Route path="*" element={<NotFound />} />
+
+          </Routes>
+          {/* </Suspense> */}
         </AuthGuard>
         <Footer />
       </section>
