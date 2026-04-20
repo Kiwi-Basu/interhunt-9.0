@@ -71,7 +71,7 @@ const App = () => {
               path="/apply/payment"
               element={
                 <RenderProtectedRoute
-                  condition={isAuthenticated && isRegistered}
+                  condition={isAuthenticated && !isRegistered}
                   renderPage={<PaymentGateway />}
                   fallback={!isAuthenticated ? "/auth" : "/onboarding"}
                   errorMessage="Access denied"
@@ -101,7 +101,7 @@ const App = () => {
                   renderPage={<Onboarding />}
                   fallback="/auth"
                   errorMessage="Access denied"
-                  
+
                 />
               }
             />
