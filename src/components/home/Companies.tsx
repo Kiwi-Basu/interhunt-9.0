@@ -1,20 +1,20 @@
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Rocket } from "lucide-react";
 
 const Companies = () => {
-  const companies = [
-    { name: "Cetpa", initials: "CT" },
-    { name: "Decathlon", initials: "DC" },
-    { name: "CSA Investments", initials: "CSA" },
-    { name: "Growthclues", initials: "GC" },
-    { name: "Kalakriti", initials: "KK" },
-    { name: "Easy My Storage", initials: "EMS" },
-    { name: "Device Disk", initials: "DD" },
-    { name: "Datsme", initials: "DM" },
-    { name: "Gradhub", initials: "GH" },
-    { name: "Group Media", initials: "GM" },
-  ];
+  // const companies = [
+  //   { name: "Cetpa", initials: "CT" },
+  //   { name: "Decathlon", initials: "DC" },
+  //   { name: "CSA Investments", initials: "CSA" },
+  //   { name: "Growthclues", initials: "GC" },
+  //   { name: "Kalakriti", initials: "KK" },
+  //   { name: "Easy My Storage", initials: "EMS" },
+  //   { name: "Device Disk", initials: "DD" },
+  //   { name: "Datsme", initials: "DM" },
+  //   { name: "Gradhub", initials: "GH" },
+  //   { name: "Group Media", initials: "GM" },
+  // ];
 
   return (
     <>
@@ -60,7 +60,7 @@ const Companies = () => {
         </div>
 
         {/* replace when actual data comes in */}
-        
+
         {/* <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-20 py-16 md:py-20 gap-8 md:gap-14 bg-linear-to-br from-[#FFFFFF] via-[#FAFAFA] to-[#F1F5F9]">
 
           <h1 className="text-4xl md:text-7xl font-extrabold text-[#1F3A5F] tracking-tight text-center">
