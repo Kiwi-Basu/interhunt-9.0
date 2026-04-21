@@ -1,4 +1,4 @@
-import { Mail , Phone , MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 const ContactHero = () => {
   return (
     <section id="hero">
@@ -76,22 +76,24 @@ const ContactHero = () => {
 
           {/* Email */}
           <div className="w-40 sm:w-52 md:w-64 p-4 md:p-6 rounded-2xl border border-black/10 bg-white shadow hover:-translate-y-2 transition">
-            <Mail className="text-2xl md:text-3xl mx-auto text-[#CEAC81]"/>
-            <p className="font-semibold mt-2 md:mt-3 text-sm md:text-base">24/7</p>
+            <Mail className="text-2xl md:text-3xl mx-auto text-[#CEAC81]" />
+            <p className="font-semibold mt-2 md:mt-3 text-sm md:text-base">internware@gmail.com</p>
             <p className="text-xs md:text-sm text-gray-500">Email Support</p>
           </div>
 
           {/* Phone */}
           <div className="w-40 sm:w-52 md:w-64 p-4 md:p-6 rounded-2xl border border-black/10 bg-white shadow hover:-translate-y-2 transition">
             <Phone className="text-2xl md:text-3xl mx-auto text-[#CEAC81]" />
-            <p className="font-semibold mt-2 md:mt-3 text-sm md:text-base">Available</p>
+            <p className="font-semibold mt-2 md:mt-3 text-sm md:text-base">
+              +91 97859 78501
+            </p>
             <p className="text-xs md:text-sm text-gray-500">Phone Support</p>
           </div>
 
           {/* Location */}
           <div className="w-40 sm:w-52 md:w-64 p-4 md:p-6 rounded-2xl border border-black/10 bg-white shadow hover:-translate-y-2 transition">
-            <MapPin className="text-2xl md:text-3xl mx-auto text-[#CEAC81]"/>
-            <p className="font-semibold mt-2 md:mt-3 text-sm md:text-base">IITM</p>
+            <MapPin className="text-2xl md:text-3xl mx-auto text-[#CEAC81]" />
+            <p className="font-semibold mt-2 md:mt-3 text-sm md:text-base">IITM Janakpuri</p>
             <p className="text-xs md:text-sm text-gray-500">Campus Location</p>
           </div>
 
@@ -99,7 +101,7 @@ const ContactHero = () => {
 
         {/* ===== BUTTON ===== */}
         <div className="flex gap-4 md:gap-6 mt-4 md:mt-6 z-10">
-          <button className="px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base rounded-full bg-[#CEAC81] text-white font-semibold shadow hover:scale-105 transition">
+          <button onClick={() => window.scrollTo({ top: 950, behavior: "smooth" })} className="px-6 md:px-8 py-2.5 md:py-3 text-sm md:text-base rounded-full bg-[#CEAC81] text-white font-semibold shadow hover:scale-105 transition cursor-pointer">
             Send a Message
           </button>
         </div>

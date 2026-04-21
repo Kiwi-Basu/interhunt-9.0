@@ -33,9 +33,9 @@ const Navbar = () => {
 
   const navItems = [
     { name: "About", link: "/about" },
-    { name: "Company", link: "/company" },
-    { name: "Sponsor", link: "/sponsor" },
-    { name: "Contact", link: "/contact" },
+    { name: "Companies", link: "/company" },
+    { name: "Sponsor Us", link: "/sponsor" },
+    { name: "Contact Us", link: "/contact" },
   ];
 
   // ✅ Resolve image safely
@@ -102,8 +102,7 @@ const Navbar = () => {
               key={idx}
               onClick={scrollToTop}
               className={({ isActive }) =>
-                `relative text-lg cursor-pointer group transition-colors ${
-                  isActive ? "text-[#CEAC81]" : "hover:text-[#CEAC81]"
+                `relative text-lg cursor-pointer group transition-colors ${isActive ? "text-[#CEAC81]" : "hover:text-[#CEAC81]"
                 }`
               }
             >

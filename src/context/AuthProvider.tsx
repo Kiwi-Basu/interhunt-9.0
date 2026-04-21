@@ -12,8 +12,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = useState<User | null>(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [hasProfile, setHasProfile] = useState(false);
-    // hasPurchased is session-only — no backend field exists for it.
-    // It is set to true only when payment polling resolves as 'completed'.
     const [hasPurchased, setHasPurchased] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
