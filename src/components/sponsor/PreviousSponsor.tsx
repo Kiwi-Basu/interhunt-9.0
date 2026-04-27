@@ -1,16 +1,20 @@
+import CareerLaunch from "../../assets/Sponsor/Previous Sponsor/career launcher@4x.png"
+import DainikBhaskar from "../../assets/Sponsor/Previous Sponsor/Dainik Jagran@4x.png"
+import Decathlon from "../../assets/Sponsor/Previous Sponsor/Decathlon@4x.png"
+import Fresca from "../../assets/Sponsor/Previous Sponsor/Fresca@4x.png"
+import Giani from "../../assets/Sponsor/Previous Sponsor/Giani@4x.png"
+import Gillete from "../../assets/Sponsor/Previous Sponsor/Gillete@4x.png"
+import Nescafe from "../../assets/Sponsor/Previous Sponsor/Nescafe@4x.png"
+
 const PreviousSponsor = () => {
   const sponsors = [
-    { img: "img", sponsorName: "name" },
-    { img: "img2", sponsorName: "Alpha Corp" },
-    { img: "img3", sponsorName: "Beta Solutions" },
-    { img: "img4", sponsorName: "Gamma Tech" },
-    { img: "img5", sponsorName: "Delta Innovations" },
-    { img: "img6", sponsorName: "Epsilon Systems" },
-    { img: "img7", sponsorName: "Zeta Enterprises" },
-    { img: "img8", sponsorName: "Theta Labs" },
-    { img: "img9", sponsorName: "Lambda Group" },
-    { img: "img10", sponsorName: "Omega Corp" },
-    { img: "img11", sponsorName: "Nova Industries" },
+    { img: CareerLaunch , sponsorName: "CareerLaunch" },
+    { img: DainikBhaskar, sponsorName: "DainikBhaskar" },
+    { img: Decathlon, sponsorName: "Decathlon" },
+    { img: Fresca, sponsorName: "Fresca" },
+    { img: Giani, sponsorName: "Giani" },
+    { img: Gillete, sponsorName: "Gillete" },
+    { img: Nescafe, sponsorName: "Nescafe" }
   ];
 
   return (
@@ -44,9 +48,9 @@ const PreviousSponsor = () => {
               >
                 <div className="flex-1 flex items-center justify-center border border-gray-100 rounded-2xl bg-gray-50 p-3 grayscale group-hover:grayscale-0 group-hover:bg-[#1F3A5F]/5 transition-all duration-300">
                   <img
-                    src="src/assets/react.svg"
+                    src={sponsor.img}
                     alt={sponsor.sponsorName}
-                    className="h-12 w-12 opacity-60 group-hover:opacity-90 transition-opacity duration-300"
+                    className="h-20 opacity-60 group-hover:opacity-90 transition-opacity duration-300"
                   />
                 </div>
 
