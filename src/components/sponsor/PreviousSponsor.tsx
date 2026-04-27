@@ -50,7 +50,7 @@ const PreviousSponsor = () => {
                   <img
                     src={sponsor.img}
                     alt={sponsor.sponsorName}
-                    className="h-20 opacity-60 group-hover:opacity-90 transition-opacity duration-300"
+                    className="w-50 opacity-60 group-hover:opacity-90 transition-opacity duration-300"
                   />
                 </div>
 
