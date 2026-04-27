@@ -20,7 +20,7 @@ const Onboarding = () => {
   const backendURL = import.meta.env.VITE_BACKEND_URL
   const { user, setUser, setIsAuthenticated, setHasProfile } = useAuth()
 
-  const getYearOptions = (course : string) => {
+  const getYearOptions = (course: string) => {
     switch (course) {
       case "BTech":
         return [1, 2, 3, 4];
@@ -242,7 +242,7 @@ const Onboarding = () => {
                     <option value="" disabled>Select...</option>
                     <option value="BCA">BCA</option>
                     <option value="BBA">BBA</option>
-                    <option value="Bcom">B.Com</option>
+                    <option value="Bcom">B.Com (H)</option>
                     <option value="BA(JMC)">BA (JMC)</option>
                     <option value="BTech">B.Tech</option>
                     <option value="MBA">MBA</option>
@@ -251,7 +251,7 @@ const Onboarding = () => {
                   </select>
                 </div>
 
-               <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1">
                   <label className="text-sm font-medium text-gray-700">Academic Year</label>
                   <select
                     name="year"
@@ -265,9 +265,9 @@ const Onboarding = () => {
                     {getYearOptions(formData.course).map((year) => (
                       <option key={year} value={year}>
                         {year === 1 ? "1st Year" :
-                        year === 2 ? "2nd Year" :
-                        year === 3 ? "3rd Year" :
-                        "4th Year"}
+                          year === 2 ? "2nd Year" :
+                            year === 3 ? "3rd Year" :
+                              "4th Year"}
                       </option>
                     ))}
                   </select>

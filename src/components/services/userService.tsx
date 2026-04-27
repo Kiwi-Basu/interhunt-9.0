@@ -71,6 +71,7 @@ export const fetchUserData = async (backendURL: string): Promise<User | null> =>
 export const fetchCompleteUserData = async (backendURL: string): Promise<{
     isAuthenticated: boolean;
     user: User | null;
+    hasPurchased: boolean;
 }> => {
     // First, verify authentication
     const authData = await verifyAuthStatus(backendURL);
@@ -79,11 +80,14 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
 
     // Handle both response structures
     const userInfo = authData?.data?.userInfo || authData?.userInfo;
+    // Extract hasPurchased — backend sets this on verifyAuthStatus response
+    const hasPurchased: boolean = !!(authData?.data?.hasPurchased ?? authData?.hasPurchased);
 
     if (!authData || !userInfo) {
         return {
             isAuthenticated: false,
-            user: null
+            user: null,
+            hasPurchased: false,
         };
     }
 
@@ -93,7 +97,8 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
     if (userData) {
         return {
             isAuthenticated: true,
-            user: userData
+            user: userData,
+            hasPurchased,
         };
     }
 
@@ -104,6 +109,7 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
             id: userInfo.userId,
             email: userInfo.gmail || userInfo.email,
             name: userInfo.name || "",
-        }
+        },
+        hasPurchased,
     };
 };

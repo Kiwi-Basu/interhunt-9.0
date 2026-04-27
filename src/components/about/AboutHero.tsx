@@ -49,7 +49,7 @@ const AboutHero = () => {
             ring-[#CEAC81]/20 rounded-2xl">
           </div>
         </div>
-        
+
         <div className="hidden sm:block absolute opacity-10 ring-6 md:ring-8 ring-[#1F3A5F]/20 
           h-28 sm:h-40 md:h-50 
           w-28 sm:w-40 md:w-50 
@@ -71,7 +71,7 @@ const AboutHero = () => {
         <div className="z-10 text-center">
           <p className="text-5xl sm:text-6xl md:text-9xl font-extrabold text-[#1F3A5F]">
             About <span className="text-[#CEAC81]">Us</span>
-          </p>  
+          </p>
         </div>
 
         <p className="text-base sm:text-lg md:text-2xl font-medium text-gray-600 px-4 text-center">
@@ -91,7 +91,7 @@ const AboutHero = () => {
           {/* Card 2 */}
           <div className="h-32 w-32 sm:h-36 sm:w-36 md:h-40 md:w-40 border shadow-md border-[#CEAC81]/30 bg-white rounded-2xl flex flex-col items-center justify-center gap-2 hover:scale-105 transition">
             <FaUsers className="text-[#CEAC81] text-xl sm:text-2xl" />
-            <p className="text-2xl sm:text-3xl font-bold text-[#1F3A5F]">500+</p>
+            <p className="text-2xl sm:text-3xl font-bold text-[#1F3A5F]">3,500+</p>
             <p className="text-[10px] sm:text-xs text-gray-500 tracking-wide">Students Placed</p>
           </div>
 
@@ -104,7 +104,7 @@ const AboutHero = () => {
 
         </div>
 
-      </div>    
+      </div>
     </section>
   );
 };
