@@ -124,6 +124,7 @@ const App = () => {
 
 
             <Route path="*" element={<NotFound />} />
+            {/* <Route path="/apply/company" element={<ApplyCompanies />} /> */}
 
           </Routes>
           {/* </Suspense> */}
