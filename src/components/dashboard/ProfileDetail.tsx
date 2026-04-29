@@ -1,15 +1,32 @@
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
 import { Star , Rocket, Target } from "lucide-react";
+import { useEffect, useState } from "react";
+import { internHuntService } from "../services/internHuntService"
 
 const ProfileDetail = () => {
 
   const { user } = useAuth();
-
   const navigate = useNavigate();
+  const [selectedCompanies, setSelectedCompanies] = useState<any[]>([]);
 
-  // const user = JSON.parse(localStorage.getItem("user") || "{}"); 
+    useEffect(() => {
+  internHuntService.getUserCompanies().then(res => {
+    console.log("API Response:", res);
+    setSelectedCompanies(res.selectedCompanies || []);
+  }).catch(err => console.error(err));
+}, []);
 
+
+  // const fetchSelectedCompanies = async () => {
+  //   try {
+  //     const response = await internHuntService.getUserCompanies();
+  //     console.log("Selected companies:", response.data?.selectedCompanies);
+  //     setSelectedCompanies(response.data?.selectedCompanies || []);
+  //   } catch (error) {
+  //     console.error("Error fetching selected companies:", error);
+  //   }
+  // };
   return (
     <>
       <section id="Profile-Detail">
@@ -90,7 +107,7 @@ const ProfileDetail = () => {
 
           {/* SELECTED COMPANIES */}
 
-          {/* <p className="text-4xl md:text-6xl mb-6 md:mb-10 leading-normal font-extrabold tracking-widest text-transparent mt-10 bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg text-center">
+          <p className="text-4xl md:text-6xl mb-6 md:mb-10 leading-normal font-extrabold tracking-widest text-transparent mt-10 bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg text-center">
             Selected Companies
           </p>
           <div className="w-full   max-w-5xl md:w-250 p-6 md:p-8 flex flex-col gap-6 md:gap-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-200 relative z-10 m-4 md:m-0">  
@@ -117,10 +134,14 @@ const ProfileDetail = () => {
                     </h3>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500">A</div>
-                      <span className="font-semibold text-gray-800 text-sm">Company A</span>
-                    </div>
+                    {selectedCompanies.filter(c => c.tier === "TIER_1").map(company => (
+                      <div key={company._id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                        <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                          {company.name.charAt(0)}
+                        </div>
+                        <span className="font-semibold text-gray-800 text-sm">{company.name}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
@@ -131,10 +152,14 @@ const ProfileDetail = () => {
                     </h3>
                   </div>
                   <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500">B</div>
-                      <span className="font-semibold text-gray-800 text-sm">Company B</span>
-                    </div>
+                    {selectedCompanies.filter(c => c.tier === "TIER_2").map(company => (
+                      <div key={company._id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                        <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                          {company.name.charAt(0)}
+                        </div>
+                        <span className="font-semibold text-gray-800 text-sm">{company.name}</span>
+                      </div>
+                      ))}
                   </div>
                 </div>
 
@@ -144,23 +169,26 @@ const ProfileDetail = () => {
                       <Target size={20} /> Tier 3
                     </h3>
                   </div>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500">C</div>
-                      <span className="font-semibold text-gray-800 text-sm">Company C</span>
+                  
+                    <div className="flex flex-col gap-3">
+                      {selectedCompanies.filter(c => c.tier === "TIER_3").map(company => (
+                        <div key={company._id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                          <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                            {company.name.charAt(0)}
+                        </div>
+                        <span className="font-semibold text-gray-800 text-sm">{company.name}</span>
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500">D</div>
-                      <span className="font-semibold text-gray-800 text-sm">Company D</span>
-                    </div>
+                    
                   </div>
                 </div>
 
               </div>
             </div>
-          </div> */}
+          </div>
 
-        </div>
+        
 
       </section>
     </>
