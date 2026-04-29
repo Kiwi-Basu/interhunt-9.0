@@ -107,7 +107,7 @@ const ProfileDetail = () => {
 
           {/* SELECTED COMPANIES */}
 
-          <p className="text-4xl md:text-6xl mb-6 md:mb-10 leading-normal font-extrabold tracking-widest text-transparent mt-10 bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg text-center">
+          {/* <p className="text-4xl md:text-6xl mb-6 md:mb-10 leading-normal font-extrabold tracking-widest text-transparent mt-10 bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg text-center">
             Selected Companies
           </p>
           <div className="w-full   max-w-5xl md:w-250 p-6 md:p-8 flex flex-col gap-6 md:gap-8 border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-200 relative z-10 m-4 md:m-0">  
@@ -185,8 +185,8 @@ const ProfileDetail = () => {
                 </div>
 
               </div>
-            </div>
-          </div>
+          </div> */}
+        </div>
 
         
 

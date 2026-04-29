@@ -63,7 +63,6 @@ const App = () => {
                 fallback={"/auth"}
                 errorMessage="Access denied"
                 isLoading={isLoading}
-                devMode
               />
             } />
             {/* <Route path="/dashboard" element={<Dashboard />} />

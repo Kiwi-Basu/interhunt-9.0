@@ -26,11 +26,11 @@ const ApplyCompanies = () => {
 
       setCompanies(allCompaniesRes.data || []);
       
-  console.log("=== COMPANIES DEBUG ===");
-  console.log("All companies:", companies);
-  console.log("TIER_1:", companies.filter(c => c.tier === "TIER_1"));
-  console.log("TIER_2:", companies.filter(c => c.tier === "TIER_2"));
-  console.log("TIER_3:", companies.filter(c => c.tier === "TIER_3"));
+  // console.log("=== COMPANIES DEBUG ===");
+  // console.log("All companies:", companies);
+  // console.log("TIER_1:", companies.filter(c => c.tier === "TIER_1"));
+  // console.log("TIER_2:", companies.filter(c => c.tier === "TIER_2"));
+  // console.log("TIER_3:", companies.filter(c => c.tier === "TIER_3"));
 
 
       // Check if user already selected companies
@@ -151,6 +151,7 @@ const ApplyCompanies = () => {
         <div className="flex flex-wrap gap-8">
           {getCompaniesByTier("TIER_1").map((company) => {
             const selected = selectedCompanies.TIER_1.includes(company.name);
+
             return (
               <div
                 key={company._id}
@@ -161,16 +162,46 @@ const ApplyCompanies = () => {
                     : "bg-white border-slate-200 hover:shadow-xl"
                   }`}
               >
-                <p className="text-center font-bold text-lg">{company.name}</p>
-                <button
-                  className={`w-full rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
-                    ${selected
-                      ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
-                      : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
-                    }`}
-                >
-                  {selected ? "✓ Selected" : "Select"}
-                </button>
+                {/* LOGO */}
+                <div className="h-20 w-20 self-center bg-slate-50 rounded-xl flex items-center justify-center">
+                  <img
+                    src={company.img || "/default-logo.png"} // fallback if API has no image
+                    className="h-12 object-contain"
+                    alt={company.name}
+                  />
+                </div>
+
+                {/* NAME */}
+                <p className="text-center font-bold text-lg">
+                  {company.name}
+                </p>
+
+                {/* BUTTONS */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // add modal / redirect here
+                    }}
+                    className="flex-1 rounded-xl py-2 text-black bg-white border cursor-pointer hover:scale-95 transition-all duration-300 border-black/10 text-sm"
+                  >
+                    Know More
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectCompany("TIER_1", company.name);
+                    }}
+                    className={`flex-1 rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
+                      ${selected
+                        ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
+                        : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
+                      }`}
+                  >
+                    {selected ? "✓ Selected" : "Select"}
+                  </button>
+                </div>
               </div>
             );
           })}
@@ -188,6 +219,7 @@ const ApplyCompanies = () => {
         <div className="flex flex-wrap gap-8">
           {getCompaniesByTier("TIER_2").map((company) => {
             const selected = selectedCompanies.TIER_2.includes(company.name);
+
             return (
               <div
                 key={company._id}
@@ -198,16 +230,46 @@ const ApplyCompanies = () => {
                     : "bg-white border-slate-200 hover:shadow-xl"
                   }`}
               >
-                <p className="text-center font-bold text-lg">{company.name}</p>
-                <button
-                  className={`w-full rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
-                    ${selected
-                      ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
-                      : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
-                    }`}
-                >
-                  {selected ? "✓ Selected" : "Select"}
-                </button>
+                {/* LOGO */}
+                <div className="h-20 w-20 self-center bg-slate-50 rounded-xl flex items-center justify-center">
+                  <img
+                    src={company.img || "/default-logo.png"} // fallback if API has no image
+                    className="h-12 object-contain"
+                    alt={company.name}
+                  />
+                </div>
+
+                {/* NAME */}
+                <p className="text-center font-bold text-lg">
+                  {company.name}
+                </p>
+
+                {/* BUTTONS */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // add modal / redirect here
+                    }}
+                    className="flex-1 rounded-xl py-2 text-black bg-white border cursor-pointer hover:scale-95 transition-all duration-300 border-black/10 text-sm"
+                  >
+                    Know More
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectCompany("TIER_2", company.name);
+                    }}
+                    className={`flex-1 rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
+                      ${selected
+                        ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
+                        : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
+                      }`}
+                  >
+                    {selected ? "✓ Selected" : "Select"}
+                  </button>
+                </div>
               </div>
             );
           })}
@@ -225,6 +287,7 @@ const ApplyCompanies = () => {
         <div className="flex flex-wrap gap-8">
           {getCompaniesByTier("TIER_3").map((company) => {
             const selected = selectedCompanies.TIER_3.includes(company.name);
+
             return (
               <div
                 key={company._id}
@@ -235,16 +298,46 @@ const ApplyCompanies = () => {
                     : "bg-white border-slate-200 hover:shadow-xl"
                   }`}
               >
-                <p className="text-center font-bold text-lg">{company.name}</p>
-                <button
-                  className={`w-full rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
-                    ${selected
-                      ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
-                      : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
-                    }`}
-                >
-                  {selected ? "✓ Selected" : "Select"}
-                </button>
+                {/* LOGO */}
+                <div className="h-20 w-20 self-center bg-slate-50 rounded-xl flex items-center justify-center">
+                  <img
+                    src={company.img || "/default-logo.png"} // fallback if API has no image
+                    className="h-12 object-contain"
+                    alt={company.name}
+                  />
+                </div>
+
+                {/* NAME */}
+                <p className="text-center font-bold text-lg">
+                  {company.name}
+                </p>
+
+                {/* BUTTONS */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // add modal / redirect here
+                    }}
+                    className="flex-1 rounded-xl py-2 text-black bg-white border cursor-pointer hover:scale-95 transition-all duration-300 border-black/10 text-sm"
+                  >
+                    Know More
+                  </button>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectCompany("TIER_3", company.name);
+                    }}
+                    className={`flex-1 rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
+                      ${selected
+                        ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
+                        : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
+                      }`}
+                  >
+                    {selected ? "✓ Selected" : "Select"}
+                  </button>
+                </div>
               </div>
             );
           })}
