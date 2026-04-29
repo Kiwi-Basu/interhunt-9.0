@@ -50,4 +50,25 @@ export const internHuntService = {
     const response = await api.patch('/api/internhunt9/', { userId });
     return response.data;
   },
+
+
+  // Get all available companies
+  getAllCompanies: async () => {
+    const response = await api.get('/api/internhunt9/companies');
+    return response.data;
+  },
+
+  // Get user's selected companies
+  getUserCompanies: async () => {
+    const response = await api.get('/api/internhunt9/my-companies');
+    return response.data;
+  },
+
+  // Select companies for hunt
+  selectCompanies: async (companyIds: string[]) => {
+    const response = await api.post('/api/internhunt9/companies/select', { 
+      companies: companyIds 
+    });
+    return response.data;
+  },
 };
