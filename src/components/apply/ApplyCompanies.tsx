@@ -25,12 +25,12 @@ const ApplyCompanies = () => {
       ]);
 
       setCompanies(allCompaniesRes.data || []);
-      
-  // console.log("=== COMPANIES DEBUG ===");
-  // console.log("All companies:", companies);
-  // console.log("TIER_1:", companies.filter(c => c.tier === "TIER_1"));
-  // console.log("TIER_2:", companies.filter(c => c.tier === "TIER_2"));
-  // console.log("TIER_3:", companies.filter(c => c.tier === "TIER_3"));
+
+      // console.log("=== COMPANIES DEBUG ===");
+      // console.log("All companies:", companies);
+      // console.log("TIER_1:", companies.filter(c => c.tier === "TIER_1"));
+      // console.log("TIER_2:", companies.filter(c => c.tier === "TIER_2"));
+      // console.log("TIER_3:", companies.filter(c => c.tier === "TIER_3"));
 
 
       // Check if user already selected companies
@@ -62,7 +62,7 @@ const ApplyCompanies = () => {
 
     setSelectedCompanies(prev => {
       const current = [...prev[tier]];
-      
+
       if (current.includes(companyName)) {
         return { ...prev, [tier]: current.filter(c => c !== companyName) };
       } else {
@@ -78,7 +78,7 @@ const ApplyCompanies = () => {
 
   const handleSubmit = async () => {
     const allSelected = [...selectedCompanies.TIER_1, ...selectedCompanies.TIER_2, ...selectedCompanies.TIER_3];
-    
+
     if (allSelected.length === 0) {
       alert("Please select at least one company");
       return;

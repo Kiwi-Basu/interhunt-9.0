@@ -56,7 +56,7 @@ const TierCompanies1 = () => {
         </div>
 
         {/* Tier 1 companies */}
-        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        {/* <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           <div className="absolute inset-0  pointer-events-none"></div>
 
@@ -72,8 +72,8 @@ const TierCompanies1 = () => {
               </span>
               <div className="h-px w-16 bg-linear-to-l from-transparent to-yellow-400"></div>
             </div>
-            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-transparent bg-clip-text bg-linear-to-r from-black via-gray-700 to-black drop-shadow-lg">
-              Tier 1
+            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-[#1F3A5F] drop-shadow-lg">
+              Tier <span className="text-[#CEAC81]">1</span>
             </p>
           </div>
 
@@ -81,34 +81,36 @@ const TierCompanies1 = () => {
             {company1.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-yellow-50 bg-white shadow-lg shadow-yellow-50 rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-50 hover:border-yellow-50 group cursor-pointer mx-4 sm:mx-0"
+                className="relative border border-black/10 bg-white shadow-lg rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:border-yellow-50 group  mx-4 sm:mx-0"
               >
                 
                 <div className="h-20 w-20 self-center rounded-2xl bg-yellow-50 border border-yellow-50 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
                   <span className="text-yellow-500 text-xs font-bold tracking-widest uppercase">Logo</span>
                 </div>
 
-                <p className="text-center font-bold text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100">
+                <p className="text-center font-bold text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
                   {company.companyName}
                 </p>
 
-                <div className="bg-gray-50 rounded-xl p-4 text-gray-500 leading-relaxed text-sm border border-gray-100 text-center">
+                <div className="bg-gray-50 rounded-xl p-4 text-gray-500 leading-relaxed text-sm border border-gray-100 text-center shadow">
                   {company.description}
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="flex-1 font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-yellow-50 border border-yellow-200 text-yellow-700 hover:bg-yellow-100 transition-all text-sm tracking-wide">
+                  <button className="flex-1 font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all text-sm tracking-wide">
                     Know More
                   </button>
-                  <button className="flex-1 font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-yellow-400 to-amber-400 text-white hover:from-yellow-500 hover:to-amber-500 transition-all text-sm tracking-wide shadow-md hover:shadow-yellow-300">
-                    Apply
-                  </button>
+                  <Link to={"/apply/companies"} className="flex-1 w-full">
+                    <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
+                      Apply
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
 
-        </div>
+        </div> */}
       </section>
     </>
   );
