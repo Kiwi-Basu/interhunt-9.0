@@ -56,7 +56,7 @@ const TierCompanies1 = () => {
         </div>
 
         {/* Tier 1 companies */}
-        {/* <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           <div className="absolute inset-0  pointer-events-none"></div>
 
@@ -72,7 +72,7 @@ const TierCompanies1 = () => {
               </span>
               <div className="h-px w-16 bg-linear-to-l from-transparent to-yellow-400"></div>
             </div>
-            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-[#1F3A5F] drop-shadow-lg">
+            <p className="text-5xl md:text-6xl font-extrabold tracking-widest text-[#1F3A5F]">
               Tier <span className="text-[#CEAC81]">1</span>
             </p>
           </div>
@@ -97,9 +97,9 @@ const TierCompanies1 = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="flex-1 font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all text-sm tracking-wide">
+                  <a href="#" target="_blank" className="flex-1 font-semibold text-center cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all text-sm tracking-wide">
                     Know More
-                  </button>
+                  </a>
                   <Link to={"/apply/companies"} className="flex-1 w-full">
                     <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
                       Apply
@@ -110,7 +110,7 @@ const TierCompanies1 = () => {
             ))}
           </div>
 
-        </div> */}
+        </div>
       </section>
     </>
   );

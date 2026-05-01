@@ -6,9 +6,9 @@ const ApplyCompanies = () => {
   const [loading, setLoading] = useState(true);
   const [hasSelected, setHasSelected] = useState(false);
   const [selectedCompanies, setSelectedCompanies] = useState<{ [key: string]: string[] }>({
-    TIER_1: [],
+    TIER_1: ["a"],
     TIER_2: [],
-    TIER_3: []
+    TIER_3: ["a"]
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -136,6 +136,9 @@ const ApplyCompanies = () => {
       </section>
     );
   }
+  const totalSelected = selectedCompanies.TIER_1.length + selectedCompanies.TIER_2.length + selectedCompanies.TIER_3.length;
+
+    const isDisabled = submitting || totalSelected === 0;
 
   return (
     <section className="min-h-screen p-6 py-10 md:p-20 bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7] space-y-10">
@@ -351,13 +354,12 @@ const ApplyCompanies = () => {
       <div className="flex justify-center mt-6">
         <button
           onClick={handleSubmit}
-          disabled={
-            submitting ||
-            selectedCompanies.TIER_1.length !== 1 ||
-            selectedCompanies.TIER_2.length !== 2 ||
-            selectedCompanies.TIER_3.length !== 1
+          disabled={isDisabled
+            // selectedCompanies.TIER_1.length !== 1 ||
+            // selectedCompanies.TIER_2.length !== 2 ||
+            // selectedCompanies.TIER_3.length !== 1
           }
-          className="px-10 py-3 rounded-xl cursor-pointer bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-bold shadow-lg hover:scale-105 transition disabled:opacity-50"
+          className={`px-10 py-3 rounded-xl  bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-bold shadow-lg ${isDisabled ? "opacity-50 cursor-not-allowed"  : "hover:scale-105 cursor-pointer"}`}
         >
           {submitting ? "Submitting..." : "Submit Applications"}
         </button>

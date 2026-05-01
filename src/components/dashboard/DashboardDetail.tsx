@@ -1,19 +1,19 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
-import { Rocket } from "lucide-react";
+import { Rocket , Hand } from "lucide-react";
 
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { hasPurchased } = useAuth();
+  const { hasPurchased , hasSelected  } = useAuth();
 
   return (
     <section className="min-h-screen bg-linear-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center p-20">
 
       {/* HEADER */}
       <div className="w-full max-w-4xl bg-white border border-[#CEAC81]/20 rounded-2xl p-6 shadow-sm mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#1F3A5F]">
-          Welcome back, User 👋
+        <h1 className="text-2xl md:text-3xl font-bold text-[#1F3A5F] flex items-center gap-5">
+          Welcome back, User <Hand  className="mt-1"/>
         </h1>
         <p className="text-gray-500 mt-1">
           Follow the steps below to start your internship application process.
@@ -73,6 +73,29 @@ const Dashboard = () => {
           <span className="inline-block mt-3 text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
             Upcoming Feature
           </span>
+        </div>
+
+        {/* unlock during acutal registration , above step-2 comment out */}
+        <div className={`p-6 rounded-2xl border shadow-sm transition ${hasPurchased ? "bg-green-50 border-green-200" : "bg-white border-gray-200"}`}>
+          <h2 className="font-semibold text-[#1F3A5F] text-lg">
+            2. Apply to Companies
+          </h2>
+
+          <p className="text-gray-500 mt-1 flex gap-2">
+            {hasSelected ? "You have selected company" : "Company selection started "}
+             <Rocket />
+          </p>
+
+            <button 
+              onClick={()=> navigate("/apply/companies")}
+              disabled = {hasSelected}
+
+              className={`mt-4 px-5 py-2 rounded-full text-sm font-medium transition ${hasSelected ? "bg-gray-200 text-gray-500 cursor-not-allowed" : "bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] hover:scale-105 cursor-pointer"}`}
+            >
+              Select Comapny
+            </button>
+
+
         </div>
 
       </div>

@@ -23,6 +23,10 @@ export interface AuthContextType {
     /** True when user has paid and registered for the InternHunt event (session-only) */
     hasPurchased : boolean;
     setHasPurchased : (hasPurchased : boolean) => void;
+
+    hasSelected : boolean;
+    setHasSelected : (hasSelected : boolean)=> void;
+
     isLoading : boolean;
     logout : () => void;
     refetchUserData : () => Promise<void>;
