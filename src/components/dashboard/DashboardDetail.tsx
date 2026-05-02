@@ -76,7 +76,7 @@ const Dashboard = () => {
         </div>
 
         {/* unlock during acutal registration , above step-2 comment out */}
-        <div className={`p-6 rounded-2xl border shadow-sm transition ${hasPurchased ? "bg-green-50 border-green-200" : "bg-white border-gray-200"}`}>
+        <div className={`p-6 rounded-2xl border shadow-sm transition ${hasSelected ? "bg-green-50 border-green-200" : "bg-white border-gray-200"}`}>
           <h2 className="font-semibold text-[#1F3A5F] text-lg">
             2. Apply to Companies
           </h2>

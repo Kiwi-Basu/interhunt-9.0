@@ -14,18 +14,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [hasProfile, setHasProfile] = useState(false);
     const [hasPurchased, setHasPurchased] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [hasSelected, setHasSelected] = useState(false);
 
     const backendURL = import.meta.env.VITE_BACKEND_URL;
 
     // Verify authentication status and fetch student data
     const checkAuthStatus = useCallback(async () => {
         try {
-            const { isAuthenticated: authStatus, user: userData, hasPurchased: purchased } = await fetchCompleteUserData(backendURL);
+            const { isAuthenticated: authStatus, user: userData, hasPurchased: purchased, hasSelected: selected } = await fetchCompleteUserData(backendURL);
 
             setIsAuthenticated(authStatus);
             setUser(userData);
             setHasProfile(!!(userData?.name));
             setHasPurchased(purchased);
+            setHasSelected(selected)
         } catch (error) {
             console.error('Error verifying auth status:', error);
             setIsAuthenticated(false);
@@ -69,7 +71,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }, [checkAuthStatus]);
 
     return (
-        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, hasProfile, setHasProfile, hasPurchased, setHasPurchased, isLoading, logout, refetchUserData }}>
+        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, hasProfile, setHasProfile, hasPurchased, setHasPurchased, isLoading, logout, refetchUserData,hasSelected,setHasSelected }}>
             {children}
         </AuthContext.Provider>
     );

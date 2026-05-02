@@ -6,9 +6,9 @@ const ApplyCompanies = () => {
   const [loading, setLoading] = useState(true);
   const [hasSelected, setHasSelected] = useState(false);
   const [selectedCompanies, setSelectedCompanies] = useState<{ [key: string]: string[] }>({
-    TIER_1: ["a"],
+    TIER_1: [],
     TIER_2: [],
-    TIER_3: ["a"]
+    TIER_3: []
   });
   const [submitting, setSubmitting] = useState(false);
 

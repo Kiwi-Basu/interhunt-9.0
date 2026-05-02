@@ -97,7 +97,7 @@ const ProfileDetail = () => {
             </div>
 
             <button
-              onClick={() => {hasSelected ? " " :navigate("/apply/payment")}}
+              onClick={() => {!hasSelected ? navigate("/apply/payment"):"" }}
               disabled = {hasSelected}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium hover:scale-105 transition cursor-pointer"
             >
