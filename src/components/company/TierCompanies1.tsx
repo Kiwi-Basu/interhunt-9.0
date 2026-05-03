@@ -1,14 +1,18 @@
 import { Link } from "react-router"
 import { Rocket } from "lucide-react";
+import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
+import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
+import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg"
+import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
+import UrsTech from "../../assets/companies/recruiters/urstech.png"
 
 const TierCompanies1 = () => {
   const company1 = [
-    { img: "image", companyName: "Something", description: "something something something", knowmore: "pdf" },
-    { img: "image2", companyName: "TechNova", description: "A leading company in AI and machine learning solutions.", knowmore: "pdf" },
-    { img: "image3", companyName: "CodeCraft", description: "Focused on building scalable web and mobile applications.", knowmore: "pdf" },
-    { img: "image4", companyName: "DataSphere", description: "Provides advanced data analytics and cloud services.", knowmore: "pdf" },
-    { img: "image5", companyName: "InnoSoft", description: "Innovative software solutions for modern businesses.", knowmore: "pdf" },
-    { img: "image6", companyName: "NextGen Systems", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Multyfi, companyName: "Multyfi", description: "something something something", knowmore: "pdf" },
+    { img: Web3task, companyName: "Web3task", description: "A leading company in AI and machine learning solutions.", knowmore: "pdf" },
+    { img: Edzer, companyName: "Edzer", description: "Focused on building scalable web and mobile applications.", knowmore: "pdf" },
+    { img: Kit19, companyName: "Kit19", description: "Provides advanced data analytics and cloud services.", knowmore: "pdf" },
+    { img: UrsTech, companyName: "UrsTech Solution", description: "Innovative software solutions for modern businesses.", knowmore: "pdf" }
   ];
 
   return (
@@ -40,7 +44,7 @@ const TierCompanies1 = () => {
             <p className="text-gray-500 max-w-xl text-sm md:text-base leading-relaxed">
               We’re onboarding top-tier companies for this season. Stay tuned — exciting opportunities are about to drop.
             </p>
-            
+
             <Link to="/dashboard">
               <button className="w-full cursor-pointer px-8 md:px-10 md:w-auto py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">View Dashboard</button>
             </Link>
@@ -83,12 +87,12 @@ const TierCompanies1 = () => {
                 key={idx}
                 className="relative border border-black/10 bg-white shadow-lg rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:border-yellow-50 group  mx-4 sm:mx-0"
               >
-                
-                <div className="h-20 w-20 self-center rounded-2xl bg-yellow-50 border border-yellow-50 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
-                  <span className="text-yellow-500 text-xs font-bold tracking-widest uppercase">Logo</span>
+
+                <div className="h-20 w-20 self-center  p-1 rounded-md border border-black/10 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-yellow-50 transition-all duration-300">
+                  <img src={company.img} />
                 </div>
 
-                <p className="text-center font-bold text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
+                <p className="text-center font-bold uppercase  text-shadow-lg text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
                   {company.companyName}
                 </p>
 

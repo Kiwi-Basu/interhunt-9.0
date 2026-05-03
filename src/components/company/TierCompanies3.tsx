@@ -1,13 +1,10 @@
 import { Link } from "react-router-dom";
+import Shray from "../../assets/companies/companies page/Tier3_Images/shray_projectsindia_logo.jpg"
 
 const TierCompanies3 = () => {
   const company3 = [
-    { img: "image", companyName: "Something", description: "something something something", knowmore: "pdf" },
-    { img: "image2", companyName: "TechNova", description: "A leading company in AI and machine learning solutions.", knowmore: "pdf" },
-    { img: "image3", companyName: "CodeCraft", description: "Focused on building scalable web and mobile applications.", knowmore: "pdf" },
-    { img: "image4", companyName: "DataSphere", description: "Provides advanced data analytics and cloud services.", knowmore: "pdf" },
-    { img: "image5", companyName: "InnoSoft", description: "Innovative software solutions for modern businesses.", knowmore: "pdf" },
-    { img: "image6", companyName: "NextGen Systems", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Shray, companyName: "Shray Projects", description: "something something something", knowmore: "pdf" },
+
   ];
 
   return (
@@ -41,12 +38,12 @@ const TierCompanies3 = () => {
               >
 
                 {/* Logo placeholder */}
-                <div className="h-20 w-20 self-center rounded-2xl bg-amber-50 border border-amber-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
-                  <span className="text-amber-500 text-xs font-bold tracking-widest uppercase">Logo</span>
+                <div className="h-20 w-20 self-center p-1 rounded-md  border border-black/10 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
+                  <img src={company.img} alt={company.companyName}/>
                 </div>
 
                 {/* Company name */}
-                <p className="text-center font-bold text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
+                <p className="text-center font-bold text-lg text-shadow-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
                   {company.companyName}
                 </p>
 

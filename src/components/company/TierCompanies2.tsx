@@ -1,13 +1,40 @@
 import { Link } from "react-router-dom";
+import Meraki from "../../assets/companies/companies page/Tier2_Images/merakii_logo.jpg"
+import Samyak from "../../assets/companies/companies page/Tier2_Images/samyakcomputerclasses_logo.jpg"
+import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg"
+import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg"
+import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg"
+import Ems from "../../assets/companies/companies page/Tier2_Images/Easymystorage_logo.jpg"
+import Webgross from "../../assets/companies/companies page/Tier2_Images/webgross_logo.jpg"
+import Devlofox from "../../assets/companies/companies page/Tier2_Images/devlofox_logo.jpg"
+import Cetpa from "../../assets/companies/recruiters/cetpa@2x.png"
+import Maysan from "../../assets/companies/companies page/Tier2_Images/Maysanlabs_logo.webp"
+import Spillmate from "../../assets/companies/companies page/Tier2_Images/spillmate_logo.jpg"
+import Ameriliquid from "../../assets/companies/companies page/Tier2_Images/Ameriliquid_logo.png"
+import Harnium from "../../assets/companies/companies page/Tier2_Images/harnium_logo.jpg"
+import Travelwithpravah from "../../assets/companies/companies page/Tier2_Images/Travelwithparvah.jpg"
+import Teri from "../../assets/companies/companies page/Tier2_Images/teri_enterprise_logo.svg"
+import Sukudo from "../../assets/companies/companies page/Tier2_Images/sukudo_studios_logo.jpg"
+
 
 const TierCompanies2 = () => {
   const company2 = [
-    { img: "image", companyName: "Something", description: "something something something", knowmore: "pdf" },
-    { img: "image2", companyName: "TechNova", description: "A leading company in AI and machine learning solutions.", knowmore: "pdf" },
-    { img: "image3", companyName: "CodeCraft", description: "Focused on building scalable web and mobile applications.", knowmore: "pdf" },
-    { img: "image4", companyName: "DataSphere", description: "Provides advanced data analytics and cloud services.", knowmore: "pdf" },
-    { img: "image5", companyName: "InnoSoft", description: "Innovative software solutions for modern businesses.", knowmore: "pdf" },
-    { img: "image6", companyName: "NextGen Systems", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Meraki, companyName: "Merakii", description: "something something something", knowmore: "pdf" },
+    { img: Samyak, companyName: "Samyak Computer Classes", description: "A leading company in AI and machine learning solutions.", knowmore: "pdf" },
+    { img: Tpr, companyName: "TPR India Foundation", description: "Focused on building scalable web and mobile applications.", knowmore: "pdf" },
+    { img: Pocketful, companyName: "Pocketful", description: "Provides advanced data analytics and cloud services.", knowmore: "pdf" },
+    { img: Kalakrit, companyName: "Kalakrit", description: "Innovative software solutions for modern businesses.", knowmore: "pdf" },
+    { img: Ems, companyName: "Easy My Storage ", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Webgross, companyName: "Webgross", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Devlofox, companyName: "Devlofox Technologies", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Cetpa, companyName: "Cetpa", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Maysan, companyName: "Maysan Labs", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Spillmate, companyName: "Spillmate", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Ameriliquid, companyName: "AmeriLiquid India", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Harnium, companyName: "Harnium", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Travelwithpravah, companyName: "travelwithpravah", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Teri, companyName: "Teri Enterprise", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
+    { img: Sukudo, companyName: "Sukudo Studios", description: "Specializes in cybersecurity and IT infrastructure.", knowmore: "pdf" },
   ];
 
   return (
@@ -41,12 +68,12 @@ const TierCompanies2 = () => {
                 className="relative border border-slate-200 bg-white shadow-lg shadow-slate-100 rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:shadow-slate-200 hover:border-slate-300 group  mx-4 sm:mx-0"
               >
                 {/* Logo placeholder */}
-                <div className="h-20 w-20 self-center rounded-2xl bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-100 transition-all duration-300">
-                  <span className="text-slate-400 text-xs font-bold tracking-widest uppercase">Logo</span>
+                <div className="h-20 w-20 p-1  self-center rounded-md bg-slate-50 border border-slate-100 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-100 transition-all duration-300">
+                  <img src={company.img} alt="" />
                 </div>
 
                 {/* Company name */}
-                <p className="text-center font-bold text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
+                <p className="text-center font-bold text-shadow-lg text-lg text-gray-900 bg-gray-50 rounded-xl py-2.5 border border-gray-100 shadow">
                   {company.companyName}
                 </p>
 

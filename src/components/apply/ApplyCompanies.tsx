@@ -1,7 +1,38 @@
 import { useState, useEffect } from "react";
 import { internHuntService } from "../services/internHuntService";
+import { useNavigate } from "react-router";
+
+// tier 1
+import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
+import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
+import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg"
+import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
+import UrsTech from "../../assets/companies/recruiters/urstech.png"
+
+// tier 2 
+import Meraki from "../../assets/companies/companies page/Tier2_Images/merakii_logo.jpg"
+import Samyak from "../../assets/companies/companies page/Tier2_Images/samyakcomputerclasses_logo.jpg"
+import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg"
+import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg"
+import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg"
+import Ems from "../../assets/companies/companies page/Tier2_Images/Easymystorage_logo.jpg"
+import Webgross from "../../assets/companies/companies page/Tier2_Images/webgross_logo.jpg"
+import Devlofox from "../../assets/companies/companies page/Tier2_Images/devlofox_logo.jpg"
+import Cetpa from "../../assets/companies/recruiters/cetpa@2x.png"
+import Maysan from "../../assets/companies/companies page/Tier2_Images/Maysanlabs_logo.webp"
+import Spillmate from "../../assets/companies/companies page/Tier2_Images/spillmate_logo.jpg"
+import Ameriliquid from "../../assets/companies/companies page/Tier2_Images/Ameriliquid_logo.png"
+import Harnium from "../../assets/companies/companies page/Tier2_Images/harnium_logo.jpg"
+import Travelwithpravah from "../../assets/companies/companies page/Tier2_Images/Travelwithparvah.jpg"
+import Teri from "../../assets/companies/companies page/Tier2_Images/teri_enterprise_logo.svg"
+import Sukudo from "../../assets/companies/companies page/Tier2_Images/sukudo_studios_logo.jpg"
+
+// tier 3
+import Shray from "../../assets/companies/companies page/Tier3_Images/shray_projectsindia_logo.jpg"
+
 
 const ApplyCompanies = () => {
+  const navigate = useNavigate()
   const [companies, setCompanies] = useState<{ name: string; tier: string; jobRoles: any[]; _id: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasSelected, setHasSelected] = useState(false);
@@ -11,6 +42,38 @@ const ApplyCompanies = () => {
     TIER_3: []
   });
   const [submitting, setSubmitting] = useState(false);
+
+  const companyImageMap: { [key: string]: string } = {
+    // TIER 1
+    "Multyfi": Multyfi,
+    "Web3task": Web3task,
+    "Edzer": Edzer,
+    "Kit19": Kit19,
+    "UrsTech Solution": UrsTech,
+
+    // TIER 2
+    "Merakii": Meraki,
+    "Samyak Computer classes": Samyak,
+    "TPR India Foundation": Tpr,
+    "Pocketful": Pocketful,
+    "Kalakrit": Kalakrit,
+    "Easy My Storage": Ems,
+    "Webgross": Webgross,
+    "Devlofox Technologies": Devlofox,
+    "Cetpa": Cetpa,
+    "Maysan Labs": Maysan,
+    "Spillmate": Spillmate,
+    "AmeriLiquid India": Ameriliquid,
+    "Harnium": Harnium,
+    "Travelwithpravah": Travelwithpravah,
+    "Teri Enterprise": Teri,
+    "Sukudo Studios": Sukudo,
+
+    // TIER 3
+    "Shray Projects": Shray,
+  };
+
+
 
   // Fetch companies from backend
   useEffect(() => {
@@ -127,7 +190,7 @@ const ApplyCompanies = () => {
             ))}
           </div>
           <button
-            onClick={() => window.history.back()}
+            onClick={() => navigate("/dashboard/profile")}
             className="mt-6 w-full bg-[#1F3A5F] text-white py-3 rounded-xl font-semibold hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition"
           >
             Go Back
@@ -138,7 +201,7 @@ const ApplyCompanies = () => {
   }
   const totalSelected = selectedCompanies.TIER_1.length + selectedCompanies.TIER_2.length + selectedCompanies.TIER_3.length;
 
-    const isDisabled = submitting || totalSelected === 0;
+  const isDisabled = submitting || totalSelected === 0;
 
   return (
     <section className="min-h-screen p-6 py-10 md:p-20 bg-linear-to-br from-[#a9a7a7] via-[#F8FAFC] to-[#EEF2F7] space-y-10">
@@ -168,7 +231,7 @@ const ApplyCompanies = () => {
                 {/* LOGO */}
                 <div className="h-20 w-20 self-center bg-slate-50 rounded-xl flex items-center justify-center">
                   <img
-                    src={company.img || "/default-logo.png"} // fallback if API has no image
+                    src={companyImageMap[company.name] || "/default-logo.png"} // fallback if API has no image
                     className="h-12 object-contain"
                     alt={company.name}
                   />
@@ -236,7 +299,7 @@ const ApplyCompanies = () => {
                 {/* LOGO */}
                 <div className="h-20 w-20 self-center bg-slate-50 rounded-xl flex items-center justify-center">
                   <img
-                    src={company.img || "/default-logo.png"} // fallback if API has no image
+                    src={companyImageMap[company.name] || "/default-logo.png"} // fallback if API has no image
                     className="h-12 object-contain"
                     alt={company.name}
                   />
@@ -304,7 +367,7 @@ const ApplyCompanies = () => {
                 {/* LOGO */}
                 <div className="h-20 w-20 self-center bg-slate-50 rounded-xl flex items-center justify-center">
                   <img
-                    src={company.img || "/default-logo.png"} // fallback if API has no image
+                    src={companyImageMap[company.name] || "/default-logo.png"} // fallback if API has no image
                     className="h-12 object-contain"
                     alt={company.name}
                   />
@@ -359,7 +422,7 @@ const ApplyCompanies = () => {
             // selectedCompanies.TIER_2.length !== 2 ||
             // selectedCompanies.TIER_3.length !== 1
           }
-          className={`px-10 py-3 rounded-xl  bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-bold shadow-lg ${isDisabled ? "opacity-50 cursor-not-allowed"  : "hover:scale-105 cursor-pointer"}`}
+          className={`px-10 py-3 rounded-xl  bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-bold shadow-lg ${isDisabled ? "opacity-50 cursor-not-allowed" : "hover:scale-105 cursor-pointer"}`}
         >
           {submitting ? "Submitting..." : "Submit Applications"}
         </button>

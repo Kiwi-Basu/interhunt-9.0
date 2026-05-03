@@ -3,13 +3,13 @@ import sharekhan from "../../assets/companies/recruiters/sharekhan.png";
 import pehchaanschool from "../../assets/companies/recruiters/PehchaanSchool.png";
 import wipro from "../../assets/companies/recruiters/wipro-logo.png";
 import timesofindia from "../../assets/companies/recruiters/TOI.png";
-import decathlon from "../../assets/companies/companies page/decathlon_square.png";
+import decathlon from "../../assets/companies/recruiters/decathlon.png";
 import oyo from "../../assets/companies/recruiters/oyo.png"
 import nescafe from "../../assets/companies/recruiters/nescafe.png"
 import careerlauncher from "../../assets/companies/recruiters/career.png"
 import mte from "../../assets/companies/recruiters/mte.jpg"
-import cetpa from "../../assets/companies/companies page/cetpa@2x.png";
-import urs from "../../assets/companies/companies page/urs tech@2x.png";
+import cetpa from "../../assets/companies/recruiters/cetpa@2x.png";
+import urs from "../../assets/companies/recruiters/urstech.png";
 import csa from "../../assets/companies/recruiters/csa.png";
 import growthclues from "../../assets/companies/recruiters/Growthclues.png";
 import worldsofwonder from "../../assets/companies/recruiters/wow.png"

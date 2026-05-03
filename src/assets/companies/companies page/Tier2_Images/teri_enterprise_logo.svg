@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">TERI Enterprise logo</title>
+  <desc id="desc">TERI Enterprise wordmark with TERI above a divider line and ENTERPRISE below.</desc>
+  <g fill="#0f4a48">
+    <text
+      x="800"
+      y="360"
+      text-anchor="middle"
+      font-family="Bodoni 72, Didot, Bodoni MT, Times New Roman, serif"
+      font-size="470"
+      font-weight="500"
+      letter-spacing="10"
+    >
+      TERI
+    </text>
+    <line x1="80" y1="520" x2="1520" y2="520" stroke="#0f4a48" stroke-width="2.5" />
+    <text
+      x="800"
+      y="760"
+      text-anchor="middle"
+      font-family="Bodoni 72, Didot, Bodoni MT, Times New Roman, serif"
+      font-size="175"
+      font-weight="500"
+      letter-spacing="42"
+    >
+      ENTERPRISE
+    </text>
+  </g>
+</svg>
+
