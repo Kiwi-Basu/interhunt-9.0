@@ -120,7 +120,7 @@ const ApplyCompanies = () => {
   };
 
   // Handlers for selection
-  const handleSelectCompany = (tier: string, companyName: string) => {
+  const handleSelectCompany = (tier: any, companyName: any) => {
     if (hasSelected) return;
 
     setSelectedCompanies(prev => {
@@ -244,16 +244,6 @@ const ApplyCompanies = () => {
 
                 {/* BUTTONS */}
                 <div className="flex gap-3">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      // add modal / redirect here
-                    }}
-                    className="flex-1 rounded-xl py-2 text-black bg-white border cursor-pointer hover:scale-95 transition-all duration-300 border-black/10 text-sm"
-                  >
-                    Know More
-                  </button>
-
                   <button
                     onClick={(e) => {
                       e.stopPropagation();

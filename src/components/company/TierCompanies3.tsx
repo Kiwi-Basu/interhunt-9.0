@@ -3,7 +3,7 @@ import Shray from "../../assets/companies/companies page/Tier3_Images/shray_proj
 
 const TierCompanies3 = () => {
   const company3 = [
-    { img: Shray, companyName: "Shray Projects", description: "something something something", knowmore: "pdf" },
+    { img: Shray, companyName: "Shray Projects", description: "Shray Projects is a leading real estate services firm based in New Delhi, established in the 1980s. It has grown into a trusted broking house, handling major corporate and individual transactions. Known for its ethical professionalism, the firm has built strong credibility in a highly fragmented market.", knowmore: "pdf" },
 
   ];
 
@@ -34,7 +34,7 @@ const TierCompanies3 = () => {
             {company3.map((company, idx) => (
               <div
                 key={idx}
-                className="relative border border-[#b8662f]/10 bg-white shadow-lg rounded-3xl flex flex-col w-full sm:w-72 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl  hover:border-orange-200 group cursor-pointer mx-4 sm:mx-0"
+                className="relative border border-black/10 bg-white shadow-lg rounded-3xl flex flex-col w-full sm:w-90 p-5 md:p-7 gap-4 md:gap-5 transition-all duration-400 hover:scale-105 hover:shadow-2xl hover:border-yellow-50 group  mx-4 sm:mx-0"
               >
 
                 {/* Logo placeholder */}
@@ -48,15 +48,12 @@ const TierCompanies3 = () => {
                 </p>
 
                 {/* Description */}
-                <div className="bg-gray-50 rounded-xl p-4 text-gray-500 leading-relaxed text-sm border border-gray-100 text-center shadow">
+                <div className="bg-gray-50 rounded-xl p-4 text-gray-500 leading-relaxed text-sm border border-gray-100 text-justify text-shadow-sm shadow">
                   {company.description}
                 </div>
 
                 {/* Buttons */}
                 <div className="flex gap-3">
-                  <button className="flex-1 font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all text-sm tracking-wide">
-                    Know More
-                  </button>
                   <Link to={"/apply/companies"} className="flex-1 w-full">
                     <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
                       Apply

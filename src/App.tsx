@@ -63,7 +63,6 @@ const App = () => {
                 fallback={"/auth"}
                 errorMessage="Access denied"
                 isLoading={isLoading}
-                devMode
               />
             } />
             {/* <Route path="/dashboard" element={<Dashboard />} />
@@ -80,7 +79,6 @@ const App = () => {
                   fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
                   errorMessage="Access denied: payment required"
                   isLoading={isLoading}
-                  devMode
                 />
               }
             />
@@ -107,7 +105,6 @@ const App = () => {
                   fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
                   errorMessage="Access denied: payment required"
                   isLoading={isLoading}
-                  devMode
                 />
               }
             />
