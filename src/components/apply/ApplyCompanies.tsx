@@ -52,7 +52,7 @@ const ApplyCompanies = () => {
     "UrsTech Solution": UrsTech,
 
     // TIER 2
-    "Merakii": Meraki,
+    "Meraki": Meraki,
     "Samyak Computer classes": Samyak,
     "TPR India Foundation": Tpr,
     "Pocketful": Pocketful,
