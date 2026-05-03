@@ -20,7 +20,7 @@ const Auth = lazy(() => import("./components/Authentication/Auth"))
 const Onboarding = lazy(() => import("./components/Authentication/Onboarding"))
 const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Profile = lazy(() => import("./pages/Profile"))
-const PaymentGateway = lazy(() => import("./components/register/PaymentGateway"))
+// const PaymentGateway = lazy(() => import("./components/register/PaymentGateway"))
 const ApplyCompanies = lazy(() => import("./components/apply/ApplyCompanies"))
 const NotFound = lazy(() => import("./pages/NotFound"))
 
@@ -83,7 +83,7 @@ const App = () => {
               }
             />
 
-            <Route
+            {/* <Route
               path="/apply/payment"
               element={
                 <RenderProtectedRoute
@@ -94,7 +94,7 @@ const App = () => {
                   isLoading={isLoading}
                 />
               }
-            />
+            /> */}
 
             <Route
               path="/apply/companies"

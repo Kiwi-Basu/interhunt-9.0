@@ -1,46 +1,40 @@
 import { Link } from "react-router"
-import { Rocket } from "lucide-react";
-// import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
-// import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
-// import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg"
-// import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
-// import UrsTech from "../../assets/companies/recruiters/urstech.png"
+// import { Rocket } from "lucide-react";
+import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
+import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
+import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg"
+import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
+import UrsTech from "../../assets/companies/recruiters/urstech.png"
 
 const TierCompanies1 = () => {
-  // const company1 = [
-  //   { img: Multyfi, companyName: "Multyfi", description: "Multyfi is a SEBI-registered research analyst firm that delivers AI-driven automated investment strategies for stable and optimized returns. It combines human expertise, advanced technology, and data-driven insights to create smarter investment solutions.", knowmore: "pdf" },
-  //   { img: Web3task, companyName: "Web3task", description: "Web3task is an India-based IT firm delivering customized solutions for global businesses. It offers agile, cost-effective services across emerging technologies and software development. The company focuses on tailored solutions to help businesses grow and scale.", knowmore: "pdf" },
-  //   { img: Edzer, companyName: "Edzer", description: "Edzer is an edtech platform transforming how students and job seekers prepare for their careers. It offers expert-curated courses and Edzer Edge, featuring AI-powered tools, case studies, and mock interviews.The platform bridges the gap between academics and industry to drive career-ready learning.", knowmore: "pdf" },
-  //   { img: Kit19, companyName: "Kit19", description: "Kit19 provides a dynamic and comprehensive online business profile to strengthen digital presence. It serves as a centralized platform for marketing across channels and attracting new customers. The solution helps businesses showcase their identity effectively and drive growth.", knowmore: "pdf" },
-  //   { img: UrsTech, companyName: "UrsTech Solution", description: "UrsTech Solution is a technology-driven IT services and consultancy company helping businesses build, scale, and streamline operations through smart digital solutions. From software development and web & mobile application development to IT consulting and digital transformation, they empower organizations to turn ideas into impactful systems.", knowmore: "pdf" }
-  // ];
+  const company1 = [
+    { img: Multyfi, companyName: "Multyfi", description: "Multyfi is a SEBI-registered research analyst firm that delivers AI-driven automated investment strategies for stable and optimized returns. It combines human expertise, advanced technology, and data-driven insights to create smarter investment solutions.", knowmore: "pdf" },
+    { img: Web3task, companyName: "Web3task", description: "Web3task is an India-based IT firm delivering customized solutions for global businesses. It offers agile, cost-effective services across emerging technologies and software development. The company focuses on tailored solutions to help businesses grow and scale.", knowmore: "pdf" },
+    { img: Edzer, companyName: "Edzer", description: "Edzer is an edtech platform transforming how students and job seekers prepare for their careers. It offers expert-curated courses and Edzer Edge, featuring AI-powered tools, case studies, and mock interviews.The platform bridges the gap between academics and industry to drive career-ready learning.", knowmore: "pdf" },
+    { img: Kit19, companyName: "Kit19", description: "Kit19 provides a dynamic and comprehensive online business profile to strengthen digital presence. It serves as a centralized platform for marketing across channels and attracting new customers. The solution helps businesses showcase their identity effectively and drive growth.", knowmore: "pdf" },
+    { img: UrsTech, companyName: "UrsTech Solution", description: "UrsTech Solution is a technology-driven IT services and consultancy company helping businesses build, scale, and streamline operations through smart digital solutions. From software development and web & mobile application development to IT consulting and digital transformation, they empower organizations to turn ideas into impactful systems.", knowmore: "pdf" }
+  ];
 
   return (
     <>
       <section id="Tier-1-company">
         {/* Releasing soon */}
-        <div className="min-h-screen flex flex-col justify-center items-center  p-6 md:p-20 py-16 md:py-20 relative overflow-hidden bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
-          {/* subtle gradient background */}
+        {/* <div className="min-h-screen flex flex-col justify-center items-center  p-6 md:p-20 py-16 md:py-20 relative overflow-hidden bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7]">
           <div className="absolute inset-0  pointer-events-none"></div>
 
-          {/* soft glow */}
           <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-yellow-200/20 rounded-full blur-3xl opacity-60"></div>
           <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-yellow-300/10 rounded-full blur-3xl opacity-40"></div>
 
-          {/* content */}
           <div className="relative z-10 flex flex-col items-center text-center gap-5">
 
-            {/* badge */}
             <div className="mb-6 px-6 py-2 flex items-center gap-2 rounded-full bg-yellow-50 border border-yellow-200 text-yellow-700 text-xs font-bold tracking-widest uppercase shadow-sm">
               <Rocket /> Coming Soon
             </div>
 
-            {/* heading */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1F3A5F] mb-6">
               Companies Releasing Soon
             </h1>
 
-            {/* subtext */}
             <p className="text-gray-500 max-w-xl text-sm md:text-base leading-relaxed">
               We’re onboarding top-tier companies for this season. Stay tuned — exciting opportunities are about to drop.
             </p>
@@ -49,7 +43,6 @@ const TierCompanies1 = () => {
               <button className="w-full cursor-pointer px-8 md:px-10 md:w-auto py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">View Dashboard</button>
             </Link>
 
-            {/* animated loader */}
             <div className="flex gap-2 mt-8">
               <span className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
               <span className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
@@ -57,10 +50,10 @@ const TierCompanies1 = () => {
             </div>
 
           </div>
-        </div>
+        </div> */}
 
         {/* Tier 1 companies */}
-        {/* <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
+        <div className="min-h-screen bg-linear-to-br from-[#FFFFFF] via-[#F8FAFC] to-[#EEF2F7] flex flex-col items-center p-6 md:p-20 py-16 md:py-20 relative overflow-hidden">
 
           <div className="absolute inset-0  pointer-events-none"></div>
 
@@ -111,7 +104,7 @@ const TierCompanies1 = () => {
             ))}
           </div>
 
-        </div> */}
+        </div>
       </section>
     </>
   );
