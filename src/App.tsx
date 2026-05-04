@@ -105,6 +105,7 @@ const App = () => {
                   fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
                   errorMessage="Access denied: payment required"
                   isLoading={isLoading}
+                  devMode
                 />
               }
             />

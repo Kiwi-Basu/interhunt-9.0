@@ -54,6 +54,7 @@ const ApplyCompanies = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [showKnowMoreFor, setShowKnowMoreFor] = useState<Company | null>(null);
   const [toast, setToast] = useState<ToastState | null>(null);
+  const [retryTrigger, setRetryTrigger] = useState(0);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const companyImageMap: { [key: string]: string } = {
@@ -92,39 +93,48 @@ const ApplyCompanies = () => {
     toastTimer.current = setTimeout(() => setToast(null), 3500);
   };
 
-  const fetchCompanies = async () => {
-    setFetchError(false);
-    setLoading(true);
-    setCardsVisible(false);
-    // Fetch companies independently so a getUserCompanies failure
-    // (e.g. 404 for users who haven't selected yet) doesn't block the list
-    // Use Promise.all wisely, don't just ask AI to do your work, read your code
-    try {
-      const res = await internHuntService.getAllCompanies();
-      const raw = res.data ?? res ?? {};
-      setCompanies((Array.isArray(raw) ? raw : Object.values(raw)) as Company[]);
-    } catch {
-      setFetchError(true);
-    } finally {
-      setTimeout(() => { setLoading(false); setTimeout(() => setCardsVisible(true), 50); }, 2000);
-    }
-    try {
-      const userRes = await internHuntService.getUserCompanies();
-      if (userRes.data?.selectedCompanies?.length > 0) {
-        setHasSelected(true);
-        const sel: Record<TierKey, string[]> = { TIER_1: [], TIER_2: [], TIER_3: [] };
-        userRes.data.selectedCompanies.forEach((c: { tier: string; name: string }) => {
-          if (sel[c.tier as TierKey]) sel[c.tier as TierKey].push(c.name);
-        });
-        setSelectedCompanies(sel);
-      }
-    } catch { /* not yet selected */ }
-  };
-
   useEffect(() => {
-    fetchCompanies();
-    return () => { if (toastTimer.current) clearTimeout(toastTimer.current); };
-  }, []);
+    let cancelled = false;
+
+    const load = async () => {
+      // Fetch companies independently so a getUserCompanies failure
+      // (e.g. 404 for users who haven't selected yet) doesn't block the list
+      // Use Promise.all wisely, don't just ask AI to do your work, read your code
+      try {
+        const res = await internHuntService.getAllCompanies();
+        if (cancelled) return;
+        const raw = res.data ?? res ?? {};
+        setCompanies((Array.isArray(raw) ? raw : Object.values(raw)) as Company[]);
+      } catch {
+        if (!cancelled) setFetchError(true);
+      } finally {
+        if (!cancelled) setTimeout(() => {
+          setLoading(false);
+          setTimeout(() => setCardsVisible(true), 50);
+        }, 2000);
+      }
+
+      if (cancelled) return;
+      try {
+        const userRes = await internHuntService.getUserCompanies();
+        if (cancelled) return;
+        if (userRes.data?.selectedCompanies?.length > 0) {
+          setHasSelected(true);
+          const sel: Record<TierKey, string[]> = { TIER_1: [], TIER_2: [], TIER_3: [] };
+          userRes.data.selectedCompanies.forEach((c: { tier: string; name: string }) => {
+            if (sel[c.tier as TierKey]) sel[c.tier as TierKey].push(c.name);
+          });
+          setSelectedCompanies(sel);
+        }
+      } catch { /* not yet selected */ }
+    };
+
+    load();
+    return () => {
+      cancelled = true;
+      if (toastTimer.current) clearTimeout(toastTimer.current);
+    };
+  }, [retryTrigger]);
 
   const getByTier = (tier: TierKey) => companies.filter(c => c.tier === tier);
 
@@ -148,10 +158,23 @@ const ApplyCompanies = () => {
   };
 
   const handleConfirmedSubmit = async () => {
-    const all = [...selectedCompanies.TIER_1, ...selectedCompanies.TIER_2, ...selectedCompanies.TIER_3];
+    const now = new Date().toISOString();
+
+    const toTierPayload = (names: string[]) =>
+      names.map(name => {
+        const co = companies.find(c => c.name === name);
+        return { companyId: co?._id ?? "", companyName: name, appliedAt: now };
+      });
+
+    const payload = {
+      tier1: toTierPayload(selectedCompanies.TIER_1),
+      tier2: toTierPayload(selectedCompanies.TIER_2),
+      tier3: toTierPayload(selectedCompanies.TIER_3),
+    };
+
     setSubmitting(true);
     try {
-      const res = await internHuntService.selectCompanies(all);
+      const res = await internHuntService.selectCompanies(payload);
       if (res.success) { setShowConfirm(false); setHasSelected(true); }
     } catch (e: unknown) {
       const err = e as { response?: { data?: { message?: string } } };
@@ -177,7 +200,7 @@ const ApplyCompanies = () => {
   const ConfirmModal = () => {
     if (!showConfirm) return null;
     return (
-      <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+      <div className="fixed inset-0 z-90 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
         onClick={e => { if (e.target === e.currentTarget) setShowConfirm(false); }}>
         <div style={{ animation: "scaleIn 0.2s ease" }} className="bg-white rounded-3xl shadow-2xl w-full max-w-md p-6 md:p-8 flex flex-col gap-5">
           <div className="text-center">
@@ -199,7 +222,7 @@ const ApplyCompanies = () => {
                       const co = companies.find(c => c.name === name);
                       return (
                         <div key={name} className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-[#1F3A5F]/5 border border-[#1F3A5F]/10">
-                          <div className="h-8 w-8 rounded-lg bg-white flex items-center justify-center shadow-sm flex-shrink-0">
+                          <div className="h-8 w-8 rounded-lg bg-white flex items-center justify-center shadow-sm shrink-0">
                             <img src={companyImageMap[name] || "/default-logo.png"} className="h-5 object-contain" alt={name} />
                           </div>
                           <span className="text-sm font-semibold text-[#1F3A5F]">{name}</span>
@@ -213,14 +236,14 @@ const ApplyCompanies = () => {
             ))}
           </div>
           <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl bg-red-50 border border-red-100">
-            <span className="text-red-400 flex-shrink-0">⚠</span>
+            <span className="text-red-400 shrink-0">⚠</span>
             <p className="text-xs text-red-600 font-medium">This action is permanent and cannot be changed after submission.</p>
           </div>
           <div className="flex gap-3">
             <button onClick={() => setShowConfirm(false)} disabled={submitting}
               className="flex-1 py-2.5 rounded-xl border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 transition cursor-pointer">Cancel</button>
             <button onClick={handleConfirmedSubmit} disabled={submitting}
-              className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-bold text-sm hover:scale-[1.02] transition-all cursor-pointer disabled:opacity-50">
+              className="flex-1 py-2.5 rounded-xl bg-linear-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F] font-bold text-sm hover:scale-[1.02] transition-all cursor-pointer disabled:opacity-50">
               {submitting ? "Submitting…" : "Confirm & Submit →"}
             </button>
           </div>
@@ -235,8 +258,8 @@ const ApplyCompanies = () => {
     const co = showKnowMoreFor;
     return (
       <>
-        <div className="fixed inset-0 z-[80] bg-black/30 backdrop-blur-sm" onClick={() => setShowKnowMoreFor(null)} />
-        <div style={{ animation: "slideInRight 0.3s ease" }} className="fixed right-0 top-0 bottom-0 z-[85] w-full max-w-sm bg-white shadow-2xl flex flex-col">
+        <div className="fixed inset-0 z-80 bg-black/30 backdrop-blur-sm" onClick={() => setShowKnowMoreFor(null)} />
+        <div style={{ animation: "slideInRight 0.3s ease" }} className="fixed right-0 top-0 bottom-0 z-85 w-full max-w-sm bg-white shadow-2xl flex flex-col">
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
             <h3 className="font-bold text-[#1F3A5F]">{co.name}</h3>
             <button onClick={() => setShowKnowMoreFor(null)} className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition cursor-pointer">✕</button>
@@ -252,7 +275,7 @@ const ApplyCompanies = () => {
               <div className="space-y-2">
                 {co.jobRoles.map((role, i) => (
                   <div key={i} className="flex items-start gap-3 px-3 py-2.5 rounded-xl bg-slate-50">
-                    <span className="text-[#CEAC81] mt-0.5 flex-shrink-0">⚙</span>
+                    <span className="text-[#CEAC81] mt-0.5 shrink-0">⚙</span>
                     <span className="text-sm text-slate-700 font-medium">{role.roleName}</span>
                   </div>
                 ))}
@@ -299,7 +322,9 @@ const ApplyCompanies = () => {
           <div className="h-16 w-16 rounded-full bg-red-50 flex items-center justify-center text-2xl">⚠</div>
           <h2 className="text-xl font-bold text-[#1F3A5F]">Could not load companies</h2>
           <p className="text-slate-500 text-sm">There was a problem reaching the server. Please check your connection and try again.</p>
-          <button onClick={fetchCompanies} className="mt-2 px-6 py-2.5 rounded-xl bg-[#1F3A5F] text-white font-semibold text-sm hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all cursor-pointer">Try Again</button>
+          <button
+            onClick={() => { setFetchError(false); setLoading(true); setCardsVisible(false); setRetryTrigger(n => n + 1); }}
+            className="mt-2 px-6 py-2.5 rounded-xl bg-[#1F3A5F] text-white font-semibold text-sm hover:bg-[#CEAC81] hover:text-[#1F3A5F] transition-all cursor-pointer">Try Again</button>
         </div>
       </section>
     );
@@ -420,7 +445,7 @@ const ApplyCompanies = () => {
           ))}
         </div>
         <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden w-full max-w-xs">
-          <div className="h-full bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] rounded-full transition-all duration-500" style={{ width: `${Math.min((count / limit) * 100, 100)}%` }} />
+          <div className="h-full bg-linear-to-r from-[#CEAC81] to-[#BFA06F] rounded-full transition-all duration-500" style={{ width: `${Math.min((count / limit) * 100, 100)}%` }} />
         </div>
       </div>
     );

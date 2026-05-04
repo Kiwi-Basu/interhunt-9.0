@@ -65,10 +65,12 @@ export const internHuntService = {
   },
 
   // Select companies for hunt
-  selectCompanies: async (companyIds: string[]) => {
-    const response = await api.post('/api/internhunt9/companies/select', { 
-      companies: companyIds 
-    });
+  selectCompanies: async (companies: {
+    tier1: { companyId: string; companyName: string; appliedAt: string }[];
+    tier2: { companyId: string; companyName: string; appliedAt: string }[];
+    tier3: { companyId: string; companyName: string; appliedAt: string }[];
+  }) => {
+    const response = await api.post('/api/internhunt9/companies/select', { companies });
     return response.data;
   },
 };
