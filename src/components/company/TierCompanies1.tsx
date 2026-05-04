@@ -8,11 +8,11 @@ import UrsTech from "../../assets/companies/recruiters/urstech.png"
 
 const TierCompanies1 = () => {
   const company1 = [
-    { img: Multyfi, companyName: "Multyfi", description: "Multyfi is a SEBI-registered research analyst firm that delivers AI-driven automated investment strategies for stable and optimized returns. It combines human expertise, advanced technology, and data-driven insights to create smarter investment solutions.", knowmore: "pdf" },
-    { img: Web3task, companyName: "Web3task", description: "Web3task is an India-based IT firm delivering customized solutions for global businesses. It offers agile, cost-effective services across emerging technologies and software development. The company focuses on tailored solutions to help businesses grow and scale.", knowmore: "pdf" },
-    { img: Edzer, companyName: "Edzer", description: "Edzer is an edtech platform transforming how students and job seekers prepare for their careers. It offers expert-curated courses and Edzer Edge, featuring AI-powered tools, case studies, and mock interviews.The platform bridges the gap between academics and industry to drive career-ready learning.", knowmore: "pdf" },
-    { img: Kit19, companyName: "Kit19", description: "Kit19 provides a dynamic and comprehensive online business profile to strengthen digital presence. It serves as a centralized platform for marketing across channels and attracting new customers. The solution helps businesses showcase their identity effectively and drive growth.", knowmore: "pdf" },
-    { img: UrsTech, companyName: "UrsTech Solution", description: "UrsTech Solution is a technology-driven IT services and consultancy company helping businesses build, scale, and streamline operations through smart digital solutions. From software development and web & mobile application development to IT consulting and digital transformation, they empower organizations to turn ideas into impactful systems.", knowmore: "pdf" }
+    { img: Multyfi, companyName: "Multyfi", description: "Multyfi is a SEBI-registered research analyst firm that delivers AI-driven automated investment strategies for stable and optimized returns. It combines human expertise, advanced technology, and data-driven insights to create smarter investment solutions.", knowmore: "/resumes/Multyfi.pdf" },
+    { img: Web3task, companyName: "Web3task", description: "Web3task is an India-based IT firm delivering customized solutions for global businesses. It offers agile, cost-effective services across emerging technologies and software development. The company focuses on tailored solutions to help businesses grow and scale.", knowmore: "/resumes/Web3task JD.pdf" },
+    { img: Edzer, companyName: "Edzer", description: "Edzer is an edtech platform transforming how students and job seekers prepare for their careers. It offers expert-curated courses and Edzer Edge, featuring AI-powered tools, case studies, and mock interviews.The platform bridges the gap between academics and industry to drive career-ready learning.", knowmore: "/resumes/Edzer Jd.pdf" },
+    { img: Kit19, companyName: "Kit19", description: "Kit19 provides a dynamic and comprehensive online business profile to strengthen digital presence. It serves as a centralized platform for marketing across channels and attracting new customers. The solution helps businesses showcase their identity effectively and drive growth.", knowmore: "/resumes/Kit 19 JD.pdf" },
+    { img: UrsTech, companyName: "UrsTech Solution", description: "UrsTech Solution is a technology-driven IT services and consultancy company helping businesses build, scale, and streamline operations through smart digital solutions. From software development and web & mobile application development to IT consulting and digital transformation, they empower organizations to turn ideas into impactful systems.", knowmore: "/resumes/UrsTech Solution JD.pdf" }
   ];
 
   return (
@@ -94,6 +94,9 @@ const TierCompanies1 = () => {
                 </div>
 
                 <div className="flex gap-3">
+                  <a href={company.knowmore} target="_blank" className="flex-1 text-center font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all text-sm tracking-wide">
+                    Know More
+                  </a>
                   <Link to={"/dashboard"} className="flex-1 w-full">
                     <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
                       Apply
