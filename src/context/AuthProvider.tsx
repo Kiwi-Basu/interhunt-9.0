@@ -18,25 +18,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const backendURL = import.meta.env.VITE_BACKEND_URL;
 
-    // Verify authentication status and fetch student data
-    const checkAuthStatus = useCallback(async () => {
-        try {
-            const { isAuthenticated: authStatus, user: userData, hasPurchased: purchased, hasSelected: selected } = await fetchCompleteUserData(backendURL);
-
-            setIsAuthenticated(authStatus);
-            setUser(userData);
-            setHasProfile(!!(userData?.name));
-            setHasPurchased(purchased);
-            setHasSelected(selected)
-        } catch (error) {
-            console.error('Error verifying auth status:', error);
-            setIsAuthenticated(false);
-            setUser(null);
-        } finally {
-            setIsLoading(false);
-        }
-    }, [backendURL]);
-
     // Refetch user data (exposed to components)
     const refetchUserData = useCallback(async () => {
         try {
@@ -67,8 +48,26 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     // Check auth status on mount
     useEffect(() => {
+        const checkAuthStatus = async () => {
+            try {
+                const { isAuthenticated: authStatus, user: userData, hasPurchased: purchased, hasSelected: selected } = await fetchCompleteUserData(backendURL);
+
+                setIsAuthenticated(authStatus);
+                setUser(userData);
+                setHasProfile(!!(userData?.name));
+                setHasPurchased(purchased);
+                setHasSelected(selected)
+            } catch (error) {
+                console.error('Error verifying auth status:', error);
+                setIsAuthenticated(false);
+                setUser(null);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
         checkAuthStatus();
-    }, [checkAuthStatus]);
+    }, [backendURL]);
 
     return (
         <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, hasProfile, setHasProfile, hasPurchased, setHasPurchased, isLoading, logout, refetchUserData,hasSelected,setHasSelected }}>

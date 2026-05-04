@@ -73,46 +73,44 @@ const ApplyCompanies = () => {
     "Shray Projects": Shray,
   };
 
-
-
   // Fetch companies from backend
   useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const [allCompaniesRes, userCompaniesRes] = await Promise.all([
+          internHuntService.getAllCompanies(),
+          internHuntService.getUserCompanies()
+        ]);
+
+        setCompanies(allCompaniesRes.data || []);
+
+        // console.log("=== COMPANIES DEBUG ===");
+        // console.log("All companies:", companies);
+        // console.log("TIER_1:", companies.filter(c => c.tier === "TIER_1"));
+        // console.log("TIER_2:", companies.filter(c => c.tier === "TIER_2"));
+        // console.log("TIER_3:", companies.filter(c => c.tier === "TIER_3"));
+
+
+        // Check if user already selected companies
+        if (userCompaniesRes.data?.selectedCompanies?.length > 0) {
+          setHasSelected(true);
+          const selected: { [key: string]: string[] } = { TIER_1: [], TIER_2: [], TIER_3: [] };
+          userCompaniesRes.data.selectedCompanies.forEach((comp: any) => {
+            if (selected[comp.tier]) {
+              selected[comp.tier].push(comp.name);
+            }
+          });
+          setSelectedCompanies(selected);
+        }
+      } catch (error) {
+        console.error("Error fetching companies:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchCompanies();
   }, []);
-
-  const fetchCompanies = async () => {
-    try {
-      const [allCompaniesRes, userCompaniesRes] = await Promise.all([
-        internHuntService.getAllCompanies(),
-        internHuntService.getUserCompanies()
-      ]);
-
-      setCompanies(allCompaniesRes.data || []);
-
-      // console.log("=== COMPANIES DEBUG ===");
-      // console.log("All companies:", companies);
-      // console.log("TIER_1:", companies.filter(c => c.tier === "TIER_1"));
-      // console.log("TIER_2:", companies.filter(c => c.tier === "TIER_2"));
-      // console.log("TIER_3:", companies.filter(c => c.tier === "TIER_3"));
-
-
-      // Check if user already selected companies
-      if (userCompaniesRes.data?.selectedCompanies?.length > 0) {
-        setHasSelected(true);
-        const selected: { [key: string]: string[] } = { TIER_1: [], TIER_2: [], TIER_3: [] };
-        userCompaniesRes.data.selectedCompanies.forEach((comp: any) => {
-          if (selected[comp.tier]) {
-            selected[comp.tier].push(comp.name);
-          }
-        });
-        setSelectedCompanies(selected);
-      }
-    } catch (error) {
-      console.error("Error fetching companies:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Get companies by tier
   const getCompaniesByTier = (tier: string) => {

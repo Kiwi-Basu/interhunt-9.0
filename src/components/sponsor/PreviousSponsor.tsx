@@ -1,14 +1,14 @@
-import CareerLaunch from "../../assets/Sponsor/Previous Sponsor/career launcher@4x.png"
-import DainikBhaskar from "../../assets/Sponsor/Previous Sponsor/Dainik Jagran@4x.png"
-import Decathlon from "../../assets/Sponsor/Previous Sponsor/Decathlon@4x.png"
-import Fresca from "../../assets/Sponsor/Previous Sponsor/Fresca@4x.png"
-import Giani from "../../assets/Sponsor/Previous Sponsor/Giani@4x.png"
-import Gillete from "../../assets/Sponsor/Previous Sponsor/Gillete@4x.png"
-import Nescafe from "../../assets/Sponsor/Previous Sponsor/Nescafe@4x.png"
+import CareerLaunch from "../../assets/Sponsor/PreviousSponsor/careerLauncher.png"
+import DainikBhaskar from "../../assets/Sponsor/PreviousSponsor/DainikJagran.png"
+import Decathlon from "../../assets/Sponsor/PreviousSponsor/Decathlon.png"
+import Fresca from "../../assets/Sponsor/PreviousSponsor/Fresca.png"
+import Giani from "../../assets/Sponsor/PreviousSponsor/Giani.png"
+import Gillete from "../../assets/Sponsor/PreviousSponsor/Gillete.png"
+import Nescafe from "../../assets/Sponsor/PreviousSponsor/Nescafe.png"
 
 const PreviousSponsor = () => {
   const sponsors = [
-    { img: CareerLaunch , sponsorName: "CareerLaunch" },
+    { img: CareerLaunch, sponsorName: "CareerLaunch" },
     { img: DainikBhaskar, sponsorName: "DainikBhaskar" },
     { img: Decathlon, sponsorName: "Decathlon" },
     { img: Fresca, sponsorName: "Fresca" },
@@ -29,7 +29,7 @@ const PreviousSponsor = () => {
           <p className="text-4xl md:text-6xl mb-8 md:mb-10 font-extrabold tracking-tight text-[#1F3A5F] text-center">
             Previous <span className="text-[#CEAC81]">Sponsors</span>
           </p>
-          
+
           {/* Badge */}
           <div className="flex items-center gap-4 mb-12 relative z-10">
             <div className="h-px w-24 bg-linear-to-r from-transparent to-[#CEAC81]/30"></div>
