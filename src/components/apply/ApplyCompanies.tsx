@@ -33,10 +33,11 @@ import Shray from "../../assets/companies/companies page/Tier3_Images/shray_proj
 
 const ApplyCompanies = () => {
   const navigate = useNavigate()
+  type Tier = "TIER_1" | "TIER_2" | "TIER_3";
   const [companies, setCompanies] = useState<{ name: string; tier: string; jobRoles: any[]; _id: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [hasSelected, setHasSelected] = useState(false);
-  const [selectedCompanies, setSelectedCompanies] = useState<{ [key: string]: string[] }>({
+  const [selectedCompanies, setSelectedCompanies] = useState<Record<Tier, string[]>>({
     TIER_1: [],
     TIER_2: [],
     TIER_3: []
@@ -99,10 +100,16 @@ const ApplyCompanies = () => {
       // Check if user already selected companies
       if (userCompaniesRes.data?.selectedCompanies?.length > 0) {
         setHasSelected(true);
-        const selected: { [key: string]: string[] } = { TIER_1: [], TIER_2: [], TIER_3: [] };
+        const selected: Record<Tier, string[]> = {
+          TIER_1: [],
+          TIER_2: [],
+          TIER_3: []
+        };
         userCompaniesRes.data.selectedCompanies.forEach((comp: any) => {
-          if (selected[comp.tier]) {
-            selected[comp.tier].push(comp.name);
+          const tier = comp.tier as Tier;
+
+          if (selected[tier]) {
+            selected[tier].push(comp.name);
           }
         });
         setSelectedCompanies(selected);
@@ -120,7 +127,7 @@ const ApplyCompanies = () => {
   };
 
   // Handlers for selection
-  const handleSelectCompany = (tier: any, companyName: any) => {
+  const handleSelectCompany = (tier: Tier, companyName: string) => {
     if (hasSelected) return;
 
     setSelectedCompanies(prev => {
@@ -129,7 +136,11 @@ const ApplyCompanies = () => {
       if (current.includes(companyName)) {
         return { ...prev, [tier]: current.filter(c => c !== companyName) };
       } else {
-        const limits = { TIER_1: 1, TIER_2: 2, TIER_3: 1 };
+        const limits: Record<Tier, number> = {
+          TIER_1: 1,
+          TIER_2: 2,
+          TIER_3: 1
+        };
         if (current.length >= limits[tier]) {
           alert(`You can only select ${limits[tier]} company from ${tier}`);
           return prev;
