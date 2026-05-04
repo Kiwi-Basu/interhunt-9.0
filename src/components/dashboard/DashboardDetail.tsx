@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router";
 import { useAuth } from "../../context/AuthContext";
-import { Rocket , Hand } from "lucide-react";
+import { Rocket, Hand } from "lucide-react";
 
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { hasPurchased , hasSelected  } = useAuth();
+  const {
+    hasPurchased,
+    // hasSelected
+  } = useAuth();
 
   return (
     <section className="min-h-screen bg-linear-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center p-20">
@@ -13,7 +16,7 @@ const Dashboard = () => {
       {/* HEADER */}
       <div className="w-full max-w-4xl bg-white border border-[#CEAC81]/20 rounded-2xl p-6 shadow-sm mb-8">
         <h1 className="text-2xl md:text-3xl font-bold text-[#1F3A5F] flex items-center gap-5">
-          Welcome back, User <Hand  className="mt-1"/>
+          Welcome back, User <Hand className="mt-1" />
         </h1>
         <p className="text-gray-500 mt-1">
           Follow the steps below to start your internship application process.
@@ -76,7 +79,7 @@ const Dashboard = () => {
         </div>
 
         {/* unlock during acutal registration , above step-2 comment out */}
-        <div className={`p-6 rounded-2xl border shadow-sm transition ${hasSelected ? "bg-green-50 border-green-200" : "bg-white border-gray-200"}`}>
+        {/* <div className={`p-6 rounded-2xl border shadow-sm transition ${hasSelected ? "bg-green-50 border-green-200" : "bg-white border-gray-200"}`}>
           <h2 className="font-semibold text-[#1F3A5F] text-lg">
             2. Apply to Companies
           </h2>
@@ -96,7 +99,7 @@ const Dashboard = () => {
             </button>
 
 
-        </div>
+        </div> */}
 
       </div>
     </section>

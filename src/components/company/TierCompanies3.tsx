@@ -39,7 +39,7 @@ const TierCompanies3 = () => {
 
                 {/* Logo placeholder */}
                 <div className="h-20 w-20 self-center p-1 rounded-md  border border-black/10 shadow-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-amber-100 transition-all duration-300">
-                  <img src={company.img} alt={company.companyName}/>
+                  <img src={company.img} alt={company.companyName} />
                 </div>
 
                 {/* Company name */}
@@ -54,7 +54,7 @@ const TierCompanies3 = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-3">
-                  <Link to={"/apply/companies"} className="flex-1 w-full">
+                  <Link to={"/dashboard"} className="flex-1 w-full">
                     <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
                       Apply
                     </button>
