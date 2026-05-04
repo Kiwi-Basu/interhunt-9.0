@@ -41,7 +41,8 @@ const companyImageMap: Record<string, string> = {
   "Shray Projects": Shray,
 };
 
-interface SelectedCompany { _id?: string; name: string; tier: string }
+interface TierCompany { companyId?: string; companyName: string; appliedAt?: string }
+interface CompaniesByTier { tier1: TierCompany[]; tier2: TierCompany[]; tier3: TierCompany[] }
 
 const TIER_LABELS: Record<string, string> = {
   TIER_1: "Tier 1", TIER_2: "Tier 2", TIER_3: "Tier 3",
@@ -60,7 +61,8 @@ const TIER_BADGE: Record<string, string> = {
 const DashboardDetail = () => {
   const navigate = useNavigate();
   const { user, hasPurchased, hasSelected } = useAuth();
-  const [selectedCompanies, setSelectedCompanies] = useState<SelectedCompany[]>([]);
+  const [selectedCompanies, setSelectedCompanies] = useState<CompaniesByTier>({ tier1: [], tier2: [], tier3: [] });
+  const [totalSelected, setTotalSelected] = useState(0);
   const [loadingCompanies, setLoadingCompanies] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -74,12 +76,17 @@ const DashboardDetail = () => {
     if (!hasSelected) return;
     setLoadingCompanies(true);
     internHuntService.getUserCompanies()
-      .then(res => setSelectedCompanies(res.selectedCompanies || []))
+      .then(res => {
+        setSelectedCompanies(res.selectedCompanies || { tier1: [], tier2: [], tier3: [] });
+        setTotalSelected(res.totalSelected || 0);
+      })
       .catch(console.error)
       .finally(() => setLoadingCompanies(false));
   }, [hasSelected]);
 
-  const byTier = (tier: string) => selectedCompanies.filter(c => c.tier === tier);
+  const TIER_KEYS: Record<string, keyof CompaniesByTier> = {
+    TIER_1: "tier1", TIER_2: "tier2", TIER_3: "tier3",
+  };
 
   const StepCard = ({
     index, title, description, done, actionLabel, doneLabel, onClick, disabled, delay,
@@ -229,7 +236,7 @@ const DashboardDetail = () => {
                   <p className="text-xs text-slate-500 mt-0.5">Locked in — selections are final</p>
                 </div>
                 <span className="ml-auto text-xs font-semibold px-3 py-1 rounded-full bg-[#CEAC81]/20 text-[#9a7a4e]">
-                  {selectedCompanies.length} Applied
+                  {totalSelected} Applied
                 </span>
               </div>
 
@@ -246,7 +253,8 @@ const DashboardDetail = () => {
               ) : (
                 <div className="p-7 grid grid-cols-1 md:grid-cols-3 gap-5">
                   {["TIER_1", "TIER_2", "TIER_3"].map(tier => {
-                    const companies = byTier(tier);
+                    const tierKey = TIER_KEYS[tier];
+                    const companies = selectedCompanies[tierKey] || [];
                     return (
                       <div
                         key={tier}
@@ -261,26 +269,26 @@ const DashboardDetail = () => {
                         <div className="flex flex-col gap-2.5">
                           {companies.length === 0 ? (
                             <div className="text-xs text-slate-400 italic py-2 text-center">No company selected</div>
-                          ) : companies.map((company, i) => (
+                          ) : companies.map((co, i) => (
                             <div
-                              key={company._id || i}
+                              key={co.companyId || i}
                               className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm"
                             >
                               <div className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0 overflow-hidden">
-                                {companyImageMap[company.name] ? (
+                                {companyImageMap[co.companyName] ? (
                                   <img
-                                    src={companyImageMap[company.name]}
+                                    src={companyImageMap[co.companyName]}
                                     className="h-6 w-6 object-contain"
-                                    alt={company.name}
+                                    alt={co.companyName}
                                   />
                                 ) : (
                                   <span className="font-bold text-[#1F3A5F] text-sm">
-                                    {company.name.charAt(0)}
+                                    {co.companyName.charAt(0)}
                                   </span>
                                 )}
                               </div>
                               <span className="font-semibold text-[#1F3A5F] text-sm leading-tight">
-                                {company.name}
+                                {co.companyName}
                               </span>
                             </div>
                           ))}
