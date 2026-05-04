@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react"
 
 import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
-import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
+import Web3task from "../../assets/companies/companies page/Tier2_Images/web3task_logo.jpg"
 import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
 import UrsTech from "../../assets/companies/recruiters/urstech.png"
 
 import Meraki from "../../assets/companies/companies page/Tier2_Images/merakii_logo.jpg"
-import Samyak from "../../assets/companies/companies page/Tier2_Images/samyakcomputerclasses_logo.jpg"
+import Samyak from "../../assets/companies/companies page/Tier3_Images/samyakcomputerclasses_logo.jpg"
 import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg"
 import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg"
 import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg"

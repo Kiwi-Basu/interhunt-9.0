@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
 import Shray from "../../assets/companies/companies page/Tier3_Images/shray_projectsindia_logo.jpg"
+import Maysan from "../../assets/companies/companies page/Tier3_Images/Maysanlabs_logo.webp"
+import Ameriliquid from "../../assets/companies/companies page/Tier3_Images/Ameriliquid_logo.png"
+import Travelwithpravah from "../../assets/companies/companies page/Tier3_Images/Travelwithparvah.jpg"
+import MInversity from "../../assets/companies/companies page/Tier3_Images/Minversity_logo.jpg"
+import silver from "../../assets/companies/companies page/Tier3_Images/Silver_arc_logo.png"
+import Samyak from "../../assets/companies/companies page/Tier3_Images/samyakcomputerclasses_logo.jpg"
+
+
+
 
 const TierCompanies3 = () => {
   const company3 = [
     { img: Shray, companyName: "Shray Projects", description: "Shray Projects is a leading real estate services firm based in New Delhi, established in the 1980s. It has grown into a trusted broking house, handling major corporate and individual transactions. Known for its ethical professionalism, the firm has built strong credibility in a highly fragmented market.", knowmore: "/resumes/Shray Projects JD.pdf" },
-
+    { img: Maysan, companyName: "Maysan Labs", description: "Maysan Labs is a technology-driven company that delivers innovative digital solutions, including website development, product design, and scalable software services. It focuses on combining creativity and technical expertise to create user-friendly experiences that help businesses build a strong online presence.", knowmore: "/resumes/Maysan Labs JD.pdf" },
+    { img: Ameriliquid, companyName: "AmeriLiquid India", description: "AmeriLiquid India is a place where you can easily get cash from your assets. It is working on making liquidity of real estate, businesses, and investments easy. The platform uses a simple approach and, with a trust element, wants to make liquidity available for all.", knowmore: "/resumes/AmeriLiquid India JD.pdf" },
+    { img: Travelwithpravah, companyName: "travelwithpravah", description: "Travel With Pravah is a travel technology company developing data-driven systems to enhance travel planning, cost optimization, and operational efficiency. It combines intelligent infrastructure, structured deployment, and performance-driven insights to build scalable and reliable travel solutions.", knowmore: "/resumes/travelwithpravah JD.pdf" },
+    { img: MInversity, companyName: "MInversity", description: "Minversity is an edtech platform that helps students build future-ready skills through engaging learning. It offers interactive courses across subjects like AI, coding, and business. With a personalized approach, Minversity aims to nurture curiosity and confidence in young learners.", knowmore: "/resumes/Minversity JD.pdf" },
+    { img: silver, companyName: "Silver arc corporate solutions", description: "Silver Arc Corporate Solutions specializes in premium corporate gifting, creative graphic designing, high-quality printing solutions, and customized branding merchandise that help businesses build a strong and lasting brand identity. The company delivers innovative, impactful, and tailored branding solutions designed to meet diverse corporate needs while enhancing brand visibility and professional presence.", knowmore: "/resumes/Silver Arc Corporate Ltd JD.pdf" },
+    { img: Samyak, companyName: "Samyak Computer Classes", description: "Samyak Computer Classes is a leading institute offering 300+ comprehensive computer courses for all skill levels. With expert instructors, it equips learners with practical knowledge in software, programming, and technology. The institute empowers individuals to achieve their personal and professional goals.", knowmore: "/resumes/Samyak jd.pdf" },  
   ];
 
   return (

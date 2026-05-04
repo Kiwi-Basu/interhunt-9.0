@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+
+import Web3task from "../../assets/companies/companies page/Tier2_Images/web3task_logo.jpg"
 import Meraki from "../../assets/companies/companies page/Tier2_Images/merakii_logo.jpg"
-import Samyak from "../../assets/companies/companies page/Tier2_Images/samyakcomputerclasses_logo.jpg"
 import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg"
 import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg"
 import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg"
@@ -8,33 +9,34 @@ import Ems from "../../assets/companies/companies page/Tier2_Images/Easymystorag
 import Webgross from "../../assets/companies/companies page/Tier2_Images/webgross_logo.jpg"
 import Devlofox from "../../assets/companies/companies page/Tier2_Images/devlofox_logo.jpg"
 import Cetpa from "../../assets/companies/recruiters/cetpa@2x.png"
-import Maysan from "../../assets/companies/companies page/Tier2_Images/Maysanlabs_logo.webp"
 import Spillmate from "../../assets/companies/companies page/Tier2_Images/spillmate_logo.jpg"
-import Ameriliquid from "../../assets/companies/companies page/Tier2_Images/Ameriliquid_logo.png"
 import Harnium from "../../assets/companies/companies page/Tier2_Images/harnium_logo.jpg"
-import Travelwithpravah from "../../assets/companies/companies page/Tier2_Images/Travelwithparvah.jpg"
 import Teri from "../../assets/companies/companies page/Tier2_Images/teri_enterprise_logo.svg"
-import Sukudo from "../../assets/companies/companies page/Tier2_Images/sukudo_studios_logo.jpg"
+import Righto from "../../assets/companies/companies page/Tier2_Images/Righto_logo.jpeg"
+import Glovomega from "../../assets/companies/companies page/Tier2_Images/Glovomega_logo.webp"
+
+
 
 
 const TierCompanies2 = () => {
   const company2 = [
+    { img: Web3task, companyName: "Web3task", description: "Web3task is an India-based IT firm delivering customized solutions for global businesses. It offers agile,  cost-effective services across emerging technologies and software development. The company focuses on tailored solutions to help businesses grow and scale.", knowmore: "/resumes/Web3task JD.pdf" },
     { img: Meraki, companyName: "Merakii", description: "Merakii BrandPro is a growing digital marketing company delivering distinct, end-to-end branding solutions for businesses.Through content, advertising, and social media management, the company helps brands connect, convert, and scale effectively.", knowmore: "/resumes/Merakii JD.pdf" },
-    { img: Samyak, companyName: "Samyak Computer Classes", description: "Samyak Computer Classes is a leading institute offering 300+ comprehensive computer courses for all skill levels. With expert instructors, it equips learners with practical knowledge in software, programming, and technology. The institute empowers individuals to achieve their personal and professional goals.", knowmore: "/resumes/Samyak jd.pdf" },
-    { img: Tpr, companyName: "TPR India Foundation", description: "The Project Raahi (TPR India Foundation) is a Delhi-based non-profit founded in 2020 and officially registered in 2022. It focuses on empowering underprivileged communities through digital literacy, education, and awareness programs. The organization works across domains like health, hunger elimination, and women empowerment.", knowmore: "/resumes/" },
+
+    { img: Tpr, companyName: "TPR India Foundation", description: "The Project Raahi (TPR India Foundation) is a Delhi-based non-profit founded in 2020 and officially registered in 2022. It focuses on empowering underprivileged communities through digital literacy, education, and awareness programs. The organization works across domains like health, hunger elimination, and women empowerment.", knowmore: "/resumes/TPR India Foundation JD.pdf" },
     { img: Pocketful, companyName: "Pocketful", description: "Pocketful is a new-age stockbroking platform redefining the trading experience. It offers innovative products backed by Nobel-winning financial research and advanced technology. The platform aims to make trading smarter, efficient, and accessible.", knowmore: "/resumes/Pocketful JD.pdf" },
     { img: Kalakrit, companyName: "Kalakrit", description: "Kalakrit is a localization and cultural adaptation company helping brands connect with untapped audiences across India and global markets. Through voice-overs, dubbing, cultural translations, e-learning localization, and regional content creation, they ensure brands sound authentic in every language and region.", knowmore: "/resumes/Kalakrit JD.pdf" },
     { img: Ems, companyName: "Easy My Storage ", description: "Easy My Storage provides flexible and secure warehousing solutions designed to help families and businesses free up space without stress. From pickup and packing to safe storage and return delivery, they offer a seamless storage experience tailored to changing needs.", knowmore: "/resumes/Easy My Storage JD.pdf" },
     { img: Webgross, companyName: "Webgross", description: "Webgross is a branding agency that helps businesses build strong online visibility and brand recognition. It offers services like SEO, website design and development, content creation, and digital marketing strategies. By combining creative ideas and technical expertise, Webgross delivers effective solutions that help brands grow and stand out in a competitive digital space.", knowmore: "/resumes/Webgross JD.pdf" },
     { img: Devlofox, companyName: "Devlofox Technologies", description: "Devlofox Technologies is a digital solutions company that helps businesses strengthen their online presence through innovative design and technology. It offers services such as website development, graphic design, branding, and digital marketing. By focusing on scalable solutions, Devlofox enables businesses to build a strong digital identity in a competitive market.", knowmore: "/resumes/Devlofox Technologies JD.pdf" },
-    { img: Cetpa, companyName: "Cetpa", description: "CETPA Infotech Pvt. Ltd. is an IT services and consulting company providing software and web development, digital marketing, IT support, and manpower outsourcing. It focuses on industry-oriented training and helping individuals and businesses grow in the digital era", knowmore: "" },
-    { img: Maysan, companyName: "Maysan Labs", description: "Maysan Labs is a technology-driven company that delivers innovative digital solutions, including website development, product design, and scalable software services. It focuses on combining creativity and technical expertise to create user-friendly experiences that help businesses build a strong online presence.", knowmore: "/resumes/Maysan Labs JD.pdf" },
+    { img: Cetpa, companyName: "Cetpa", description: "CETPA Infotech Pvt. Ltd. is an IT services and consulting company providing software and web development, digital marketing, IT support, and manpower outsourcing. It focuses on industry-oriented training and helping individuals and businesses grow in the digital era", knowmore: "/resumes/Cetpa JD.pdf" },
     { img: Spillmate, companyName: "Spillmate", description: "Spillmate is a mental healthcare platform that creates a safe and supportive space for individuals to share and process their emotions. It focuses on making mental well-being more accessible through empathetic support and user-friendly solutions.", knowmore: "/resumes/Spillmate JD.pdf" },
-    { img: Ameriliquid, companyName: "AmeriLiquid India", description: "AmeriLiquid India is a place where you can easily get cash from your assets. It is working on making liquidity of real estate, businesses, and investments easy. The platform uses a simple approach and, with a trust element, wants to make liquidity available for all.", knowmore: "/resumes/AmeriLiquid India JD.pdf" },
     { img: Harnium, companyName: "Harnium", description: "Harnium is an online marketing company that assists small businesses and fresh startups to enhance their digital footprint. The company offers impactful content, powerful branding, and strategies that resonate with people. It combines creative expertise and a bespoke approach to convert your next big idea into meaningful digital experiences.", knowmore: "/resumes/Harnium JD.pdf" },
-    { img: Travelwithpravah, companyName: "travelwithpravah", description: "Travel With Pravah is a travel technology company developing data-driven systems to enhance travel planning, cost optimization, and operational efficiency. It combines intelligent infrastructure, structured deployment, and performance-driven insights to build scalable and reliable travel solutions.", knowmore: "" },
     { img: Teri, companyName: "Teri Enterprise", description: "TERI Enterprise is a financial services firm that supports investment banks, M&A advisory firms, and private capital teams with research, valuation, and financial modeling. It combines structured analysis, disciplined execution, and client-aligned processes to deliver accurate and reliable deal support solutions.", knowmore: "/resumes/Teri Enterprise JD.pdf" },
-    { img: Sukudo, companyName: "Sukudo Studios", description: "Sukudo Studios is a media localization company delivering end-to-end language and content transformation services for the entertainment industry. It combines creative expertise, advanced technology, and scalable infrastructure to help global content reach diverse audiences across multiple languages and platforms.", knowmore: "" },
+    { img: Righto, companyName: "RightO", description: "Righto Services is a dynamic recruitment and sourcing organization specializing in end-to-end hiring solutions. We focus on delivering quality talent through strategic sourcing and efficient hiring processes across multiple industries", knowmore: "/resumes/RightO JD.pdf" },
+    { img: Glovomega, companyName: "Glovomega Private Limited", description: "Glovomega Private Limited combines AI, design, and advanced technology to craft next-generation digital experiences. From web and app development to immersive 3D ecosystems, the company builds intelligent solutions that redefine innovation.", knowmore: "/resumes/Glovomega Private Limited JD.pdf " },
+
+
   ];
 
   return (

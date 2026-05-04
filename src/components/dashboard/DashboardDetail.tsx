@@ -5,39 +5,44 @@ import { internHuntService } from "../services/internHuntService";
 
 // tier 1
 import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg";
-import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg";
-import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg";
 import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg";
 import UrsTech from "../../assets/companies/recruiters/urstech.png";
 
 // tier 2
-import Meraki from "../../assets/companies/companies page/Tier2_Images/merakii_logo.jpg";
-import Samyak from "../../assets/companies/companies page/Tier2_Images/samyakcomputerclasses_logo.jpg";
-import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg";
-import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg";
-import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg";
-import Ems from "../../assets/companies/companies page/Tier2_Images/Easymystorage_logo.jpg";
-import Webgross from "../../assets/companies/companies page/Tier2_Images/webgross_logo.jpg";
 import Devlofox from "../../assets/companies/companies page/Tier2_Images/devlofox_logo.jpg";
-import Cetpa from "../../assets/companies/recruiters/cetpa@2x.png";
-import Maysan from "../../assets/companies/companies page/Tier2_Images/Maysanlabs_logo.webp";
-import Spillmate from "../../assets/companies/companies page/Tier2_Images/spillmate_logo.jpg";
-import Ameriliquid from "../../assets/companies/companies page/Tier2_Images/Ameriliquid_logo.png";
+import Ems from "../../assets/companies/companies page/Tier2_Images/Easymystorage_logo.jpg";
+import Glovomega from "../../assets/companies/companies page/Tier2_Images/Glovomega_logo.webp";
 import Harnium from "../../assets/companies/companies page/Tier2_Images/harnium_logo.jpg";
-import Travelwithpravah from "../../assets/companies/companies page/Tier2_Images/Travelwithparvah.jpg";
+import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg";
+import Meraki from "../../assets/companies/companies page/Tier2_Images/merakii_logo.jpg";
+import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg";
+import RightO from "../../assets/companies/companies page/Tier2_Images/Righto_logo.jpeg"
+import Spillmate from "../../assets/companies/companies page/Tier2_Images/spillmate_logo.jpg";
 import Teri from "../../assets/companies/companies page/Tier2_Images/teri_enterprise_logo.svg";
-import Sukudo from "../../assets/companies/companies page/Tier2_Images/sukudo_studios_logo.jpg";
+import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg";
+import Web3task from "../../assets/companies/companies page/Tier2_Images/web3task_logo.jpg";
+import Webgross from "../../assets/companies/companies page/Tier2_Images/webgross_logo.jpg";
+import Cetpa from "../../assets/companies/recruiters/cetpa@2x.png";
 
 // tier 3
+import Ameriliquid from "../../assets/companies/companies page/Tier3_Images/Ameriliquid_logo.png";
+import Maysan from "../../assets/companies/companies page/Tier3_Images/Maysanlabs_logo.webp";
+import MInversity from "../../assets/companies/companies page/Tier3_Images/Minversity_logo.jpg"
+import Samyak from "../../assets/companies/companies page/Tier3_Images/samyakcomputerclasses_logo.jpg";
 import Shray from "../../assets/companies/companies page/Tier3_Images/shray_projectsindia_logo.jpg";
+import Silver from "../../assets/companies/companies page/Tier3_Images/Silver_arc_logo.png"
+import Travelwithpravah from "../../assets/companies/companies page/Tier3_Images/Travelwithparvah.jpg";
+
+
+// tier 3
 
 const companyImageMap: Record<string, string> = {
-  Multyfi, Web3task, Edzer, Kit19, "UrsTech Solution": UrsTech,
+  Multyfi, Web3task, Kit19, "UrsTech Solution": UrsTech,
   Meraki, "Samyak Computer classes": Samyak, "TPR India Foundation": Tpr,
   Pocketful, Kalakrit, "Easy My Storage": Ems, Webgross,
   "Devlofox Technologies": Devlofox, Cetpa, "Maysan Labs": Maysan,
-  Spillmate, "AmeriLiquid India": Ameriliquid, Harnium,
-  Travelwithpravah, "Teri Enterprise": Teri, "Sukudo Studios": Sukudo,
+  Spillmate, "AmeriLiquid India": Ameriliquid, Harnium,"Glovomega Private Limited": Glovomega,RightO,
+  Travelwithpravah, "Teri Enterprise": Teri,MInversity,"Silver Arc Corporate Solutions":Silver,
   "Shray Projects": Shray,
 };
 

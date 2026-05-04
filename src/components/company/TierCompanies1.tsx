@@ -1,14 +1,13 @@
 import { Link } from "react-router"
 // import { Rocket } from "lucide-react";
 import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
-import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
 import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
 import UrsTech from "../../assets/companies/recruiters/urstech.png"
+
 
 const TierCompanies1 = () => {
   const company1 = [
     { img: Multyfi, companyName: "Multyfi", description: "Multyfi is a SEBI-registered research analyst firm that delivers AI-driven automated investment strategies for stable and optimized returns. It combines human expertise, advanced technology, and data-driven insights to create smarter investment solutions.", knowmore: "/resumes/Multyfi.pdf" },
-    { img: Web3task, companyName: "Web3task", description: "Web3task is an India-based IT firm delivering customized solutions for global businesses. It offers agile, cost-effective services across emerging technologies and software development. The company focuses on tailored solutions to help businesses grow and scale.", knowmore: "/resumes/Web3task JD.pdf" },
     { img: Kit19, companyName: "Kit19", description: "Kit19 provides a dynamic and comprehensive online business profile to strengthen digital presence. It serves as a centralized platform for marketing across channels and attracting new customers. The solution helps businesses showcase their identity effectively and drive growth.", knowmore: "/resumes/Kit 19 JD.pdf" },
     { img: UrsTech, companyName: "UrsTech Solution", description: "UrsTech Solution is a technology-driven IT services and consultancy company helping businesses build, scale, and streamline operations through smart digital solutions. From software development and web & mobile application development to IT consulting and digital transformation, they empower organizations to turn ideas into impactful systems.", knowmore: "/resumes/UrsTech Solution JD.pdf" }
   ];
