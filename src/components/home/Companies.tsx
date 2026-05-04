@@ -5,7 +5,6 @@ import { motion } from "motion/react"
 
 import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
 import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
-import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg"
 import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
 import UrsTech from "../../assets/companies/recruiters/urstech.png"
 
@@ -14,12 +13,12 @@ import Samyak from "../../assets/companies/companies page/Tier2_Images/samyakcom
 import Tpr from "../../assets/companies/companies page/Tier2_Images/tpr_india_foundation_logo.jpg"
 import Pocketful from "../../assets/companies/companies page/Tier2_Images/Pocketful_logo.jpg"
 import Kalakrit from "../../assets/companies/companies page/Tier2_Images/kalaakrit_logo.jpg"
+import Ems from "../../assets/companies/companies page/Tier2_Images/Easymystorage_logo.jpg"
 
 const Companies = () => {
   const companies = [
     { name: "Multyfi", img: Multyfi, initials: "Mu" },
     { name: "Web3Task", img: Web3task, initials: "WE" },
-    { name: "Edzer", img: Edzer, initials: "ED" },
     { name: "Kit19", img: Kit19, initials: "Ki" },
     { name: "UrsTech Solution", img: UrsTech, initials: "UT" },
     { name: "Merakii", img: Meraki, initials: "ME" },
@@ -27,6 +26,7 @@ const Companies = () => {
     { name: "TPR India Foundation", img: Tpr, initials: "TPR" },
     { name: "Pocketful", img: Pocketful, initials: "PO" },
     { name: "Kalakrit", img: Kalakrit, initials: "KA" },
+    { name: "Easy My Storage", img: Ems , initials: "EMS" },
   ]
 
   const scrollToTop = () => {

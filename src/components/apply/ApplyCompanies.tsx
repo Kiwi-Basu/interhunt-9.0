@@ -5,7 +5,6 @@ import { useNavigate } from "react-router";
 // tier 1
 import Multyfi from "../../assets/companies/companies page/Tier1 _Images/multyfi_logo.jpg"
 import Web3task from "../../assets/companies/companies page/Tier1 _Images/web3task_logo.jpg"
-import Edzer from "../../assets/companies/companies page/Tier1 _Images/Edzer_logo.jpg"
 import Kit19 from "../../assets/companies/companies page/Tier1 _Images/Kit19_logo.jpg"
 import UrsTech from "../../assets/companies/recruiters/urstech.png"
 
@@ -61,7 +60,6 @@ const ApplyCompanies = () => {
     // TIER 1
     "Multyfi": Multyfi,
     "Web3task": Web3task,
-    "Edzer": Edzer,
     "Kit19": Kit19,
     "UrsTech Solution": UrsTech,
 
