@@ -6,7 +6,7 @@ import dateImage from "../../assets/Home/DateImage.png"
 
 const Hero = () => {
   // const user = JSON.parse(localStorage.getItem("user") || "null");
-  const { user } = useAuth();
+  const { user ,hasPurchased} = useAuth();
 
   return (
     <section id="hero">
@@ -138,7 +138,7 @@ const Hero = () => {
               repeatType: "mirror",
               ease: "easeInOut",
               delay: 0.6,
-            }}
+            }} 
             className="absolute ring-10 h-50 w-50 top-10 left-15 ring-black/10 rounded-2xl"
           />
         </motion.div>
@@ -161,7 +161,7 @@ const Hero = () => {
 
         {/* buttons */}
         <div className="flex flex-col sm:flex-row gap-4 md:gap-5 z-10 w-full sm:w-auto">
-          {user ? (
+          {/* {user ? (
             // <Link to="/apply/payment" className="w-full sm:w-auto">
             //   <button className="w-full cursor-pointer px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
             //     Register Now
@@ -172,6 +172,33 @@ const Hero = () => {
                 Select Companies
               </button>
             </Link>
+          ) : (
+            <>
+              <Link to="/auth" className="w-full sm:w-auto">
+                <button className="w-full cursor-pointer px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  Login
+                </button>
+              </Link>
+              <Link to="/auth" className="w-full sm:w-auto">
+                <button className="w-full cursor-pointer px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  Sign Up
+                </button>
+              </Link>
+            </>
+          )} */}
+          {user && hasPurchased ? (
+            <Link to="/dashboard" className="w-full sm:w-auto">
+              <button className="w-full cursor-pointer px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300">
+                Select Companies
+              </button>
+            </Link>
+          ) : user && !hasPurchased ? (
+            <button
+              disabled
+              className="w-full cursor-not-allowed px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-gray-500 bg-gray-300 shadow-md"
+            >
+              Registration Closed
+            </button>
           ) : (
             <>
               <Link to="/auth" className="w-full sm:w-auto">
