@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 setUser(userData);
                 setHasProfile(!!(userData?.name));
                 setHasPurchased(purchased);
-                setHasSelected(true)
+                setHasSelected(selected)
             } catch (error) {
                 console.error('Error verifying auth status:', error);
                 setIsAuthenticated(false);
