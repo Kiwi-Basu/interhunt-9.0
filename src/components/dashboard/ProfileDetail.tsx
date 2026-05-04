@@ -8,12 +8,16 @@ const ProfileDetail = () => {
 
   const { user, hasSelected } = useAuth();
   const navigate = useNavigate();
-  const [selectedCompanies, setSelectedCompanies] = useState<any[]>([]);
+  interface TierCompany { companyId?: string; companyName: string; _id?: string }
+  interface CompaniesByTier { tier1: TierCompany[]; tier2: TierCompany[]; tier3: TierCompany[] }
+  const [selectedCompanies, setSelectedCompanies] = useState<CompaniesByTier>({ tier1: [], tier2: [], tier3: [] });
 
   useEffect(() => {
     internHuntService.getUserCompanies().then(res => {
-      console.log("API Response:", res);
-      setSelectedCompanies(res.selectedCompanies || []);
+      const raw = res.selectedCompanies;
+      if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+        setSelectedCompanies({ tier1: raw.tier1 || [], tier2: raw.tier2 || [], tier3: raw.tier3 || [] });
+      }
     }).catch(err => console.error(err));
   }, []);
 
@@ -97,12 +101,10 @@ const ProfileDetail = () => {
             </div>
 
             <button
-              onClick={() => navigate(hasSelected ? "/apply/companies" : "/apply/companies")}
-              disabled={hasSelected}
+              onClick={() => navigate("/apply/companies")}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium hover:scale-105 transition cursor-pointer"
             >
-              {hasSelected ? "View Selected Companies" : "Apply For Companies"}
-
+              {hasSelected ? "View Selected Companies →" : "Apply For Companies →"}
             </button>
 
           </div>
@@ -137,12 +139,14 @@ const ProfileDetail = () => {
                         </h3>
                       </div>
                       <div className="flex flex-col gap-3">
-                        {selectedCompanies.filter(c => c.tier === "TIER_1").map(company => (
-                          <div key={company._id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                        {selectedCompanies.tier1.length === 0
+                          ? <p className="text-xs text-gray-400 italic">None selected</p>
+                          : selectedCompanies.tier1.map(co => (
+                          <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
                             <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
-                              {company.name.charAt(0)}
+                              {co.companyName.charAt(0)}
                             </div>
-                            <span className="font-semibold text-gray-800 text-sm">{company.name}</span>
+                            <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
                           </div>
                         ))}
                       </div>
@@ -155,12 +159,14 @@ const ProfileDetail = () => {
                         </h3>
                       </div>
                       <div className="flex flex-col gap-3">
-                        {selectedCompanies.filter(c => c.tier === "TIER_2").map(company => (
-                          <div key={company._id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                        {selectedCompanies.tier2.length === 0
+                          ? <p className="text-xs text-gray-400 italic">None selected</p>
+                          : selectedCompanies.tier2.map(co => (
+                          <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
                             <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
-                              {company.name.charAt(0)}
+                              {co.companyName.charAt(0)}
                             </div>
-                            <span className="font-semibold text-gray-800 text-sm">{company.name}</span>
+                            <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
                           </div>
                         ))}
                       </div>
@@ -174,12 +180,14 @@ const ProfileDetail = () => {
                       </div>
 
                       <div className="flex flex-col gap-3">
-                        {selectedCompanies.filter(c => c.tier === "TIER_3").map(company => (
-                          <div key={company._id} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                        {selectedCompanies.tier3.length === 0
+                          ? <p className="text-xs text-gray-400 italic">None selected</p>
+                          : selectedCompanies.tier3.map(co => (
+                          <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
                             <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
-                              {company.name.charAt(0)}
+                              {co.companyName.charAt(0)}
                             </div>
-                            <span className="font-semibold text-gray-800 text-sm">{company.name}</span>
+                            <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
                           </div>
                         ))}
                       </div>
