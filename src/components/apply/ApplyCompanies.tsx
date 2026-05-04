@@ -129,7 +129,7 @@ const ApplyCompanies = () => {
       if (current.includes(companyName)) {
         return { ...prev, [tier]: current.filter(c => c !== companyName) };
       } else {
-        const limits = { TIER_1: 1, TIER_2: 2, TIER_3: 1 };
+        const limits: Record<string, number> = { TIER_1: 1, TIER_2: 2, TIER_3: 1 };
         if (current.length >= limits[tier]) {
           alert(`You can only select ${limits[tier]} company from ${tier}`);
           return prev;
