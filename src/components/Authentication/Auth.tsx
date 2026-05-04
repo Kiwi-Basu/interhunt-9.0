@@ -71,7 +71,7 @@ const Auth = () => {
           }
 
 
-          navigate("/")
+          navigate("/dashboard")
 
         }
         else {

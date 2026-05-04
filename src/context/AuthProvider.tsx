@@ -21,10 +21,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     // Refetch user data (exposed to components)
     const refetchUserData = useCallback(async () => {
         try {
-            const { user: userData, hasPurchased: purchased } = await fetchCompleteUserData(backendURL);
+            const { user: userData, hasPurchased: purchased, hasSelected: selected } = await fetchCompleteUserData(backendURL);
             setUser(userData);
             setHasProfile(!!(userData?.name));
             setHasPurchased(purchased);
+            setHasSelected(selected);
         } catch (error) {
             console.error('Error refetching user data:', error);
         }
@@ -43,6 +44,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             setUser(null);
             setIsAuthenticated(false);
             setHasPurchased(false);
+            setHasProfile(false);
+            setHasSelected(false);
         }
     };
 

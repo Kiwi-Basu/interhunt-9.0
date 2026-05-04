@@ -58,6 +58,11 @@ const TIER_BADGE: Record<string, string> = {
   TIER_3: "bg-slate-500 text-white",
 };
 
+// Map display tier keys to API tier keys
+const TIER_KEYS: Record<string, keyof CompaniesByTier> = {
+  TIER_1: "tier1", TIER_2: "tier2", TIER_3: "tier3",
+};
+
 const DashboardDetail = () => {
   const navigate = useNavigate();
   const { user, hasPurchased, hasSelected } = useAuth();
@@ -84,9 +89,6 @@ const DashboardDetail = () => {
       .finally(() => setLoadingCompanies(false));
   }, [hasSelected]);
 
-  const TIER_KEYS: Record<string, keyof CompaniesByTier> = {
-    TIER_1: "tier1", TIER_2: "tier2", TIER_3: "tier3",
-  };
 
   const StepCard = ({
     index, title, description, done, actionLabel, doneLabel, onClick, disabled, delay,
@@ -195,12 +197,12 @@ const DashboardDetail = () => {
             title="Register & Pay"
             description={hasPurchased
               ? "Payment confirmed. You're officially registered for InternHunt 9.0."
-              : "Complete your registration payment to unlock the company selection portal."}
+              : "Registration payment — coming soon."}
             done={hasPurchased}
-            actionLabel="Go to Payment"
+            actionLabel="Coming Soon"
             doneLabel="Payment Confirmed"
             onClick={() => navigate("/apply/payment")}
-            disabled={hasPurchased}
+            disabled={true}
             delay={100}
           />
 

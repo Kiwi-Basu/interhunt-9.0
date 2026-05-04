@@ -42,7 +42,7 @@ const Navbar = () => {
   const getProfileImage = (img?: string) => {
     if (!img) return null;
     if (img.startsWith("http")) return img;
-    return `${import.meta.env.VITE_API_BASE_URL}/${img}`;
+    return `${import.meta.env.VITE_BACKEND_URL}/${img}`;
   };
 
   const profileImg = getProfileImage(user?.profileImage);

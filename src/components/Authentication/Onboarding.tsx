@@ -129,7 +129,7 @@ const Onboarding = () => {
           setUser(userData)
         }
 
-        navigate("/apply/payment")
+        navigate("/")
       }
     } catch (error) {
       // console.log("Error creating account", (error as import("axios").AxiosError)?.response?.data || error)

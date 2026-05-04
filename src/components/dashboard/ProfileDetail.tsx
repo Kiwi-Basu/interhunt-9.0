@@ -4,22 +4,24 @@ import { Star, Rocket, Target, Building, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { internHuntService } from "../services/internHuntService"
 
+interface TierCompany { companyId?: string; companyName: string; _id?: string }
+interface CompaniesByTier { tier1: TierCompany[]; tier2: TierCompany[]; tier3: TierCompany[] }
+
 const ProfileDetail = () => {
 
   const { user, hasSelected } = useAuth();
   const navigate = useNavigate();
-  interface TierCompany { companyId?: string; companyName: string; _id?: string }
-  interface CompaniesByTier { tier1: TierCompany[]; tier2: TierCompany[]; tier3: TierCompany[] }
   const [selectedCompanies, setSelectedCompanies] = useState<CompaniesByTier>({ tier1: [], tier2: [], tier3: [] });
 
   useEffect(() => {
+    if (!hasSelected) return;  // BUG-009: skip API call for users who haven't selected
     internHuntService.getUserCompanies().then(res => {
       const raw = res.selectedCompanies;
       if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
         setSelectedCompanies({ tier1: raw.tier1 || [], tier2: raw.tier2 || [], tier3: raw.tier3 || [] });
       }
     }).catch(err => console.error(err));
-  }, []);
+  }, [hasSelected]);
 
 
   // const fetchSelectedCompanies = async () => {
