@@ -249,8 +249,8 @@ const ApplyCompanies = () => {
                     }}
                     className={`flex-1 rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
                       ${selected
-                        ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
-                        : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
+                        ? "bg-linear-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
+                        : "bg-linear-to-r from-slate-500 to-gray-400 text-white"
                       }`}
                   >
                     {selected ? "✓ Selected" : "Select"}
@@ -317,8 +317,8 @@ const ApplyCompanies = () => {
                     }}
                     className={`flex-1 rounded-xl py-2 text-sm font-bold cursor-pointer hover:scale-105 transition-all duration-300
                       ${selected
-                        ? "bg-gradient-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
-                        : "bg-gradient-to-r from-slate-500 to-gray-400 text-white"
+                        ? "bg-linear-to-r from-[#CEAC81] to-[#BFA06F] text-[#1F3A5F]"
+                        : "bg-linear-to-r from-slate-500 to-gray-400 text-white"
                       }`}
                   >
                     {selected ? "✓ Selected" : "Select"}
