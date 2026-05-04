@@ -94,7 +94,7 @@ const TierCompanies1 = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <Link to={"/apply/companies"} className="flex-1 w-full">
+                  <Link to={"/dashboard"} className="flex-1 w-full">
                     <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
                       Apply
                     </button>
