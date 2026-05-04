@@ -5,7 +5,10 @@ import { Rocket, Hand } from "lucide-react";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { hasPurchased, hasSelected } = useAuth();
+  const {
+    hasPurchased,
+    // hasSelected
+  } = useAuth();
 
   return (
     <section className="min-h-screen bg-linear-to-br from-[#eef2f7] via-white to-[#eef2f7] flex flex-col items-center p-20">
