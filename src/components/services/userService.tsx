@@ -102,8 +102,8 @@ export const fetchCompleteUserData = async (backendURL: string): Promise<{
         const companiesResponse = await axios.get(`${backendURL}/api/internhunt9/my-companies`, {
             withCredentials: true,
         });
-        hasSelected = companiesResponse.data?.hasSelected || false;
-        console.log("hasSelected from API:", hasSelected);
+        hasSelected = (companiesResponse.data?.totalSelected ?? 0) > 0;
+        console.log("hasSelected from API:", hasSelected, "| totalSelected:", companiesResponse.data?.totalSelected);
     } catch (error) {
         console.error('Error fetching hasSelected:', error);
         // If user hasn't registered for InternHunt yet, this will fail - that's fine
