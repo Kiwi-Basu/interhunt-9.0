@@ -118,13 +118,15 @@ const ApplyCompanies = () => {
       try {
         const userRes = await internHuntService.getUserCompanies();
         if (cancelled) return;
-        if (userRes.data?.selectedCompanies?.length > 0) {
+        const totalSelected: number = userRes.totalSelected ?? 0;
+        if (totalSelected > 0) {
           setHasSelected(true);
-          const sel: Record<TierKey, string[]> = { TIER_1: [], TIER_2: [], TIER_3: [] };
-          userRes.data.selectedCompanies.forEach((c: { tier: string; name: string }) => {
-            if (sel[c.tier as TierKey]) sel[c.tier as TierKey].push(c.name);
+          const raw = userRes.selectedCompanies as { tier1?: {companyName: string}[]; tier2?: {companyName: string}[]; tier3?: {companyName: string}[] };
+          setSelectedCompanies({
+            TIER_1: (raw.tier1 || []).map(c => c.companyName),
+            TIER_2: (raw.tier2 || []).map(c => c.companyName),
+            TIER_3: (raw.tier3 || []).map(c => c.companyName),
           });
-          setSelectedCompanies(sel);
         }
       } catch { /* not yet selected */ }
     };
