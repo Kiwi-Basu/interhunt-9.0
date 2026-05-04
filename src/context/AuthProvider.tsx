@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 setUser(userData);
                 setHasProfile(!!(userData?.name));
                 setHasPurchased(purchased);
-                setHasSelected(selected)
+                setHasSelected(true)
             } catch (error) {
                 console.error('Error verifying auth status:', error);
                 setIsAuthenticated(false);
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }, [backendURL]);
 
     return (
-        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, hasProfile, setHasProfile, hasPurchased, setHasPurchased, isLoading, logout, refetchUserData,hasSelected,setHasSelected }}>
+        <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated, hasProfile, setHasProfile, hasPurchased, setHasPurchased, isLoading, logout, refetchUserData, hasSelected, setHasSelected }}>
             {children}
         </AuthContext.Provider>
     );

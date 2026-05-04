@@ -97,11 +97,11 @@ const ProfileDetail = () => {
             </div>
 
             <button
-              onClick={() => !hasSelected && navigate("/dashboard")}
+              onClick={() => navigate(hasSelected ? "/apply/companies" : "/apply/companies")}
               disabled={hasSelected}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium hover:scale-105 transition cursor-pointer"
             >
-              {hasSelected ? "View Selected Company" : "Apply For Companies"}
+              {hasSelected ? "View Selected Companies" : "Apply For Companies"}
 
             </button>
 
