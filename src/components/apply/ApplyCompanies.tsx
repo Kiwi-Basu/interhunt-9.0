@@ -20,7 +20,7 @@ import Cetpa from "../../assets/companies/recruiters/cetpa@2x.png"
 import Spillmate from "../../assets/companies/companies page/Tier2_Images/spillmate_logo.jpg"
 import Harnium from "../../assets/companies/companies page/Tier2_Images/harnium_logo.jpg"
 import Teri from "../../assets/companies/companies page/Tier2_Images/teri_enterprise_logo.svg"
-import Righto from "../../assets/companies/companies page/Tier2_Images/teri_enterprise_logo.svg"
+import Righto from "../../assets/companies/companies page/Tier2_Images/Righto_logo.jpeg"
 
 
 // tier 3
