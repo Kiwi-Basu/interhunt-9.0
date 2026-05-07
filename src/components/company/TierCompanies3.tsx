@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Shray from "../../assets/companies/companies page/Tier3_Images/shray_projectsindia_logo.jpg"
 import Maysan from "../../assets/companies/companies page/Tier3_Images/Maysanlabs_logo.webp"
 import Ameriliquid from "../../assets/companies/companies page/Tier3_Images/Ameriliquid_logo.png"
@@ -18,7 +18,7 @@ const TierCompanies3 = () => {
     { img: Travelwithpravah, companyName: "travelwithpravah", description: "Travel With Pravah is a travel technology company developing data-driven systems to enhance travel planning, cost optimization, and operational efficiency. It combines intelligent infrastructure, structured deployment, and performance-driven insights to build scalable and reliable travel solutions.", knowmore: "/resumes/travelwithpravah JD.pdf" },
     { img: MInversity, companyName: "MInversity", description: "Minversity is an edtech platform that helps students build future-ready skills through engaging learning. It offers interactive courses across subjects like AI, coding, and business. With a personalized approach, Minversity aims to nurture curiosity and confidence in young learners.", knowmore: "/resumes/Minversity JD.pdf" },
     { img: silver, companyName: "Silver arc corporate solutions", description: "Silver Arc Corporate Solutions specializes in premium corporate gifting, creative graphic designing, high-quality printing solutions, and customized branding merchandise that help businesses build a strong and lasting brand identity. The company delivers innovative, impactful, and tailored branding solutions designed to meet diverse corporate needs while enhancing brand visibility and professional presence.", knowmore: "/resumes/Silver Arc Corporate Ltd JD.pdf" },
-    { img: Samyak, companyName: "Samyak Computer Classes", description: "Samyak Computer Classes is a leading institute offering 300+ comprehensive computer courses for all skill levels. With expert instructors, it equips learners with practical knowledge in software, programming, and technology. The institute empowers individuals to achieve their personal and professional goals.", knowmore: "/resumes/Samyak jd.pdf" },  
+    { img: Samyak, companyName: "Samyak Computer Classes", description: "Samyak Computer Classes is a leading institute offering 300+ comprehensive computer courses for all skill levels. With expert instructors, it equips learners with practical knowledge in software, programming, and technology. The institute empowers individuals to achieve their personal and professional goals.", knowmore: "/resumes/Samyak jd.pdf" },
   ];
 
   return (
@@ -71,11 +71,17 @@ const TierCompanies3 = () => {
                   <a href={company.knowmore} target="_blank" className="flex-1 text-center font-semibold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 transition-all text-sm tracking-wide">
                     Know More
                   </a>
-                  <Link to={"/dashboard"} className="flex-1 w-full">
+                  {/* <Link to={"/dashboard"} className="flex-1 w-full">
                     <button className="w-full font-bold cursor-pointer hover:scale-95 duration-150 rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
                       Apply
                     </button>
-                  </Link>
+                  </Link> */}
+                  <div className="flex-1 w-full">
+                    <button disabled className="w-full flex-1  font-bold cursor-not-allowed rounded-xl py-2.5 bg-linear-to-r from-slate-500 to-gray-400 text-white hover:from-slate-600 hover:to-gray-500 transition-all text-sm tracking-wide shadow-md hover:shadow-slate-300">
+                      Closed
+                    </button>
+
+                  </div>
                 </div>
               </div>
             ))}

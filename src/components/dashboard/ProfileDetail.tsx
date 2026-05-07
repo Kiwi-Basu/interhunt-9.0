@@ -102,11 +102,18 @@ const ProfileDetail = () => {
 
             </div>
 
-            <button
+            {/* <button
               onClick={() => navigate("/apply/companies")}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium hover:scale-105 transition cursor-pointer"
             >
               {hasSelected ? "View Selected Companies →" : "Apply For Companies →"}
+            </button> */}
+            <button
+              disabled
+              onClick={() => navigate("/apply/companies")}
+              className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium cursor-not-allowed"
+            >
+              {"Company Selection Closed"}
             </button>
 
           </div>
@@ -144,13 +151,13 @@ const ProfileDetail = () => {
                         {selectedCompanies.tier1.length === 0
                           ? <p className="text-xs text-gray-400 italic">None selected</p>
                           : selectedCompanies.tier1.map(co => (
-                          <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
-                              {co.companyName.charAt(0)}
+                            <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                              <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                                {co.companyName.charAt(0)}
+                              </div>
+                              <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
                             </div>
-                            <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
-                          </div>
-                        ))}
+                          ))}
                       </div>
                     </div>
 
@@ -164,13 +171,13 @@ const ProfileDetail = () => {
                         {selectedCompanies.tier2.length === 0
                           ? <p className="text-xs text-gray-400 italic">None selected</p>
                           : selectedCompanies.tier2.map(co => (
-                          <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
-                              {co.companyName.charAt(0)}
+                            <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                              r                            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                                {co.companyName.charAt(0)}
+                              </div>
+                              <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
                             </div>
-                            <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
-                          </div>
-                        ))}
+                          ))}
                       </div>
                     </div>
 
@@ -185,13 +192,13 @@ const ProfileDetail = () => {
                         {selectedCompanies.tier3.length === 0
                           ? <p className="text-xs text-gray-400 italic">None selected</p>
                           : selectedCompanies.tier3.map(co => (
-                          <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
-                            <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
-                              {co.companyName.charAt(0)}
+                            <div key={co._id || co.companyId} className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 bg-white">
+                              <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-bold">
+                                {co.companyName.charAt(0)}
+                              </div>
+                              <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
                             </div>
-                            <span className="font-semibold text-gray-800 text-sm">{co.companyName}</span>
-                          </div>
-                        ))}
+                          ))}
                       </div>
 
                     </div>

@@ -211,7 +211,7 @@ const DashboardDetail = () => {
             delay={100}
           />
 
-          <StepCard
+          {/* <StepCard
             index={2}
             title="Select Your Companies"
             description={hasSelected
@@ -222,6 +222,17 @@ const DashboardDetail = () => {
             doneLabel="Selections Submitted"
             onClick={() => navigate("/apply/companies")}
             disabled={hasSelected}
+            delay={200}
+          /> */}
+          <StepCard
+            index={2}
+            title="Company Selection Closed"
+            description={""}
+            done={hasSelected}
+            actionLabel="Closed"
+            doneLabel="Selections Submitted"
+            // onClick={() => navigate("/apply/companies")}
+            disabled={true}
             delay={200}
           />
 
