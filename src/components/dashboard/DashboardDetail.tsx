@@ -211,7 +211,7 @@ const DashboardDetail = () => {
             delay={100}
           />
 
-          <StepCard
+          {/* <StepCard
             index={2}
             title="Select Your Companies"
             description={hasSelected
@@ -223,8 +223,8 @@ const DashboardDetail = () => {
             onClick={() => navigate("/apply/companies")}
             disabled={hasSelected}
             delay={200}
-          />
-          {/* <StepCard
+          /> */}
+          <StepCard
             index={2}
             title="Company Selection Closed"
             description={""}
@@ -234,7 +234,7 @@ const DashboardDetail = () => {
             // onClick={() => navigate("/apply/companies")}
             disabled={true}
             delay={200}
-          /> */}
+          />
 
           {/* ── SELECTED COMPANIES PANEL ────────────────────────── */}
           {hasSelected && (

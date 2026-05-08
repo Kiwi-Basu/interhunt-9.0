@@ -102,19 +102,19 @@ const ProfileDetail = () => {
 
             </div>
 
-            <button
+            {/* <button
               onClick={() => navigate("/apply/companies")}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium hover:scale-105 transition cursor-pointer"
             >
               {hasSelected ? "View Selected Companies →" : "Apply For Companies →"}
-            </button>
-            {/* <button
+            </button> */}
+            <button
               disabled
               onClick={() => navigate("/apply/companies")}
               className="mt-4 px-6 py-3 rounded-xl bg-[#1F3A5F] text-white font-medium cursor-not-allowed"
             >
               {"Company Selection Closed"}
-            </button> */}
+            </button>
 
           </div>
 

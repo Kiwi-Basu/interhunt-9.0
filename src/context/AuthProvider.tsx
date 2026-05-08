@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const backendURL = import.meta.env.VITE_BACKEND_URL;
 
-    // Refetch user data (exposed to components)
+    // Refetch user data (exposed to components)w
     const refetchUserData = useCallback(async () => {
         try {
             const { user: userData, hasPurchased: purchased, hasSelected: selected } = await fetchCompleteUserData(backendURL);

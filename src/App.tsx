@@ -21,7 +21,7 @@ const Onboarding = lazy(() => import("./components/Authentication/Onboarding"))
 const Dashboard = lazy(() => import("./pages/Dashboard"))
 const Profile = lazy(() => import("./pages/Profile"))
 // const PaymentGateway = lazy(() => import("./components/register/PaymentGateway"))
-const ApplyCompanies = lazy(() => import("./components/apply/ApplyCompanies"))
+// const ApplyCompanies = lazy(() => import("./components/apply/ApplyCompanies"))
 const NotFound = lazy(() => import("./pages/NotFound"))
 
 const App = () => {
@@ -63,7 +63,6 @@ const App = () => {
                 fallback={"/auth"}
                 errorMessage="Access denied"
                 isLoading={isLoading}
-                devMode
               />
             } />
             {/* <Route path="/dashboard" element={<Dashboard />} />
@@ -80,7 +79,6 @@ const App = () => {
                   fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
                   errorMessage="Access denied: payment required"
                   isLoading={isLoading}
-                  devMode
                 />
               }
             />
@@ -98,7 +96,7 @@ const App = () => {
               }
             /> */}
 
-            <Route
+            {/* <Route
               path="/apply/companies"
               element={
                 <RenderProtectedRoute
@@ -109,7 +107,7 @@ const App = () => {
                   isLoading={isLoading}
                 />
               }
-            />
+            /> */}
 
             <Route
               path="/onboarding"
