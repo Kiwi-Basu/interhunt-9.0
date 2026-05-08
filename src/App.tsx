@@ -76,7 +76,7 @@ const App = () => {
                 <RenderProtectedRoute
                   condition={isAuthenticated && hasProfile && hasPurchased}
                   renderPage={<Dashboard />}
-                  fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/apply/payment"}
+                  fallback={!isAuthenticated ? "/auth" : !hasProfile ? "/onboarding" : "/"}
                   errorMessage="Access denied: payment required"
                   isLoading={isLoading}
                 />
