@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+// import { Link } from "react-router";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 import dateImage from "../../assets/Home/DateImage.png"
@@ -173,16 +173,22 @@ const Hero = () => {
               //     Select Companies
               //   </button>
               // </Link>
-              <button disabled className="w-full cursor-not-allowed px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-gray-500 bg-gray-300 shadow-md"> 
-                  Registration Closed
-              </button>
+              // <button disabled className="w-full cursor-not-allowed px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-gray-500 bg-gray-300 shadow-md"> 
+              //     Registration Closed
+              // </button>
+              <a href="https://docs.google.com/spreadsheets/d/13uaikC89WlUa2ETkA1ICQpNq_Bm7MtiRAZk9DggOZ-8/edit?usp=drivesdk" target="_blank" className="w-full cursor-pointer px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"> 
+                View Result
+              </a>
             ) : (
-                <button disabled className="w-full cursor-not-allowed px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-gray-500 bg-gray-300 shadow-md"> 
-                  Registration Closed
-                </button>
+                // <button disabled className="w-full cursor-not-allowed px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-gray-500 bg-gray-300 shadow-md"> 
+                //   Registration Closed
+                // </button>
+                <a href="https://docs.google.com/spreadsheets/d/13uaikC89WlUa2ETkA1ICQpNq_Bm7MtiRAZk9DggOZ-8/edit?usp=drivesdk" target="_blank" className="w-full cursor-pointer px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"> 
+                  View Result
+                </a>
             ): (
             <>
-              <Link to="/auth" className="w-full sm:w-auto">
+              {/* <Link to="/auth" className="w-full sm:w-auto">
                 <button className="w-full cursor-pointer px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
                   Login
                 </button>
@@ -191,7 +197,10 @@ const Hero = () => {
                 <button className="w-full cursor-pointer px-8 md:px-10 md:w-50 py-3 md:py-2 text-lg sm:text-xl md:text-2xl rounded-full shadow-lg border-black/20 font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300">
                   Sign Up
                 </button>
-              </Link>
+              </Link> */}
+              <a href="https://docs.google.com/spreadsheets/d/13uaikC89WlUa2ETkA1ICQpNq_Bm7MtiRAZk9DggOZ-8/edit?usp=drivesdk" target="_blank" className="w-full cursor-pointer px-8 md:px-20 py-3 text-lg sm:text-xl md:text-2xl rounded-full font-medium text-[#1F3A5F] bg-linear-to-r from-[#D8B893] via-[#CEAC81] to-[#BFA06F] hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"> 
+                  View Result
+              </a>
             </>
           )}
         </div>
